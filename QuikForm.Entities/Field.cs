@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace QuikForm.Entities;
 public class Field
 {
-    [Key]
     public int Id { get; set; }
     public string Label { get; set; }
 
