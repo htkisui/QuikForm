@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-QuikForm.WebApp-4777d7f8-e009-4fec-911b-50a638d20dd7</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" NoWarn="NU1605" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.0" NoWarn="NU1605" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Identity.Web" Version="2.15.2" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.15.2" />
+    <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="2.15.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuikForm.Business.Contracts\QuikForm.Business.Contracts.csproj" />
+    <ProjectReference Include="..\QuikForm.Business\QuikForm.Business.csproj" />
+    <ProjectReference Include="..\QuikForm.Entities\QuikForm.Entities.csproj" />
+    <ProjectReference Include="..\QuikForm.Repositories\QuikForm.Repositories.csproj" />
+    <ProjectReference Include="..\QuikForm.Repository.Contracts\QuikForm.Repository.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
