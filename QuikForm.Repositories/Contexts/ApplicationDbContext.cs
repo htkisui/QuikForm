@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuikForm.Repositories;
+namespace QuikForm.Repositories.Contexts;
 public class ApplicationDbContext : DbContext
 {
     public DbSet<User> Users { get; set; }
@@ -15,6 +15,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Input> Inputs { get; set; }
     public DbSet<Field> Fields { get; set; }
 
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
