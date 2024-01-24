@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QuikForm.Entities;
 using QuikForm.Repositories.Contexts;
 using QuikForm.Repositories.Repositories;
+using QuikForm.Repository.Contracts.Contracts;
 using QuikForm.Repository.Contracts.Exceptions.Forms;
 using System;
 using System.Collections.Generic;
@@ -104,12 +105,52 @@ public class FormRepositoryTests
         context.Database.EnsureDeleted();
         FormRepository formRepository = new FormRepository(context);
 
-        // Act 
+        // Assert 
         Form formResult = await formRepository.GetByIdAsync(1);
 
     }
     #endregion
 
+    #region GetAllAsync
+    [TestMethod()]
+    public async Task GetAllAsync_ListOfForm_EmptyListOfForms()
+    {
+        // Arrange
+        DbContextOptionsBuilder<ApplicationDbContext> builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("QuikFormTest");
+        ApplicationDbContext context = new ApplicationDbContext(builder.Options);
+        context.Database.EnsureDeleted();
+        FormRepository formRepository = new FormRepository(context);
+        List<Form> forms = new()
+        {
+            new Form { Id = 1, Title = "titleA" },
+            new Form { Id = 2, Title = "titleB" },
+            new Form { Id = 3, Title = "titleC" }
+        };
+        await context.AddRangeAsync(forms);
+        await context.SaveChangesAsync();
+        int countExpected = 3;
 
+        // Act 
+        List<Form> formsResult = await formRepository.GetAllAsync();
+        int countResult = formsResult.Count();
 
+        // Assert
+        Assert.AreEqual(countExpected, countResult);
+        }
+    
+    [TestMethod()]
+    [ExpectedException(typeof(FormNotFoundException))]
+    public async Task GetAllAsync_ListOfForms_FormNotFound()
+    {
+        // Arrange
+        DbContextOptionsBuilder<ApplicationDbContext> builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("QuikFormTest");
+        ApplicationDbContext context = new ApplicationDbContext(builder.Options);
+        context.Database.EnsureDeleted();
+        FormRepository formRepository = new FormRepository(context);
+
+        // Assert
+        await formRepository.GetAllAsync();
+    }
+
+    #endregion
 }

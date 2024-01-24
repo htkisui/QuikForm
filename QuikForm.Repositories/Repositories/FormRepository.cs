@@ -32,9 +32,9 @@ public class FormRepository : IFormRepository
         await _context.SaveChangesAsync();
     }
 
-    public Task<List<Form>> GetAllAsync()
+    public async Task<List<Form>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _context.Forms.ToListAsync(); //?? throw new FormNotFoundException();
     }
 
     public async Task<Form> GetByIdAsync(int id)
