@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QuikForm.Entities\QuikForm.Entities.csproj" />
+    <ProjectReference Include="..\QuikForm.Repository.Contracts\QuikForm.Repository.Contracts.csproj" />
   </ItemGroup>
 
 </Project>
