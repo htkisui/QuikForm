@@ -46,7 +46,7 @@ public class QuestionRepositoryTests
         QuestionRepository questionRepository = new QuestionRepository(context);
         Question qToDelete = new Question() { Id = 1, Label = "Label" };
         await context.Questions.AddAsync(qToDelete);
-        context.SaveChangesAsync();
+        await context.SaveChangesAsync();
         int countExpected = 0;
 
         // Act
