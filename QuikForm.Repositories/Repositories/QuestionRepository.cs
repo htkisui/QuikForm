@@ -29,7 +29,7 @@ public class QuestionRepository : IQuestionRepository
     {
         Question question = await _context.Questions.FirstOrDefaultAsync(q => q.Id == id) ?? throw new QuestionNotFoundException();
         _context.Questions.Remove(question);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
 
     public async Task<List<Question>> GetAllAsync()
@@ -45,15 +45,12 @@ public class QuestionRepository : IQuestionRepository
 
     public async Task<Question> UpdateAsync(Question question)
     {
-        //Question qToUpdate = await _context.Questions.FirstOrDefaultAsync(q => q.Id == question.Id) ?? throw new QuestionNotFoundException();
-        //qToUpdate.Label = question.Label;
-        //qToUpdate.IsMandatory = question.IsMandatory;
+        Question questionToUpdate = await _context.Questions.FirstOrDefaultAsync(q => q.Id == question.Id) ?? throw new QuestionNotFoundException();
 
-        //_context.Questions.Update(qToUpdate);
-        //return qToUpdate;
+        questionToUpdate.Label = question.Label;
+        questionToUpdate.IsMandatory = question.IsMandatory;
 
-        throw new NotImplementedException();
+        await _context.SaveChangesAsync();
+        return questionToUpdate;
     }
-
-
 }
