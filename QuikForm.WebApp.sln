@@ -3,25 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuikForm.WebApp", "QuikForm.WebApp\QuikForm.WebApp.csproj", "{C49D6ACC-A42F-4B86-BEF7-0209B000EA05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuikForm.Repositories", "QuikForm.Repositories\QuikForm.Repositories.csproj", "{146295B3-3FB5-4CAE-8E35-5D51F7F1F48F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuikForm.Repositories", "QuikForm.Repositories\QuikForm.Repositories.csproj", "{146295B3-3FB5-4CAE-8E35-5D51F7F1F48F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuikForm.Repository.Contracts", "QuikForm.Repository.Contracts\QuikForm.Repository.Contracts.csproj", "{A2834A3F-D2E5-4E84-B176-10B96102C18B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuikForm.Repository.Contracts", "QuikForm.Repository.Contracts\QuikForm.Repository.Contracts.csproj", "{A2834A3F-D2E5-4E84-B176-10B96102C18B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuikForm.Business", "QuikForm.Business\QuikForm.Business.csproj", "{64EE2B75-AA11-4185-A8A3-5E4451470EC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuikForm.Business", "QuikForm.Business\QuikForm.Business.csproj", "{64EE2B75-AA11-4185-A8A3-5E4451470EC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuikForm.Business.Contracts", "QuikForm.Business.Contracts\QuikForm.Business.Contracts.csproj", "{040C6B43-C8EE-4799-B80C-DF74FA666FCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuikForm.Business.Contracts", "QuikForm.Business.Contracts\QuikForm.Business.Contracts.csproj", "{040C6B43-C8EE-4799-B80C-DF74FA666FCD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuikForm.Entities", "QuikForm.Entities\QuikForm.Entities.csproj", "{A06B28EB-7741-40F3-8098-FFC79453AD40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuikForm.Entities", "QuikForm.Entities\QuikForm.Entities.csproj", "{A06B28EB-7741-40F3-8098-FFC79453AD40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9136F6D8-C9D0-419D-A7F8-CC3AF0016087}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3EEE0D78-F6B3-4C70-B2E2-63F90C2E8A71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuikForm.Business.Test.Units", "QuikForm.Business.Test.Units\QuikForm.Business.Test.Units.csproj", "{3F0AED1A-5A99-4215-97F4-A12ACA5CE295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuikForm.Business.Test.Units", "QuikForm.Business.Test.Units\QuikForm.Business.Test.Units.csproj", "{3F0AED1A-5A99-4215-97F4-A12ACA5CE295}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuikForm.Repository.Test.Units", "QuikForm.Repository.Test.Units\QuikForm.Repository.Test.Units.csproj", "{C8CF3FA1-9949-44D6-B83C-A7E18D63239F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuikForm.Repository.Test.Units", "QuikForm.Repository.Test.Units\QuikForm.Repository.Test.Units.csproj", "{C8CF3FA1-9949-44D6-B83C-A7E18D63239F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{2CA23EAC-C89A-4684-A4AE-1FD3507FF89A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C49D6ACC-A42F-4B86-BEF7-0209B000EA05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C49D6ACC-A42F-4B86-BEF7-0209B000EA05}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C49D6ACC-A42F-4B86-BEF7-0209B000EA05}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C49D6ACC-A42F-4B86-BEF7-0209B000EA05}.Release|Any CPU.Build.0 = Release|Any CPU
 		{146295B3-3FB5-4CAE-8E35-5D51F7F1F48F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{146295B3-3FB5-4CAE-8E35-5D51F7F1F48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{146295B3-3FB5-4CAE-8E35-5D51F7F1F48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,12 +57,15 @@ Global
 		{C8CF3FA1-9949-44D6-B83C-A7E18D63239F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8CF3FA1-9949-44D6-B83C-A7E18D63239F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8CF3FA1-9949-44D6-B83C-A7E18D63239F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CA23EAC-C89A-4684-A4AE-1FD3507FF89A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CA23EAC-C89A-4684-A4AE-1FD3507FF89A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CA23EAC-C89A-4684-A4AE-1FD3507FF89A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CA23EAC-C89A-4684-A4AE-1FD3507FF89A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C49D6ACC-A42F-4B86-BEF7-0209B000EA05} = {9136F6D8-C9D0-419D-A7F8-CC3AF0016087}
 		{146295B3-3FB5-4CAE-8E35-5D51F7F1F48F} = {9136F6D8-C9D0-419D-A7F8-CC3AF0016087}
 		{A2834A3F-D2E5-4E84-B176-10B96102C18B} = {9136F6D8-C9D0-419D-A7F8-CC3AF0016087}
 		{64EE2B75-AA11-4185-A8A3-5E4451470EC6} = {9136F6D8-C9D0-419D-A7F8-CC3AF0016087}
@@ -74,6 +73,7 @@ Global
 		{A06B28EB-7741-40F3-8098-FFC79453AD40} = {9136F6D8-C9D0-419D-A7F8-CC3AF0016087}
 		{3F0AED1A-5A99-4215-97F4-A12ACA5CE295} = {3EEE0D78-F6B3-4C70-B2E2-63F90C2E8A71}
 		{C8CF3FA1-9949-44D6-B83C-A7E18D63239F} = {3EEE0D78-F6B3-4C70-B2E2-63F90C2E8A71}
+		{2CA23EAC-C89A-4684-A4AE-1FD3507FF89A} = {9136F6D8-C9D0-419D-A7F8-CC3AF0016087}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8A4DC89-91CA-444C-9342-B92B5664008A}
