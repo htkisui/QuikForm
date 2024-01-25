@@ -20,6 +20,4 @@ public class FieldRecord
 
     public int RecordId { get; set; }
     public Record Record { get; set; } = null!;
-
-
 }

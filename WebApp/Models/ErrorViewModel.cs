@@ -1,4 +1,4 @@
-namespace QuikForm.WebApp.Models;
+namespace WebApp.Models;
 
 public class ErrorViewModel
 {

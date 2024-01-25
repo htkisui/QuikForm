@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuikForm.Repositories;
+namespace QuikForm.Repositories.Contexts;
 public class ApplicationDbContext : DbContext
 {
     public DbSet<User> Users { get; set; }

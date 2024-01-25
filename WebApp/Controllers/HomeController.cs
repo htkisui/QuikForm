@@ -1,10 +1,8 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using QuikForm.WebApp.Models;
 using System.Diagnostics;
+using WebApp.Models;
 
-namespace QuikForm.WebApp.Controllers;
-[Authorize]
+namespace WebApp.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -24,7 +22,6 @@ public class HomeController : Controller
         return View();
     }
 
-    [AllowAnonymous]
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
