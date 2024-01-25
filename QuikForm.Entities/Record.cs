@@ -11,8 +11,10 @@ public class Record
     [Key]
     public int Id { get; set; }
 
+    [Required]
     public DateTime CreateAt { get; set; }
 
+    [Required]
     public DateTime UpdateAt { get; set; }
 
     public List<FieldRecord> FieldRecords { get; } = [];

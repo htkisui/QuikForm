@@ -22,6 +22,7 @@ internal class RecordRepository : IRecordRepository
     public async Task CreateAsync(Record record)
     {
         record.CreateAt = DateTime.Now;
+        record.UpdateAt = DateTime.Now;
         await _context.Records.AddAsync(record);
         await _context.SaveChangesAsync();
     }
@@ -46,7 +47,7 @@ internal class RecordRepository : IRecordRepository
 
     public async Task<Record> UpdateAsync(Record record)
     {
-        Record recordToUpdate = await _context.Records.FirstOrDefaultAsync(r => r.Id == record.Id) ?? throw new();
+        Record recordToUpdate = await _context.Records.FirstOrDefaultAsync(r => r.Id == record.Id) ?? throw new RecordNotFoundException();
 
         recordToUpdate.UpdateAt = DateTime.Now;
 
