@@ -34,7 +34,7 @@ public class FormRepository : IFormRepository
 
     public async Task<List<Form>> GetAllAsync()
     {
-        return await _context.Forms.ToListAsync(); //?? throw new FormNotFoundException();
+        return await _context.Forms.ToListAsync();
     }
 
     public async Task<Form> GetByIdAsync(int id)
@@ -43,8 +43,16 @@ public class FormRepository : IFormRepository
         return form;
     }
 
-    public Task<Form> UpdateAsync(Form form)
+    public async Task<Form> UpdateAsync(Form form)
     {
-        throw new NotImplementedException();
+        Form formToUpdate = await _context.Forms.FirstOrDefaultAsync(i=>i.Id == form.Id)?? throw new FormNotFoundException();
+
+        formToUpdate.Title = form.Title;
+        formToUpdate.Description = form.Description;
+        formToUpdate.PublishedAt = form.PublishedAt;
+        formToUpdate.ClosedAt = form.ClosedAt;
+
+        await _context.SaveChangesAsync();
+        return formToUpdate;
     }
 }

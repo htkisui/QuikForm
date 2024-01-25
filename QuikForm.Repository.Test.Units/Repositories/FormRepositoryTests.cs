@@ -84,7 +84,7 @@ public class FormRepositoryTests
         ApplicationDbContext context = new ApplicationDbContext(builder.Options);
         context.Database.EnsureDeleted();
         FormRepository formRepository = new FormRepository(context);
-        await context.AddAsync(new Form { Id = 1, Title = "title1" });
+        await context.AddAsync(entity: new Form { Id = 1, Title = "title1" });
         await context.SaveChangesAsync();
         string titleExpected = "title1";
 
@@ -93,6 +93,7 @@ public class FormRepositoryTests
 
         // Assert
         Assert.AreEqual(titleExpected, formResult.Title);
+
     }
 
     [TestMethod()]
@@ -113,20 +114,20 @@ public class FormRepositoryTests
 
     #region GetAllAsync
     [TestMethod()]
-    public async Task GetAllAsync_ListOfForm_EmptyListOfForms()
+    public async Task GetAllAsync_Empty_Forms()
     {
         // Arrange
         DbContextOptionsBuilder<ApplicationDbContext> builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("QuikFormTest");
         ApplicationDbContext context = new ApplicationDbContext(builder.Options);
         context.Database.EnsureDeleted();
         FormRepository formRepository = new FormRepository(context);
-        List<Form> forms = new()
+        List<Form> forms = new List<Form>()
         {
             new Form { Id = 1, Title = "titleA" },
             new Form { Id = 2, Title = "titleB" },
             new Form { Id = 3, Title = "titleC" }
         };
-        await context.AddRangeAsync(forms);
+        await context.Forms.AddRangeAsync(forms);
         await context.SaveChangesAsync();
         int countExpected = 3;
 
@@ -136,11 +137,34 @@ public class FormRepositoryTests
 
         // Assert
         Assert.AreEqual(countExpected, countResult);
-        }
-    
+    }
+    #endregion
+
+    #region UpdateAsync
+
+    [TestMethod()]
+    public async Task UpdateAsync_FormToUpdate_FormUpdated()
+    {
+        // Arrange
+        DbContextOptionsBuilder<ApplicationDbContext> builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("QuikFormTest");
+        ApplicationDbContext context = new ApplicationDbContext(builder.Options);
+        context.Database.EnsureDeleted();
+        FormRepository formRepository = new FormRepository(context);
+        await context.Forms.AddAsync(new Form() { Id = 1, Title = "Title1", Description = "Description", PublishedAt = DateTime.Parse("12/01/2024"), ClosedAt = DateTime.Parse("24/01/2024") });
+        await context.SaveChangesAsync();
+        Form formExpected = new Form { Id = 1, Title = "TitleUpdate", Description = "DescriptionUpdate", PublishedAt = DateTime.Parse("15/01/2024"), ClosedAt = DateTime.Parse("25/01/2024") };
+
+        // Act
+        Form formResult = await formRepository.UpdateAsync(formExpected);
+        ApplicationDbContext otherContext = new ApplicationDbContext(builder.Options);
+
+        // Assert
+        Assert.AreEqual(formExpected.Title, otherContext.Forms.Find(1)?.Title);
+    }
+
     [TestMethod()]
     [ExpectedException(typeof(FormNotFoundException))]
-    public async Task GetAllAsync_ListOfForms_FormNotFound()
+    public async Task UodateAsync_InvalidFormToSearch_ThrowFormNotFoundException()
     {
         // Arrange
         DbContextOptionsBuilder<ApplicationDbContext> builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("QuikFormTest");
@@ -148,9 +172,13 @@ public class FormRepositoryTests
         context.Database.EnsureDeleted();
         FormRepository formRepository = new FormRepository(context);
 
-        // Assert
-        await formRepository.GetAllAsync();
+        // Act
+        Form form = new Form();
+
+        // Assert 
+        Form formResult = await formRepository.UpdateAsync(form);
     }
 
     #endregion
+
 }
