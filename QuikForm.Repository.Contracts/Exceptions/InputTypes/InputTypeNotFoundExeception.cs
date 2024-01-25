@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace QuikForm.Repository.Contracts.Exceptions.InputTypes;
-internal class InputTypeNotFoundExeception
+public class InputTypeNotFoundException : Exception
 {
+    public override string Message => "InputType is not found.";
 }

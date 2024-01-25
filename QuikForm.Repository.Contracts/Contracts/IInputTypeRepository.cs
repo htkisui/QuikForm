@@ -35,9 +35,10 @@ public interface IInputTypeRepository
     Task<InputType> GetByIdAsync(int id);
 
     /// <summary>
-    /// Update inputType by id.
+    /// Update a inputType by id.
     /// </summary>
     /// <param name="inputType"></param>
-    Task UpdateAsync(InputType inputType);
+    /// <returns>The Updated inputType.</returns>
+    Task<InputType> UpdateAsync(InputType inputType);
 
 }
