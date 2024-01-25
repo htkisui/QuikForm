@@ -21,13 +21,13 @@ public class FormRepository : IFormRepository
 
     public async Task CreateAsync(Form form)
     {
-        await _context.AddRangeAsync(form);
+        await _context.AddAsync(form);
         await _context.SaveChangesAsync();
     }
 
     public async Task DeleteAsync(int id)
     {
-        Form formToDelete = await _context.Forms.FirstOrDefaultAsync(i => i.Id == id)?? throw new FormNotFoundException();
+        Form formToDelete = await _context.Forms.FirstOrDefaultAsync(f => f.Id == id)?? throw new FormNotFoundException();
         _context.Forms.Remove(formToDelete);
         await _context.SaveChangesAsync();
     }
@@ -39,13 +39,13 @@ public class FormRepository : IFormRepository
 
     public async Task<Form> GetByIdAsync(int id)
     {
-        Form form = await _context.Forms.FirstOrDefaultAsync(i => i.Id == id) ?? throw new FormNotFoundException();
+        Form form = await _context.Forms.FirstOrDefaultAsync(f => f.Id == id) ?? throw new FormNotFoundException();
         return form;
     }
 
     public async Task<Form> UpdateAsync(Form form)
     {
-        Form formToUpdate = await _context.Forms.FirstOrDefaultAsync(i=>i.Id == form.Id)?? throw new FormNotFoundException();
+        Form formToUpdate = await _context.Forms.FirstOrDefaultAsync(f=>f.Id == form.Id)?? throw new FormNotFoundException();
 
         formToUpdate.Title = form.Title;
         formToUpdate.Description = form.Description;

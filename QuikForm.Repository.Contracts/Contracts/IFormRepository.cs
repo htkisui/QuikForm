@@ -38,6 +38,6 @@ public interface IFormRepository
     /// Update a form by id.
     /// </summary>
     /// <param name="form"></param>
-    /// <returns></returns>
+    /// <returns>The Updated form.</returns>
     Task<Form> UpdateAsync(Form form);
 }

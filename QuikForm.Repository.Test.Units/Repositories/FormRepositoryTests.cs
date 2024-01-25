@@ -26,7 +26,7 @@ public class FormRepositoryTests
         ApplicationDbContext context = new ApplicationDbContext(builder.Options);
         context.Database.EnsureDeleted();
         FormRepository formRepository = new FormRepository(context);
-        int IdExpected = 1;
+        int idExpected = 1;
         Form formToAdd = new Form() { Title = "title" };
 
         // Act
@@ -34,7 +34,7 @@ public class FormRepositoryTests
 
 
         // Assert
-        Assert.AreEqual(IdExpected, context.Forms.Find(1)?.Id);
+        Assert.AreEqual(idExpected, context.Forms.Find(1)?.Id);
     }
 
     #endregion
@@ -98,7 +98,7 @@ public class FormRepositoryTests
 
     [TestMethod()]
     [ExpectedException(typeof(FormNotFoundException))]
-    public async Task GetByIdAsync_InvalidFormToSearch_ThrowFormNotFoundException()
+    public async Task GetByIdAsync_InvalidForm_ThrowFormNotFoundException()
     {
         // Arrange
         DbContextOptionsBuilder<ApplicationDbContext> builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("QuikFormTest");
@@ -152,7 +152,7 @@ public class FormRepositoryTests
         FormRepository formRepository = new FormRepository(context);
         await context.Forms.AddAsync(new Form() { Id = 1, Title = "Title1", Description = "Description", PublishedAt = DateTime.Parse("12/01/2024"), ClosedAt = DateTime.Parse("24/01/2024") });
         await context.SaveChangesAsync();
-        Form formExpected = new Form { Id = 1, Title = "TitleUpdate", Description = "DescriptionUpdate", PublishedAt = DateTime.Parse("15/01/2024"), ClosedAt = DateTime.Parse("25/01/2024") };
+        Form formExpected = new Form() { Id = 1, Title = "TitleUpdate", Description = "DescriptionUpdate", PublishedAt = DateTime.Parse("15/01/2024"), ClosedAt = DateTime.Parse("25/01/2024") };
 
         // Act
         Form formResult = await formRepository.UpdateAsync(formExpected);
@@ -160,22 +160,23 @@ public class FormRepositoryTests
 
         // Assert
         Assert.AreEqual(formExpected.Title, otherContext.Forms.Find(1)?.Title);
+        Assert.AreEqual(formExpected.Description, otherContext.Forms.Find(1)?.Description);
+        Assert.AreEqual(formExpected.PublishedAt, otherContext.Forms.Find(1)?.PublishedAt);
+        Assert.AreEqual(formExpected.ClosedAt, otherContext.Forms.Find(1)?.ClosedAt);
     }
 
     [TestMethod()]
     [ExpectedException(typeof(FormNotFoundException))]
-    public async Task UodateAsync_InvalidFormToSearch_ThrowFormNotFoundException()
+    public async Task UpdateAsync_InvalidForm_ThrowFormNotFoundException()
     {
         // Arrange
         DbContextOptionsBuilder<ApplicationDbContext> builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("QuikFormTest");
         ApplicationDbContext context = new ApplicationDbContext(builder.Options);
         context.Database.EnsureDeleted();
         FormRepository formRepository = new FormRepository(context);
+        Form form = new Form() { Id = 1};
 
         // Act
-        Form form = new Form();
-
-        // Assert 
         Form formResult = await formRepository.UpdateAsync(form);
     }
 
