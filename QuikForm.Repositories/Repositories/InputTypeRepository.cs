@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace QuikForm.Repositories.Repositories;
 public class InputTypeRepository : IInputTypeRepository
 {
-    private ApplicationDbContext _context;
+    private readonly ApplicationDbContext _context;
 
     public InputTypeRepository(ApplicationDbContext context)
     {

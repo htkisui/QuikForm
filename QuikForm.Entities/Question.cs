@@ -30,5 +30,5 @@ public class Question
     [Required]
     public int InputId { get; set; }
 
-    public Input Input { get; set; } = null!;
+    public InputType InputType { get; set; } = null!;
 }
