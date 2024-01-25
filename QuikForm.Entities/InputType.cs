@@ -12,8 +12,8 @@ public class InputType
     public int Id { get; set; }
 
     [Required]
-    [MaxLength(250)]
-    public string Name { get; set; }
+    [MaxLength(255)]
+    public string? Name { get; set; }
 
     public List<Question> Questions { get; set; } = [];
 }

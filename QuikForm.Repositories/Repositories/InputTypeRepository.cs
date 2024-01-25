@@ -21,7 +21,7 @@ public class InputTypeRepository : IInputTypeRepository
 
     public async Task CreateAsync(InputType inputType)
     {
-        await _context.AddAsync(inputType);
+        await _context.InputTypes.AddAsync(inputType);
         await _context.SaveChangesAsync();
     }
 
@@ -29,7 +29,7 @@ public class InputTypeRepository : IInputTypeRepository
     {
         InputType inputType = await _context.InputTypes.FirstOrDefaultAsync(f => f.Id == id) ?? throw new InputTypeNotFoundException();
         _context.InputTypes.Remove(inputType);
-        await _context.SaveChangesAsync(true);
+        await _context.SaveChangesAsync();
     }
 
     public async Task<List<InputType>> GetAllAsync()
@@ -39,13 +39,13 @@ public class InputTypeRepository : IInputTypeRepository
 
     public async Task<InputType> GetByIdAsync(int id)
     {
-        InputType inputType = await _context.InputTypes.FirstOrDefaultAsync(i=>i.Id == id) ?? throw new InputTypeNotFoundException();
+        InputType inputType = await _context.InputTypes.FirstOrDefaultAsync(i => i.Id == id) ?? throw new InputTypeNotFoundException();
         return inputType;
     }
 
     public async Task<InputType> UpdateAsync(InputType inputType)
     {
-        InputType inputTypeToUpdate = await _context.InputTypes.FirstOrDefaultAsync(i=>i.Id == inputType.Id) ?? throw new InputTypeNotFoundException();
+        InputType inputTypeToUpdate = await _context.InputTypes.FirstOrDefaultAsync(i => i.Id == inputType.Id) ?? throw new InputTypeNotFoundException();
         inputTypeToUpdate.Name = inputType.Name;
 
         await _context.SaveChangesAsync();
