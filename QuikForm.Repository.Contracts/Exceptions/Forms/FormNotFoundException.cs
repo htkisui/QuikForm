@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 namespace QuikForm.Repository.Contracts.Exceptions.Forms;
 public class FormNotFoundException : Exception
 {
-    public override string Message => "Form is not Found.";
+    public override string Message => "Form is not found.";
 }
