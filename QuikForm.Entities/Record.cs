@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace QuikForm.Entities;
-public class Field
+public class Record
 {
+    [Key]
     public int Id { get; set; }
-    public string Label { get; set; }
-
-    public int QuestionId { get; set; }
-    public Question Question { get; set; }
 
     public List<FieldRecord> FieldRecords { get; } = [];
+
+    public int? UserId { get; set; }
+    public User? User { get; set; }
 }

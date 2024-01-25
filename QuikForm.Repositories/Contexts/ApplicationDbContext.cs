@@ -14,6 +14,8 @@ public class ApplicationDbContext : DbContext
     public DbSet<Question> Questions { get; set; }
     public DbSet<Input> Inputs { get; set; }
     public DbSet<Field> Fields { get; set; }
+    public DbSet<Record> Records { get; set; }
+    public DbSet<FieldRecord> FieldRecords { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
