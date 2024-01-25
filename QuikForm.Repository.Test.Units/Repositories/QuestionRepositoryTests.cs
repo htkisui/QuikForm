@@ -153,6 +153,7 @@ public class QuestionRepositoryTests
         ApplicationDbContext otherContext = new ApplicationDbContext(builder.Options);
 
         //Assert
+        ApplicationDbContext otherContext = new ApplicationDbContext(builder.Options);
         Assert.AreEqual(questionExpected.Label, otherContext.Questions.Find(1)?.Label);
         Assert.AreEqual(questionExpected.IsMandatory, otherContext.Questions.Find(1)?.IsMandatory);
     }
@@ -169,6 +170,7 @@ public class QuestionRepositoryTests
         Question question = new Question();
 
         //Act
+        Question question = new Question();
         await questionRepository.UpdateAsync(question);
     }
     #endregion
