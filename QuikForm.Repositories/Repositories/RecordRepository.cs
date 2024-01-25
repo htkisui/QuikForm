@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace QuikForm.Repositories.Repositories;
-internal class RecordRepository:IRecordRepository
+internal class RecordRepository : IRecordRepository
 {
     private readonly ApplicationDbContext _context;
 
@@ -27,7 +27,7 @@ internal class RecordRepository:IRecordRepository
 
     public async Task DeleteAsync(int id)
     {
-        Record recordToUpdate = await _context.Records.FirstOrDefaultAsync(r=>r.Id == id) ?? throw new RecordNotFoundException();
+        Record recordToUpdate = await _context.Records.FirstOrDefaultAsync(r => r.Id == id) ?? throw new RecordNotFoundException();
         _context.Records.Remove(recordToUpdate);
         await _context.SaveChangesAsync();
     }
@@ -39,7 +39,7 @@ internal class RecordRepository:IRecordRepository
 
     public async Task<Record> GetByIdAsync(int id)
     {
-        Record record = await _context.Records.FirstOrDefaultAsync(r=> r.Id == id) ?? throw new RecordNotFoundException();
+        Record record = await _context.Records.FirstOrDefaultAsync(r => r.Id == id) ?? throw new RecordNotFoundException();
         return record;
     }
 }
