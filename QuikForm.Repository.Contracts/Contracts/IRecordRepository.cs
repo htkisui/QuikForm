@@ -33,4 +33,11 @@ public interface IRecordRepository
     /// <param name="id"></param>
     /// <returns>The record.</returns>
     Task<Record> GetByIdAsync(int id);
+
+    /// <summary>
+    /// Update a record by id.
+    /// </summary>
+    /// <param name="record"></param>
+    /// <returns>The updated record </returns>
+    Task<Record> UpdateAsync(Record record);
 }

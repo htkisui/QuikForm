@@ -11,6 +11,10 @@ public class Record
     [Key]
     public int Id { get; set; }
 
+    public DateTime CreateAt { get; set; }
+
+    public DateTime UpdateAt { get; set; }
+
     public List<FieldRecord> FieldRecords { get; } = [];
 
     public int? UserId { get; set; }
