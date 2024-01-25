@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 namespace QuikForm.Repository.Contracts.Exceptions.Questions;
 public class QuestionNotFoundException : Exception
 {
-    public override string Message => "Question not found";
+    public override string Message => "Question is not found.";
 }

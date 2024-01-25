@@ -17,7 +17,7 @@ public class QuestionRepositoryTests
 {
     #region CreateAsync
     [TestMethod()]
-    public async Task CreateAsync_QuestionToAdd_QuestionWithId()
+    public async Task CreateAsync_QuestionToAdd_QuestionAdded()
     {
         // Arrange
         DbContextOptionsBuilder<ApplicationDbContext> builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("QuikFormTest");
@@ -44,8 +44,8 @@ public class QuestionRepositoryTests
         ApplicationDbContext context = new ApplicationDbContext(builder.Options);
         context.Database.EnsureDeleted();
         QuestionRepository questionRepository = new QuestionRepository(context);
-        Question qToDelete = new Question() { Id = 1, Label = "Label" };
-        await context.Questions.AddAsync(qToDelete);
+        Question questionToDelete = new Question() { Id = 1, Label = "Label" };
+        await context.Questions.AddAsync(questionToDelete);
         await context.SaveChangesAsync();
         int countExpected = 0;
 
@@ -150,9 +150,9 @@ public class QuestionRepositoryTests
 
         //Act
         Question questionUpdated = await questionRepository.UpdateAsync(questionExpected);
+        ApplicationDbContext otherContext = new ApplicationDbContext(builder.Options);
 
         //Assert
-        ApplicationDbContext otherContext = new ApplicationDbContext(builder.Options);
         Assert.AreEqual(questionExpected.Label, otherContext.Questions.Find(1)?.Label);
         Assert.AreEqual(questionExpected.IsMandatory, otherContext.Questions.Find(1)?.IsMandatory);
     }
@@ -166,9 +166,9 @@ public class QuestionRepositoryTests
         ApplicationDbContext context = new ApplicationDbContext(builder.Options);
         context.Database.EnsureDeleted();
         QuestionRepository questionRepository = new QuestionRepository(context);
+        Question question = new Question();
 
         //Act
-        Question question = new Question();
         await questionRepository.UpdateAsync(question);
     }
     #endregion

@@ -23,20 +23,20 @@ public interface IQuestionRepository
     /// <summary>
     /// Get all questions of a form with their fields.
     /// </summary>
-    /// <returns>List of questions</returns>
+    /// <returns>List of questions.</returns>
     Task<List<Question>> GetAllAsync();
 
     /// <summary>
     /// Get a question by Id with its fields.
     /// </summary>
     /// <param name="id"></param>
-    /// <returns>Question</returns>
+    /// <returns>Question.</returns>
     Task<Question> GetByIdAsync(int id);
 
     /// <summary>
-    /// Update a question
+    /// Update a question.
     /// </summary>
     /// <param name="question"></param>
-    /// <returns>Question updated</returns>
+    /// <returns>Question updated.</returns>
     Task<Question> UpdateAsync(Question question);
 }
