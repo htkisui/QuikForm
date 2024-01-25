@@ -1,4 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using QuikForm.Entities;
+using QuikForm.Repositories.Contexts;
 using QuikForm.Repositories.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,9 +15,15 @@ namespace QuikForm.Repositories.Repositories.Tests;
 public class FieldRepositoryTests
 {
     [TestMethod()]
-    public void CreateAsyncTest()
+    public void CreateAsync_FieldToAdd_FieldAdded()
     {
         //Arrange
+        DbContextOptionsBuilder<ApplicationDbContext> builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("QuikFormTest");
+        ApplicationDbContext context = new ApplicationDbContext(builder.Options);
+        context.Database.EnsureDeleted();
+        FieldRepository fieldRepository = new FieldRepository(context);
+
+        Field fieldToAdd = new Field() { Id = 1, Label = "Question to answer" };
 
         //Act
 

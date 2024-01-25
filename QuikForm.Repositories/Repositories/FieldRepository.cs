@@ -1,4 +1,5 @@
 ﻿using QuikForm.Entities;
+using QuikForm.Repositories.Contexts;
 using QuikForm.Repository.Contracts.Contracts;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,13 @@ using System.Threading.Tasks;
 namespace QuikForm.Repositories.Repositories;
 public class FieldRepository : IFieldRepository
 {
+    private readonly ApplicationDbContext _context;
+
+    public FieldRepository(ApplicationDbContext context)
+    {
+        _context = context;
+    }
+
     public Task CreateAsync(Field field)
     {
         throw new NotImplementedException();
