@@ -17,5 +17,5 @@ public class Question
     public List<Field> Fields { get; set; } = [];
 
     public int InputId { get; set; }
-    public Input Input { get; set; }
+    public InputType InputType { get; set; }
 }
