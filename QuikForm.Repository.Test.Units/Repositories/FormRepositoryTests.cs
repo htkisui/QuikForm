@@ -70,7 +70,7 @@ public class FormRepositoryTests
         context.Database.EnsureDeleted();
         FormRepository formRepository = new FormRepository(context);
 
-        // Assert
+        // Act
         await formRepository.DeleteAsync(1);
     }
     #endregion
@@ -84,7 +84,7 @@ public class FormRepositoryTests
         ApplicationDbContext context = new ApplicationDbContext(builder.Options);
         context.Database.EnsureDeleted();
         FormRepository formRepository = new FormRepository(context);
-        await context.AddAsync(entity: new Form { Id = 1, Title = "title1" });
+        await context.Forms.AddAsync(entity: new Form { Id = 1, Title = "title1" });
         await context.SaveChangesAsync();
         string titleExpected = "title1";
 
@@ -106,7 +106,7 @@ public class FormRepositoryTests
         context.Database.EnsureDeleted();
         FormRepository formRepository = new FormRepository(context);
 
-        // Assert 
+        // Act 
         Form formResult = await formRepository.GetByIdAsync(1);
 
     }
