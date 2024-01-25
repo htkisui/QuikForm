@@ -71,9 +71,9 @@ public class QuestionRepositoryTests
     }
     #endregion
 
-    #region GetAllAsync //à-finir
+    #region GetAllAsync
     [TestMethod()]
-    public async Task GetAllAsync_Empty_ListQuestions() // A FINIR
+    public async Task GetAllAsync_Empty_QuestionList()
     {
         //Arrange
         DbContextOptionsBuilder<ApplicationDbContext> builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("QuikFormTest");
@@ -81,8 +81,12 @@ public class QuestionRepositoryTests
         context.Database.EnsureDeleted();
         QuestionRepository questionRepository = new QuestionRepository(context);
 
-        await context.Questions.AddAsync(new Question { Id = 1, Label = "Label" });
-        await context.Questions.AddAsync(new Question { Id = 2, Label = "Label" });
+        List<Question> questions = new List<Question>()
+        {
+            new Question { Id = 1, Label = "Label" },
+            new Question { Id = 2, Label = "Label" }
+        };
+        await context.Questions.AddRangeAsync(questions);
         await context.SaveChangesAsync();
 
 
@@ -129,9 +133,7 @@ public class QuestionRepositoryTests
     }
     #endregion
 
-    #region UpdateAsync // à-faire
-
-    //a finir
+    #region UpdateAsync
     [TestMethod()]
     public async Task UpdateAsync_QuestionToUpdate_QuestionUpdated()
     {
@@ -140,13 +142,34 @@ public class QuestionRepositoryTests
         ApplicationDbContext context = new ApplicationDbContext(builder.Options);
         context.Database.EnsureDeleted();
         QuestionRepository questionRepository = new QuestionRepository(context);
-        await context.Questions.AddAsync(new Question { Id = 2, Label = "Label" });
+
+        await context.Questions.AddAsync(new Question { Id = 1, Label = "Label", IsMandatory = false });
         await context.SaveChangesAsync();
 
-        //Act
+        Question questionExpected = new Question() { Id = 1, Label = "LabelUpdated", IsMandatory = true };
 
+        //Act
+        Question questionUpdated = await questionRepository.UpdateAsync(questionExpected);
 
         //Assert
+        ApplicationDbContext otherContext = new ApplicationDbContext(builder.Options);
+        Assert.AreEqual(questionExpected.Label, otherContext.Questions.Find(1)?.Label);
+        Assert.AreEqual(questionExpected.IsMandatory, otherContext.Questions.Find(1)?.IsMandatory);
+    }
+
+    [TestMethod()]
+    [ExpectedException(typeof(QuestionNotFoundException))]
+    public async Task UpdateAsync_InvalidQuestionToUpdate_ThrowQuestionNotFoundException()
+    {
+        //Arrange
+        DbContextOptionsBuilder<ApplicationDbContext> builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("QuikFormTest");
+        ApplicationDbContext context = new ApplicationDbContext(builder.Options);
+        context.Database.EnsureDeleted();
+        QuestionRepository questionRepository = new QuestionRepository(context);
+
+        //Act
+        Question question = new Question();
+        await questionRepository.UpdateAsync(question);
     }
     #endregion
 }
