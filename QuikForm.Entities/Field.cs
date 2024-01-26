@@ -15,7 +15,7 @@ public class Field
     [MaxLength(255)]
     public string? Label { get; set; }
 
-    [Required]
+    //[Required]
     public int QuestionId { get; set; }
 
     public Question Question { get; set; }
