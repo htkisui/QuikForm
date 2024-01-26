@@ -33,7 +33,7 @@ public interface IFieldRepository
     /// </summary>
     /// <param name="id"></param>
     /// <returns>One field in a question.</returns>
-    Task<Field> GetById(int id);
+    Task<Field> GetByIdAsync(int id);
 
     /// <summary>
     /// Update a question field.
