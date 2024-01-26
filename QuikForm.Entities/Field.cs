@@ -8,10 +8,16 @@ using System.Threading.Tasks;
 namespace QuikForm.Entities;
 public class Field
 {
+    [Key]
     public int Id { get; set; }
-    public string Label { get; set; }
 
+    [Required]
+    [MaxLength(255)]
+    public string? Label { get; set; }
+
+    //[Required]
     public int QuestionId { get; set; }
+
     public Question Question { get; set; }
 
     public List<FieldRecord> FieldRecords { get; } = [];
