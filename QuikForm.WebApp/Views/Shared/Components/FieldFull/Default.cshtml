@@ -1,0 +1,18 @@
+﻿@model FieldViewModel;
+<div class="field-vc">
+    @*Display input type*@
+    @if (ViewBag.MockInputType == "textarea")
+    {
+        <textarea></textarea>
+    }
+    else
+    {
+        <input type="@ViewBag.MockInputType" />
+    }
+
+    @*Display label if exist*@
+    @if (ViewBag.MockInputType != "text" || ViewBag.MockInputType != "textarea")
+    {
+        <label>@Model.Label</label>
+    }
+</div>
