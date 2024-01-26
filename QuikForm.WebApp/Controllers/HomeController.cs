@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using QuikForm.WebApp.Models;
 using System.Diagnostics;
-using WebApp.Models;
 
-namespace WebApp.Controllers;
+namespace QuikForm.WebApp.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;

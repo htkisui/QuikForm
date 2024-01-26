@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace WebApp.Data.Migrations;
+namespace QuikForm.WebApp.Data.Migrations;
 public partial class CreateIdentitySchema : Migration
 {
     protected override void Up(MigrationBuilder migrationBuilder)
