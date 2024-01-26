@@ -1,0 +1,36 @@
+﻿@model FormViewModel;
+<div class="form-full-vc">
+    <section class="form-title">
+        <h2>Titre</h2>
+        <p>@Model.Title</p>
+    </section>
+
+    <section class="dates">
+        <p><u>Auteur</u> : </p>
+        <p><u>Date de publication</u> : @Model.CreatedAt</p>
+        <p><u>Date de clôture de l'enquête</u> : @Model.ClosedAt</p>
+
+    </section>
+
+    <section class="form-description">
+        <h2>Description</h2>
+        <p>@Model.Description</p>
+    </section>
+
+    <section class="question-list">
+        <h2>Liste des questions</h2>
+    </section>
+
+    <section class="question-list">
+        @if (ViewBag.Role == "User")
+        {
+            <div class="action">
+                <a href="#" role="button" class="primary">Envoyer</a>
+            </div>
+        }
+    </section>
+</div>
+
+
+
+
