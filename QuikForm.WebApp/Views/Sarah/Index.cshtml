@@ -1,1 +1,20 @@
-﻿<vc:form-full form-view-model='new FormViewModel(){ Id = 1, Title="Titre1", Description="Description 1", CreatedAt=DateTime.Now, PublishedAt=DateTime.Now, UpdatedAt=DateTime.Now, ClosedAt=DateTime.Now }' role="User" />
+﻿@* @{
+    var fakeForms = new List<FormViewModel>
+    {
+        new FormViewModel { Id = 1, Title = "Titre 1", Description = "Description 1", CreatedAt = DateTime.Parse("01/01/2024"), PublishedAt = DateTime.Parse("01/01/2024"), ClosedAt=DateTime.Parse("15/01/2024") },
+        new FormViewModel { Id = 2, Title = "Titre 2", Description = "Description 2", CreatedAt = DateTime.Parse("05/01/2024"), PublishedAt = DateTime.Parse("06/01/2024"), ClosedAt = DateTime.Parse("25/01/2024")},
+        new FormViewModel { Id = 3, Title = "Titre 3", Description = "Description 3", CreatedAt = DateTime.Parse("01/01/2024"), UpdatedAt=DateTime.Parse("05/01/2024"), PublishedAt = DateTime.Now },
+    };
+} *@
+
+"""FormFull"""
+<vc:form-full form-view-model='new FormViewModel(){ Id = 1, Title="Titre1", Description="Description 1", CreatedAt=DateTime.Now, PublishedAt=DateTime.Now, UpdatedAt=DateTime.Now, ClosedAt=DateTime.Now }' role="User" />
+
+
+
+<h2>Les formulaires en attente de réponse</h2>
+
+<vc:form-short form-view-model='new FormViewModel(){ Id = 1, Title="Titre1", Description="Description 1", CreatedAt=DateTime.Now, PublishedAt=DateTime.Now, UpdatedAt=DateTime.Now }' />
+
+<h2>Les derniers résultats</h2>
+<vc:form-short form-view-model='new FormViewModel(){ Id = 2, Title="Titre2", Description="Description 2", CreatedAt=DateTime.Now, PublishedAt=DateTime.Now, UpdatedAt=DateTime.Now, ClosedAt=DateTime.Now }' />

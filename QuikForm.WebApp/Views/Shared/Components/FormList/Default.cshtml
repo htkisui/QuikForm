@@ -1,0 +1,7 @@
+﻿@* @model List<FormViewModel>
+
+<div class="grid">
+    @foreach (FormViewModel form in Model)
+        <div>@await Component.InvokeAsync("FormShort", form)</div>
+
+</div> *@

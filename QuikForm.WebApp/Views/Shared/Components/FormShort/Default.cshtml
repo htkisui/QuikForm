@@ -1,1 +1,22 @@
-﻿TEST formShort
+﻿@model FormViewModel;
+
+<article class="form-short-vc">
+    <header>
+        <h2>@Model.Title</h2>
+        <p><strong>Auteur </strong>: </p>
+        <p><strong>Date de publication </strong>: @Model.CreatedAt</p>
+    </header>
+    <section>
+        <p><strong>Description </strong>:@Model.Description </p>
+    </section>
+    <footer>
+        @if (@Model.PublishedAt <= DateTime.Now & @Model.ClosedAt == null)
+        {
+            <a href="#" role="button" class="primary">Répondre</a>
+        }
+        @if (@Model.ClosedAt <= DateTime.Now)
+        {
+            <a href="#" role="button" class="primary">Voir les résultats</a>
+        }
+    </footer>
+</article>
