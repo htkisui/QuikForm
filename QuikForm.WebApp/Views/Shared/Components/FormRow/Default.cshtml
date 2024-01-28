@@ -10,11 +10,11 @@
         <p>@Model.CreatedAt</p>
     </div>
     <div class="status-col">
-        @if (Model.CreatedAt == null)
+        @if (Model.PublishedAt == null & Model.ClosedAt == null)
         {
             <p>Brouillon</p>
         }
-        @if (Model.CreatedAt != null & Model.ClosedAt == null)
+        @if (Model.PublishedAt != null & Model.ClosedAt == null)
         {
             <p>Publié</p>
         }
