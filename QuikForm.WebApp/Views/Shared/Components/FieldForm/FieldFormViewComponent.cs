@@ -2,14 +2,18 @@
 using QuikForm.WebApp.Models.Fields;
 using QuikForm.WebApp.Models.InputTypes;
 
-namespace QuikForm.WebApp.Views.Shared.Components.FieldFull;
+namespace QuikForm.WebApp.Views.Shared.Components.FieldForm;
 
-public class FieldFullViewComponent : ViewComponent
+public class FieldFormViewComponent : ViewComponent
 {
     public async Task<IViewComponentResult> InvokeAsync(FieldViewModel fieldViewModel, InputTypeViewModel inputTypeViewModel = null)
     {
         ViewBag.InputType = inputTypeViewModel?.Name;
-        ViewBag.MockInputType = "checkbox"; //temp (update in cshtml too)
+        ViewBag.MockInputType = "radio"; //temp
         return View(fieldViewModel);
     }
+    //public async Task<IViewComponentResult> InvokeAsync()
+    //{
+    //    return View();
+    //}
 }
