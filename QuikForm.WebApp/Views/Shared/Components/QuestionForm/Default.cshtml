@@ -1,0 +1,20 @@
+﻿@model QuestionViewModel
+
+<div class="question-form-vc">
+    <form>
+        <div>
+            <input asp-for="Label" type="text" placeholder="Entrez votre question" />
+            <select name="question-type" id="question-type-select">
+                <option value="">Choix multiple</option>
+                @foreach (string inputType in ViewBag.InputTypes)
+                {
+                    <option value="@inputType">@inputType</option>
+                }
+            </select>
+        </div>
+        <vc:field-form-list 
+
+    </form>
+
+</div>
+
