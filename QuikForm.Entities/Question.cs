@@ -27,8 +27,8 @@ public class Question
 
     public List<Field> Fields { get; set; } = [];
 
-    [Required]
-    public int InputId { get; set; }
+    //[Required]
+    public int? InputId { get; set; }
 
     public InputType InputType { get; set; } = null!;
 }

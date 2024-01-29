@@ -240,7 +240,7 @@ namespace QuikForm.Repositories.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("QuestionId")
+                    b.Property<int?>("QuestionId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -252,10 +252,10 @@ namespace QuikForm.Repositories.Migrations
 
             modelBuilder.Entity("QuikForm.Entities.FieldRecord", b =>
                 {
-                    b.Property<int>("FieldId")
+                    b.Property<int?>("FieldId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RecordId")
+                    b.Property<int?>("RecordId")
                         .HasColumnType("int");
 
                     b.Property<string>("CustomAnswer")
@@ -276,7 +276,7 @@ namespace QuikForm.Repositories.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ApplicationUserId")
+                    b.Property<int?>("ApplicationUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ClosedAt")
@@ -335,7 +335,7 @@ namespace QuikForm.Repositories.Migrations
                     b.Property<int>("FormId")
                         .HasColumnType("int");
 
-                    b.Property<int>("InputId")
+                    b.Property<int?>("InputId")
                         .HasColumnType("int");
 
                     b.Property<int>("InputTypeId")
@@ -437,9 +437,7 @@ namespace QuikForm.Repositories.Migrations
                 {
                     b.HasOne("QuikForm.Entities.Question", "Question")
                         .WithMany("Fields")
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("QuestionId");
 
                     b.Navigation("Question");
                 });
@@ -467,9 +465,7 @@ namespace QuikForm.Repositories.Migrations
                 {
                     b.HasOne("QuikForm.Entities.ApplicationUser", "ApplicationUser")
                         .WithMany("Forms")
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ApplicationUserId");
 
                     b.Navigation("ApplicationUser");
                 });

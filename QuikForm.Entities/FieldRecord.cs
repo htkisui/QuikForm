@@ -15,9 +15,9 @@ public class FieldRecord
 {
     public string? CustomAnswer { get; set; }
 
-    public int FieldId { get; set; }
+    public int? FieldId { get; set; }
     public Field Field { get; set; } = null!;
 
-    public int RecordId { get; set; }
+    public int? RecordId { get; set; }
     public Record Record { get; set; } = null!;
 }

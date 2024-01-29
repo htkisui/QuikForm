@@ -27,8 +27,8 @@ public class Form
 
     public DateTime? ClosedAt { get; set; }
 
-    [Required]
-    public int ApplicationUserId { get; set; }
+    //[Required]
+    public int? ApplicationUserId { get; set; }
     public ApplicationUser ApplicationUser { get; set; } = null!;
 
 
