@@ -1,0 +1,27 @@
+﻿@model List<QuestionViewModel>
+
+@* @foreach
+
+
+
+
+<div id="questionZone">
+        <vc:question-form question-view-model="Model" controller="Question" action="Add" />
+    </div> *@
+
+
+
+    <div class="question-list-vc">
+        <h1>Ajouter une question</h1>
+        <button id="add-question" class="btn btn-info" type="submit">Ajouter</button>
+    </div>
+
+    <script>
+        $(function () {
+            $("#Add-question-button").on("click", (e) => {
+                $.post('/Question/Create', (Data) => {
+                    alert("ok");
+                })
+            })
+        })
+    </script>
