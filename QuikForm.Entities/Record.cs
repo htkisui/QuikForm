@@ -19,6 +19,6 @@ public class Record
 
     public List<FieldRecord> FieldRecords { get; } = [];
 
-    public int? UserId { get; set; }
-    public User? User { get; set; }
+    public int? ApplicationUserId { get; set; }
+    public ApplicationUser? ApplicationUser { get; set; }
 }

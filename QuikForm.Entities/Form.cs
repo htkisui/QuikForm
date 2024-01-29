@@ -28,8 +28,8 @@ public class Form
     public DateTime? ClosedAt { get; set; }
 
     [Required]
-    public int UserId { get; set; }
-    public User User { get; set; } = null!;
+    public int ApplicationUserId { get; set; }
+    public ApplicationUser ApplicationUser { get; set; } = null!;
 
 
     public List<Question> Questions { get; set; } = [];

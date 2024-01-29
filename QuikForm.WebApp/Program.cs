@@ -1,6 +1,9 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using QuikForm.WebApp.Data;
+using QuikForm.Entities;
+using QuikForm.Repositories.Contexts;
+using QuikForm.Repositories.Repositories;
+using QuikForm.Repository.Contracts.Contracts;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +13,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+// Add Repositories
+builder.Services.AddTransient<IFieldRepository, FieldRepository>();
+builder.Services.AddTransient<IFormRepository, FormRepository>();
+builder.Services.AddTransient<IInputTypeRepository, InputTypeRepository>();
+builder.Services.AddTransient<IQuestionRepository, QuestionRepository>();
+builder.Services.AddTransient<IRecordRepository, RecordRepository>();
+
+// Add Business
+
 
 var app = builder.Build();
 

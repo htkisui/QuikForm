@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace QuikForm.Repositories.Repositories;
-internal class RecordRepository : IRecordRepository
+public class RecordRepository : IRecordRepository
 {
     private readonly ApplicationDbContext _context;
 

@@ -18,7 +18,7 @@ public class Field
     //[Required]
     public int QuestionId { get; set; }
 
-    public Question Question { get; set; }
+    public Question Question { get; set; } = null!;
 
     public List<FieldRecord> FieldRecords { get; } = [];
 }

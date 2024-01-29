@@ -2,5 +2,5 @@
 
 public class InputTypeViewModel
 {
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
 }

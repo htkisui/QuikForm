@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using QuikForm.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,9 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace QuikForm.Repositories.Contexts;
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
 {
-    public DbSet<User> Users { get; set; }
     public DbSet<Form> Forms { get; set; }
     public DbSet<Question> Questions { get; set; }
     public DbSet<InputType> InputTypes { get; set; }
@@ -21,10 +22,6 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=QuikForm;Trusted_Connection=True");
-        }
         base.OnConfiguring(optionsBuilder);
     }
 
