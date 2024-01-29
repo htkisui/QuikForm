@@ -7,7 +7,7 @@ public class QuestionFormViewComponent : ViewComponent
 {
     public async Task<IViewComponentResult> InvokeAsync(QuestionViewModel questionViewModel)
     {
-        var inputTypes = new List<string>() 
+        var inputTypes = new List<string>()
         {
             "radio", "checkbox", "select", "text", "textarea"
         };

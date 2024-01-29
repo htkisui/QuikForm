@@ -1,27 +1,10 @@
 ﻿@model List<QuestionViewModel>
 
-@* @foreach
+@foreach (QuestionViewModel questionForm in Model)
+{
+    <vc:question-form question-view-model="@questionForm" />
+}
 
-
-
-
-<div id="questionZone">
-        <vc:question-form question-view-model="Model" controller="Question" action="Add" />
-    </div> *@
-
-
-
-    <div class="question-list-vc">
-        <h1>Ajouter une question</h1>
-        <button id="add-question" class="btn btn-info" type="submit">Ajouter</button>
-    </div>
-
-    <script>
-        $(function () {
-            $("#Add-question-button").on("click", (e) => {
-                $.post('/Question/Create', (Data) => {
-                    alert("ok");
-                })
-            })
-        })
-    </script>
+<div class="question-list-vc">
+    <button id="add-question" class="btn btn-info" type="submit">Ajouter</button>
+</div>

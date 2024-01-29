@@ -1,3 +1,10 @@
 ﻿<vc:form-full form-view-model='new FormViewModel(){ Id = 1, Title="Titre1", Description="Description 1", CreatedAt=DateTime.Now, PublishedAt=DateTime.Now, UpdatedAt=DateTime.Now, ClosedAt=DateTime.Now }' role="User" />
 
+<vc:question-form question-view-model='new QuestionViewModel(){Label ="question1", IsMandatory= true}'/>
 
+----------------- Test question List -----------------
+<vc:question-form-list question-view-models='new List<QuestionViewModel>()
+                        {  new QuestionViewModel(){Label ="question1", IsMandatory= true},
+                           new QuestionViewModel(){Label ="question2", IsMandatory= false},
+                           new QuestionViewModel(){Label ="question2", IsMandatory= true}
+                           }' />

@@ -5,16 +5,26 @@
         <div>
             <input asp-for="Label" type="text" placeholder="Entrez votre question" />
             <select name="question-type" id="question-type-select">
-                <option value="">Choix multiple</option>
                 @foreach (string inputType in ViewBag.InputTypes)
                 {
                     <option value="@inputType">@inputType</option>
                 }
             </select>
         </div>
-        <vc:field-form-list 
-
+        <vc:field-form-list field-view-models='new List<FieldViewModel>()
+                        {  new FieldViewModel() { Id=1, Label="Question 1"},
+                           new FieldViewModel() { Id=2, Label="Question 2" },
+                           new FieldViewModel() { Id=3, Label="Question 3" }
+                           }' />
+        <div>
+            <div>
+                <label for="switch">
+                    Obligatoire
+                    <input type="checkbox" id="switch" name="switch" role="switch">
+                </label>
+            </div>
+            <a href="#" role="button">Delete</a>
+        </div>
     </form>
-
 </div>
 
