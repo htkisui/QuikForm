@@ -7,12 +7,12 @@
             <vc:field-form field-view-model="fieldViewModel" />
         }
     </div>
-    <p id="create-field">Ajouter une réponse</p>
+    <p id="create-field-@ViewBag.QuestionId">Ajouter une réponse</p>
 </div>
 
 <script>
     $(function () {
-        $("#create-field").on("click", (e) => {
+        $("#create-field-@ViewBag.QuestionId").on("click", (e) => {
             $.post("/Field/Create", (data) => {
                 $("#field-form-list-list").append(data)
             });
