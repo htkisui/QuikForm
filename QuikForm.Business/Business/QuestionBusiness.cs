@@ -19,7 +19,7 @@ public class QuestionBusiness : IQuestionBusiness
 
     public async Task<int> CreateAsync()
     {
-        Question question = new Question { };
+        Question question = new Question { IsMandatory = true };
         await _questionRepository.CreateAsync(question);
         return question.Id;
 

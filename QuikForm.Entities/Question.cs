@@ -17,7 +17,7 @@ public class Question
     public string? Label { get; set; }
 
     //[Required]
-    public bool IsMandatory { get; set; }
+    public bool? IsMandatory { get; set; }
 
 
     //[Required]
@@ -28,7 +28,7 @@ public class Question
     public List<Field> Fields { get; set; } = [];
 
     //[Required]
-    public int? InputId { get; set; }
+    public int? InputTypeId { get; set; }
 
     public InputType InputType { get; set; } = null!;
 }

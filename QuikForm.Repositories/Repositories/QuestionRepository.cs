@@ -21,7 +21,7 @@ public class QuestionRepository : IQuestionRepository
 
     public async Task CreateAsync(Question question)
     {
-        await _context.AddAsync(question);
+        await _context.Questions.AddAsync(question);
         await _context.SaveChangesAsync();
     }
 

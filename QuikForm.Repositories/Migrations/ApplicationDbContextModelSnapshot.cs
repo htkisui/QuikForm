@@ -332,13 +332,10 @@ namespace QuikForm.Repositories.Migrations
                     b.Property<int?>("FormId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("InputId")
+                    b.Property<int?>("InputTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("InputTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsMandatory")
+                    b.Property<bool?>("IsMandatory")
                         .HasColumnType("bit");
 
                     b.Property<string>("Label")
@@ -474,9 +471,7 @@ namespace QuikForm.Repositories.Migrations
 
                     b.HasOne("QuikForm.Entities.InputType", "InputType")
                         .WithMany("Questions")
-                        .HasForeignKey("InputTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("InputTypeId");
 
                     b.Navigation("Form");
 
