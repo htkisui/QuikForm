@@ -17,7 +17,7 @@ public class Question
     public string? Label { get; set; }
 
     //[Required]
-    public bool IsMandatory { get; set; }
+    public bool? IsMandatory { get; set; }
 
 
     //[Required]
