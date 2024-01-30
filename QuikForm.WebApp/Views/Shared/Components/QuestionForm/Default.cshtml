@@ -11,16 +11,12 @@
                 }
             </select>
         </div>
-        <vc:field-form-list field-view-models='new List<FieldViewModel>()
-                        {  new FieldViewModel() { Id=1, Label="Question 1"},
-                           new FieldViewModel() { Id=2, Label="Question 2" },
-                           new FieldViewModel() { Id=3, Label="Question 3" }
-                           }' question-id="@Model.Id"/>
+         <vc:field-form-list field-view-models="Model.FieldViewModels" question-id="Model.Id"/>
         <div>
             <div>
                 <label for="switch">
                     Obligatoire
-                    <input type="checkbox" id="switch" name="switch" role="switch">
+                    <input type="checkbox" id="switch" name="switch" role="switch" />
                 </label>
             </div>
             <a href="#" role="button">Delete</a>
