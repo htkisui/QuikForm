@@ -9,6 +9,10 @@
                 {
                     <option value="@inputType">@inputType</option>
                 }
+                @* @foreach (InputTypeViewModel inputTypeViewModel in ViewBag.InputTypes)
+                {
+                    <option value="@inputTypeViewModel.Name">@inputTypeViewModel.Name</option>
+                } *@
             </select>
         </div>
          <vc:field-form-list field-view-models="Model.FieldViewModels" question-id="Model.Id"/>

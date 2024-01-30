@@ -60,10 +60,10 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
     private List<InputType> CreateInputTypes()
     {
         return new List<InputType>() {
-            new InputType { Id = 1, Name ="Text" },
-            new InputType { Id = 2, Name ="Textarea" },
-            new InputType { Id = 3, Name ="Checkbox" },
-            new InputType { Id = 4, Name ="Radio" },
+            new InputType { Id = 1, Name ="text" },
+            new InputType { Id = 2, Name ="textarea" },
+            new InputType { Id = 3, Name ="checkbox" },
+            new InputType { Id = 4, Name ="radio" },
        };
     }
 

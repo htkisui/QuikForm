@@ -1,4 +1,19 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿$(function () {
 
-// Write your JavaScript code.
+    // Create Question
+    $("#create-question").on("click", (e) => {
+        $.post("/Question/Create", (data) => {
+            $("#question-form-list").append(data)
+        });
+    });
+
+    // Create Field
+    $(".create-field-button").on("click", function (e) {
+        var questionId = $(this).data("target-list");
+        var targetList = $("#" + questionId);
+        $.post("/Field/Create", (data) => {
+            targetList.append(data);
+        });
+    });
+
+});

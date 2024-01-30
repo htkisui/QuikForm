@@ -7,15 +7,5 @@
             <vc:question-form question-view-model="@questionForm" />
         }
     </div>
-    <div class="button" id="create-question">Ajouter</div>
+    <div id="create-question">Ajouter une question</div>
 </div>
-
-<script>
-    $(function () {
-        $("#create-question").on("click", (e) => {
-            $.post("/Question/Create", (data) => {
-                $("#question-form-list").append(data)
-            });
-        });
-    });
-</script>

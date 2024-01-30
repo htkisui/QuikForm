@@ -12,8 +12,13 @@ using QuikForm.Repositories.Contexts;
 namespace QuikForm.Repositories.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
     [Migration("20240130203052_init")]
     partial class init
+========
+    [Migration("20240130205327_Init")]
+    partial class Init
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -255,6 +260,7 @@ namespace QuikForm.Repositories.Migrations
                         new
                         {
                             Id = 1,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Label = "Doloribus.",
                             QuestionId = 13
                         },
@@ -400,16 +406,90 @@ namespace QuikForm.Repositories.Migrations
                         {
                             Id = 25,
                             Label = "Aspernatur.",
+========
+                            Label = "Porro.",
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                             QuestionId = 6
                         },
                         new
                         {
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Id = 26,
+========
+                            Id = 2,
+                            Label = "Pariatur.",
+                            QuestionId = 5
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Label = "Eveniet.",
+                            QuestionId = 4
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Label = "Magni.",
+                            QuestionId = 5
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Label = "Ea.",
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Label = "Molestiae.",
+                            QuestionId = 20
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Label = "Unde.",
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Label = "Sed.",
+                            QuestionId = 18
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Label = "Voluptatem.",
+                            QuestionId = 9
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Label = "Consequatur.",
+                            QuestionId = 5
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Label = "Repellendus.",
+                            QuestionId = 4
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Label = "Aliquid.",
+                            QuestionId = 6
+                        },
+                        new
+                        {
+                            Id = 13,
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                             Label = "Quia.",
                             QuestionId = 10
                         },
                         new
                         {
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Id = 27,
                             Label = "Recusandae.",
                             QuestionId = 11
@@ -430,23 +510,134 @@ namespace QuikForm.Repositories.Migrations
                         {
                             Id = 30,
                             Label = "Perferendis.",
+========
+                            Id = 14,
+                            Label = "Veritatis.",
+                            QuestionId = 8
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Label = "Eligendi.",
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Label = "Odio.",
+                            QuestionId = 12
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Label = "Odio.",
+                            QuestionId = 4
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Label = "Quia.",
+                            QuestionId = 6
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Label = "Omnis.",
+                            QuestionId = 1
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Label = "Mollitia.",
+                            QuestionId = 13
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Label = "Quis.",
+                            QuestionId = 17
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Label = "Aliquid.",
+                            QuestionId = 18
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Label = "Odio.",
+                            QuestionId = 1
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Label = "Ipsum.",
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                             QuestionId = 19
                         },
                         new
                         {
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Id = 31,
                             Label = "Dolore.",
                             QuestionId = 9
+========
+                            Id = 25,
+                            Label = "Delectus.",
+                            QuestionId = 19
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Label = "Enim.",
+                            QuestionId = 3
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Label = "Dicta.",
+                            QuestionId = 15
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Label = "Nesciunt.",
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Label = "Inventore.",
+                            QuestionId = 19
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Label = "Ipsum.",
+                            QuestionId = 14
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Label = "Aut.",
+                            QuestionId = 10
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 32,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Label = "Facere.",
+========
+                            Label = "Ullam.",
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                             QuestionId = 4
                         },
                         new
                         {
                             Id = 33,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Label = "Voluptatem.",
                             QuestionId = 4
                         },
@@ -484,10 +675,14 @@ namespace QuikForm.Repositories.Migrations
                         {
                             Id = 39,
                             Label = "Non.",
+========
+                            Label = "Deserunt.",
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                             QuestionId = 16
                         },
                         new
                         {
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Id = 40,
                             Label = "Et.",
                             QuestionId = 15
@@ -502,29 +697,98 @@ namespace QuikForm.Repositories.Migrations
                         {
                             Id = 42,
                             Label = "Iste.",
+========
+                            Id = 34,
+                            Label = "Rerum.",
+                            QuestionId = 8
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Label = "Blanditiis.",
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                             QuestionId = 12
                         },
                         new
                         {
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Id = 43,
                             Label = "Dolorem.",
+========
+                            Id = 36,
+                            Label = "Dolor.",
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                             QuestionId = 19
                         },
                         new
                         {
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Id = 44,
                             Label = "Sed.",
                             QuestionId = 7
+========
+                            Id = 37,
+                            Label = "Reprehenderit.",
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Label = "Qui.",
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Label = "Nobis.",
+                            QuestionId = 6
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Label = "Vel.",
+                            QuestionId = 8
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Label = "Sed.",
+                            QuestionId = 11
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Label = "Occaecati.",
+                            QuestionId = 16
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Label = "Eos.",
+                            QuestionId = 9
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Label = "Iusto.",
+                            QuestionId = 2
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 45,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Label = "Voluptatum.",
                             QuestionId = 5
+========
+                            Label = "Eum.",
+                            QuestionId = 11
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 46,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Label = "Consequuntur.",
                             QuestionId = 15
                         },
@@ -538,18 +802,42 @@ namespace QuikForm.Repositories.Migrations
                         {
                             Id = 48,
                             Label = "Et.",
+========
+                            Label = "Pariatur.",
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                             QuestionId = 3
                         },
                         new
                         {
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Id = 49,
                             Label = "Expedita.",
+========
+                            Id = 47,
+                            Label = "Maxime.",
+                            QuestionId = 16
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Label = "Saepe.",
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                             QuestionId = 1
                         },
                         new
                         {
+                            Id = 49,
+                            Label = "Necessitatibus.",
+                            QuestionId = 6
+                        },
+                        new
+                        {
                             Id = 50,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Label = "Libero.",
+========
+                            Label = "Molestiae.",
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                             QuestionId = 10
                         });
                 });
@@ -612,42 +900,77 @@ namespace QuikForm.Repositories.Migrations
                         new
                         {
                             Id = 1,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             CreatedAt = new DateTime(2024, 1, 4, 19, 51, 53, 793, DateTimeKind.Unspecified).AddTicks(606),
                             Description = "Dolore id molestias atque et dolorem. Facilis corrupti magni beatae eos voluptatem dignissimos consequatur. Officiis tenetur et eveniet et. Vel blanditiis quibusdam ea.",
                             Title = "Commodi voluptate dignissimos animi nobis.",
                             UpdatedAt = new DateTime(2024, 1, 28, 9, 39, 20, 328, DateTimeKind.Unspecified).AddTicks(4753)
+========
+                            CreatedAt = new DateTime(2024, 1, 2, 17, 57, 25, 551, DateTimeKind.Unspecified).AddTicks(8931),
+                            Description = "Adipisci omnis voluptatem cum. Cum nobis cupiditate ad. Vel autem dolorem quisquam at nostrum quis velit architecto rerum. Hic nihil qui id numquam voluptatem laudantium. Similique recusandae dicta et ea impedit. Sequi rerum assumenda ut.",
+                            Title = "Magnam neque vel culpa sit.",
+                            UpdatedAt = new DateTime(2024, 1, 20, 10, 56, 39, 780, DateTimeKind.Unspecified).AddTicks(3367)
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 2,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             CreatedAt = new DateTime(2024, 1, 4, 14, 10, 23, 262, DateTimeKind.Unspecified).AddTicks(8380),
                             Description = "Rerum asperiores ut laudantium quod. Modi repudiandae architecto qui doloremque dolores laborum. Et est qui expedita et. Necessitatibus illum omnis autem repellendus totam quibusdam sed. Nihil eum sapiente eos facilis consectetur modi delectus.",
                             Title = "Ea sapiente aut illo culpa.",
                             UpdatedAt = new DateTime(2024, 1, 28, 17, 0, 42, 387, DateTimeKind.Unspecified).AddTicks(2628)
+========
+                            CreatedAt = new DateTime(2024, 1, 3, 14, 1, 12, 331, DateTimeKind.Unspecified).AddTicks(782),
+                            Description = "Possimus voluptatem voluptates ut et unde. Consequatur omnis aperiam facere maxime odio sit modi. Deserunt eius ut.",
+                            Title = "Vitae voluptatum praesentium nobis pariatur.",
+                            UpdatedAt = new DateTime(2024, 1, 22, 17, 0, 8, 183, DateTimeKind.Unspecified).AddTicks(4787)
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 3,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             CreatedAt = new DateTime(2024, 1, 1, 14, 36, 7, 945, DateTimeKind.Unspecified).AddTicks(9315),
                             Description = "Quis inventore fugiat alias atque non. Qui tempora tempora hic iure quia. Amet modi rerum dolorum quis.",
                             Title = "Aliquid et ipsam nulla quam.",
                             UpdatedAt = new DateTime(2024, 1, 25, 8, 38, 59, 792, DateTimeKind.Unspecified).AddTicks(46)
+========
+                            CreatedAt = new DateTime(2024, 1, 1, 4, 36, 50, 21, DateTimeKind.Unspecified).AddTicks(2400),
+                            Description = "Id debitis suscipit amet quae distinctio. Voluptatem non enim. Quo inventore vitae et commodi fugiat. Numquam ut fugit voluptates sit explicabo ut et. Necessitatibus aut vitae et. Nobis consectetur possimus ipsa quis.",
+                            Title = "Incidunt molestias ad quibusdam dolorem.",
+                            UpdatedAt = new DateTime(2024, 1, 15, 1, 41, 14, 665, DateTimeKind.Unspecified).AddTicks(6154)
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 4,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             CreatedAt = new DateTime(2024, 1, 2, 4, 56, 14, 922, DateTimeKind.Unspecified).AddTicks(9470),
                             Description = "Magnam neque quasi architecto asperiores est. Et placeat aut sed aut dolor doloribus aut exercitationem. Eos explicabo animi amet earum amet. Aut eum rerum. Nobis consequatur quas aspernatur nostrum omnis ullam sunt quibusdam. Occaecati doloribus sunt dignissimos.",
                             Title = "Alias consequatur assumenda reiciendis nisi.",
                             UpdatedAt = new DateTime(2024, 1, 25, 15, 10, 39, 557, DateTimeKind.Unspecified).AddTicks(4555)
+========
+                            CreatedAt = new DateTime(2024, 1, 4, 23, 29, 43, 566, DateTimeKind.Unspecified).AddTicks(9323),
+                            Description = "Perferendis voluptas doloribus est aliquid quia nemo dolorem asperiores laudantium. Atque repellendus aut voluptatibus atque iste deserunt sit. Eos in nobis et illum aut. Omnis molestiae officia quis repellat iste id quia dolor. Et doloribus ut deleniti dolores animi. Quidem rem non quis voluptatibus velit quia.",
+                            Title = "Error eos aut non laudantium.",
+                            UpdatedAt = new DateTime(2024, 1, 30, 3, 13, 36, 172, DateTimeKind.Unspecified).AddTicks(1101)
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 5,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             CreatedAt = new DateTime(2024, 1, 1, 17, 15, 0, 930, DateTimeKind.Unspecified).AddTicks(6311),
                             Description = "Praesentium id ut consequatur ut non labore voluptas. Nam omnis repellendus omnis officiis asperiores sit non. Quae eos reprehenderit fugiat reiciendis amet molestiae in quasi.",
                             Title = "Quis iste dolor dolor voluptatem.",
                             UpdatedAt = new DateTime(2024, 1, 14, 7, 25, 16, 57, DateTimeKind.Unspecified).AddTicks(6740)
+========
+                            CreatedAt = new DateTime(2024, 1, 2, 19, 28, 6, 21, DateTimeKind.Unspecified).AddTicks(396),
+                            Description = "Harum esse sit libero quam harum sint. Quas qui beatae similique. Nemo tempore aliquid ea optio. A corporis sit. Eum molestiae beatae ut.",
+                            Title = "Repellendus dolorum ratione fugiat in.",
+                            UpdatedAt = new DateTime(2024, 1, 10, 10, 21, 55, 937, DateTimeKind.Unspecified).AddTicks(4491)
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         });
                 });
 
@@ -671,22 +994,22 @@ namespace QuikForm.Repositories.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Text"
+                            Name = "text"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Textarea"
+                            Name = "textarea"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Checkbox"
+                            Name = "checkbox"
                         },
                         new
                         {
                             Id = 4,
-                            Name = "Radio"
+                            Name = "radio"
                         });
                 });
 
@@ -723,26 +1046,47 @@ namespace QuikForm.Repositories.Migrations
                         new
                         {
                             Id = 1,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 5,
                             InputTypeId = 4,
                             IsMandatory = false,
                             Label = "Reprehenderit sit rem consectetur vel."
+========
+                            FormId = 1,
+                            InputTypeId = 3,
+                            IsMandatory = false,
+                            Label = "Laboriosam officiis quisquam modi voluptatem."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 2,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 1,
                             InputTypeId = 1,
                             IsMandatory = true,
                             Label = "Nihil quae autem quisquam minus."
+========
+                            FormId = 2,
+                            InputTypeId = 3,
+                            IsMandatory = true,
+                            Label = "Consequuntur sint aspernatur tenetur doloribus."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 3,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 3,
                             InputTypeId = 4,
                             IsMandatory = true,
                             Label = "Enim tenetur quasi occaecati quam."
+========
+                            FormId = 4,
+                            InputTypeId = 2,
+                            IsMandatory = true,
+                            Label = "Perferendis numquam fugiat quidem illum."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
@@ -750,135 +1094,247 @@ namespace QuikForm.Repositories.Migrations
                             FormId = 2,
                             InputTypeId = 4,
                             IsMandatory = true,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             Label = "Facere odio autem iusto quis."
+========
+                            Label = "Officia odit in et fugiat."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 5,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 4,
                             InputTypeId = 2,
                             IsMandatory = true,
                             Label = "Amet illo perspiciatis aliquid mollitia."
+========
+                            FormId = 3,
+                            InputTypeId = 2,
+                            IsMandatory = false,
+                            Label = "Animi veniam earum exercitationem modi."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 6,
                             FormId = 3,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             InputTypeId = 2,
                             IsMandatory = true,
                             Label = "Voluptatem dolore repellendus iure ad."
+========
+                            InputTypeId = 3,
+                            IsMandatory = true,
+                            Label = "Soluta sit et distinctio consectetur."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 7,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 4,
                             InputTypeId = 2,
                             IsMandatory = true,
                             Label = "Cumque tempore maxime sit officia."
+========
+                            FormId = 2,
+                            InputTypeId = 3,
+                            IsMandatory = true,
+                            Label = "Vitae totam at accusantium labore."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 8,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 1,
                             InputTypeId = 1,
                             IsMandatory = true,
                             Label = "Dolorum enim cupiditate ut consequatur."
+========
+                            FormId = 5,
+                            InputTypeId = 1,
+                            IsMandatory = true,
+                            Label = "Aliquid fuga omnis perspiciatis eligendi."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 9,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 3,
                             InputTypeId = 1,
                             IsMandatory = false,
                             Label = "Sint iste voluptatem veritatis esse."
+========
+                            FormId = 2,
+                            InputTypeId = 1,
+                            IsMandatory = true,
+                            Label = "Quia odio aspernatur illo occaecati."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 10,
                             FormId = 5,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             InputTypeId = 3,
                             IsMandatory = false,
                             Label = "Quis ab aut assumenda perspiciatis."
+========
+                            InputTypeId = 2,
+                            IsMandatory = false,
+                            Label = "Voluptate rerum laudantium ipsum impedit."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 11,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 4,
                             InputTypeId = 3,
                             IsMandatory = false,
                             Label = "Quis dolore aspernatur provident voluptatem."
+========
+                            FormId = 3,
+                            InputTypeId = 2,
+                            IsMandatory = true,
+                            Label = "Quos iste omnis omnis labore."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 12,
                             FormId = 1,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             InputTypeId = 1,
                             IsMandatory = false,
                             Label = "Aut nihil quasi earum id."
+========
+                            InputTypeId = 3,
+                            IsMandatory = false,
+                            Label = "Quo omnis quibusdam illo corporis."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 13,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 2,
                             InputTypeId = 1,
                             IsMandatory = false,
                             Label = "Consequuntur laudantium temporibus suscipit inventore."
+========
+                            FormId = 1,
+                            InputTypeId = 3,
+                            IsMandatory = true,
+                            Label = "Ut vel architecto deserunt eum."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 14,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 5,
                             InputTypeId = 1,
                             IsMandatory = false,
                             Label = "Nihil in libero quae consectetur."
+========
+                            FormId = 3,
+                            InputTypeId = 1,
+                            IsMandatory = true,
+                            Label = "Laboriosam laudantium magnam cumque voluptas."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 15,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 5,
                             InputTypeId = 4,
                             IsMandatory = false,
                             Label = "Inventore qui veritatis id quo."
+========
+                            FormId = 3,
+                            InputTypeId = 4,
+                            IsMandatory = false,
+                            Label = "Et tempora similique aut perspiciatis."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 16,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 2,
                             InputTypeId = 2,
                             IsMandatory = true,
                             Label = "Quia cumque at eos occaecati."
+========
+                            FormId = 4,
+                            InputTypeId = 2,
+                            IsMandatory = true,
+                            Label = "Suscipit voluptas eveniet cupiditate quasi."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 17,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 1,
                             InputTypeId = 2,
                             IsMandatory = true,
                             Label = "Voluptate quisquam asperiores illo accusamus."
+========
+                            FormId = 4,
+                            InputTypeId = 3,
+                            IsMandatory = false,
+                            Label = "Alias vel qui et aut."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 18,
                             FormId = 2,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             InputTypeId = 3,
                             IsMandatory = false,
                             Label = "Perferendis qui vel pariatur sint."
+========
+                            InputTypeId = 4,
+                            IsMandatory = true,
+                            Label = "Ea eveniet cupiditate explicabo praesentium."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 19,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 5,
                             InputTypeId = 4,
                             IsMandatory = false,
                             Label = "Reprehenderit saepe velit deleniti at."
+========
+                            FormId = 2,
+                            InputTypeId = 3,
+                            IsMandatory = false,
+                            Label = "Dolores quia provident fuga minima."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         },
                         new
                         {
                             Id = 20,
+<<<<<<<< HEAD:QuikForm.Repositories/Migrations/20240130203052_init.Designer.cs
                             FormId = 1,
                             InputTypeId = 3,
                             IsMandatory = true,
                             Label = "Fugit labore aut facilis error."
+========
+                            FormId = 4,
+                            InputTypeId = 2,
+                            IsMandatory = true,
+                            Label = "Voluptatem consequatur voluptate rem voluptatem."
+>>>>>>>> dev:QuikForm.Repositories/Migrations/20240130205327_Init.Designer.cs
                         });
                 });
 

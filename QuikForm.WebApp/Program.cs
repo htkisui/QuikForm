@@ -5,6 +5,10 @@ using QuikForm.Entities;
 using QuikForm.Repositories.Contexts;
 using QuikForm.Repositories.Repositories;
 using QuikForm.Repository.Contracts.Contracts;
+using QuikForm.WebApp.Mappers.Fields;
+using QuikForm.WebApp.Mappers.Forms;
+using QuikForm.WebApp.Mappers.Questions;
+using QuikForm.WebApp.Views.Shared.Components.QuestionForm;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,8 +33,15 @@ builder.Services.AddTransient<IRecordRepository, RecordRepository>();
 // Add Business
 builder.Services.AddTransient<IFieldBusiness, FieldBusiness>();
 builder.Services.AddTransient<IFormBusiness, FormBusiness>();
+builder.Services.AddTransient<IInputTypeBusiness, InputTypeBusiness>();
 builder.Services.AddTransient<IQuestionBusiness, QuestionBusiness>();
 
+// Add Mappers
+builder.Services.AddScoped<IFormMapper, FormMapper>();
+builder.Services.AddScoped<IQuestionMapper, QuestionMapper>();
+builder.Services.AddScoped<IFieldMapper, FieldMapper>();
+
+builder.Services.AddTransient<QuestionFormViewComponent>();
 
 var app = builder.Build();
 
