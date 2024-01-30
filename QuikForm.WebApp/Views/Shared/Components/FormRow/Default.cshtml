@@ -1,0 +1,31 @@
+﻿@model FormViewModel
+
+<tr class="form-row-vc">
+    <th class="title-col"><p>@Model.Title</p></th>
+    <th class="date-col">
+        @if (@Model.UpdatedAt == null)
+        {
+            @Model.UpdatedAt
+        }
+        @Model.CreatedAt
+    </th>
+    <th class="status-col">
+        @if (Model.PublishedAt == null & Model.ClosedAt == null)
+        {
+            <p>Brouillon</p>
+        }
+        @if (Model.PublishedAt != null & Model.ClosedAt == null)
+        {
+            <p>Publié</p>
+        }
+        @if (Model.ClosedAt != null)
+        {
+            <p>Cloturé</p>
+        }
+    </th>
+    <th class="actions-col">
+        <button>Voir</button>
+        <button>Editer</button>
+        <button>Dupliquer</button>
+    </th>
+</tr>

@@ -1,6 +1,42 @@
-﻿***************AFFICHAGE FORMFULL***************
+﻿@{
+    var forms = new List<FormViewModel>
+    {
+        new FormViewModel { Id = 1, Title = "Titre 1", Description = "questionnaire 1 : fermé le 15/01/2024", CreatedAt = DateTime.Parse("01/01/2024"), PublishedAt = DateTime.Parse("01/01/2024"), ClosedAt = DateTime.Parse("2024/01/15") },
+        new FormViewModel { Id = 2, Title = "Titre 2", Description = "questionnaire 2 : fermé le 25/01/2024", CreatedAt = DateTime.Parse("05/01/2024"), PublishedAt = DateTime.Parse("06/01/2024"), ClosedAt = DateTime.Parse("2024/01/25") },
+        new FormViewModel { Id = 3, Title = "Titre 3", Description = "questionnaire 3 : non publié", CreatedAt = DateTime.Parse("01/01/2024"), UpdatedAt = DateTime.Parse("2024/01/04") },
+        new FormViewModel { Id = 4, Title = "Titre 4", Description = "questionnaire 4 : publié le 08/01/2024", CreatedAt = DateTime.Parse("02/01/2024"), UpdatedAt = DateTime.Parse("08/01/2024"), PublishedAt = DateTime.Parse("2024/01/08") }
+    };
+}
+
+***************AFFICHAGE FORMFULL***************
 
 <vc:form-full form-view-model='new FormViewModel(){ Id = 1, Title="Titre1", Description="Description 1", CreatedAt=DateTime.Now, PublishedAt=DateTime.Now, UpdatedAt=DateTime.Now, ClosedAt=DateTime.Now }' role="User" />
+
+***************** FormRow Affichage *****************
+<vc:form-row form-view-model='new FormViewModel(){ Id = 1, Title = "Titre 1", Description = "Description 1", CreatedAt = DateTime.Parse("01/01/2024"), PublishedAt = DateTime.Parse("01/01/2024")}' />
+<vc:form-row form-view-model='new FormViewModel(){ Id = 2, Title = "Titre 2", Description = "Description 2", CreatedAt = DateTime.Parse("01/01/2024"), PublishedAt = DateTime.Parse("08/01/2024"), UpdatedAt = DateTime.Parse("08/01/2024"), ClosedAt = DateTime.Parse("2024/01/25")}' />
+<vc:form-row form-view-model='new FormViewModel(){ Id = 3, Title = "Titre 3", Description = "Description 3", CreatedAt = DateTime.Parse("01/01/2024")}' />
+
+***************** FormTable Affichage *****************
+
+<div class="form-table-vc">
+    <table>
+        <thead class="grid-container">
+            <tr>
+                <th class="title-col">Titre</th>
+                <th class="date-col">Date de Dernière Modification</th>
+                <th class="status-col">Statut</th>
+                <th class="actions-col">Actions</th>
+            </tr>
+        </thead>
+    </table>
+    <table>
+        @foreach (FormViewModel form in forms)
+        {
+            <vc:form-row form-view-model="form" />
+        }
+    </table>
+</div>
 
 <vc:question-form question-view-model='new QuestionViewModel(){Label ="question1", IsMandatory= true}' />
 
@@ -12,17 +48,6 @@
                            }' />
 
 ***************AFFICHAGE FORMSHORT***************
-
-@{
-    var forms = new List<FormViewModel>
-    {
-        new FormViewModel { Id = 1, Title = "Titre 1", Description = "questionnaire 1 : fermé le 15/01/2024", CreatedAt = DateTime.Parse("01/01/2024"), PublishedAt = DateTime.Parse("01/01/2024"), ClosedAt = DateTime.Parse("2024/01/15") },
-        new FormViewModel { Id = 2, Title = "Titre 2", Description = "questionnaire 2 : fermé le 25/01/2024", CreatedAt = DateTime.Parse("05/01/2024"), PublishedAt = DateTime.Parse("06/01/2024"), ClosedAt = DateTime.Parse("2024/01/25") },
-        new FormViewModel { Id = 3, Title = "Titre 3", Description = "questionnaire 3 : non publié", CreatedAt = DateTime.Parse("01/01/2024"), UpdatedAt = DateTime.Parse("2024/01/04") },
-        new FormViewModel { Id = 4, Title = "Titre 4", Description = "questionnaire 4 : publié le 08/01/2024", CreatedAt = DateTime.Parse("02/01/2024"), UpdatedAt = DateTime.Parse("08/01/2024"), PublishedAt = DateTime.Parse("2024/01/08") }
-    };
-}
-
 
 @foreach (var formviewmodel in forms)
 {

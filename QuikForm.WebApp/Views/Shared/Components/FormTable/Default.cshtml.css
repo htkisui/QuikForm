@@ -1,0 +1,20 @@
+﻿﻿.grid-container {
+    display: grid;
+    grid-template-columns: 6fr 2fr 2fr 2fr;
+    gap: 5px;
+    align-items: center;
+}
+
+.title-col {
+    text-align: start;
+}
+
+.date-col status-col actions-col {
+    text-align: center;
+}
+
+.actions-col {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 5px;
+}
