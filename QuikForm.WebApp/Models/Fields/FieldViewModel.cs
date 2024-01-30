@@ -4,4 +4,6 @@ public class FieldViewModel
 {
     public int Id { get; set; }
     public string Label { get; set; } = null!;
+
+    public int? QuestionId { get; set; }
 }
