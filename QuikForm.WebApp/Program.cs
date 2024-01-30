@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using QuikForm.Business.Business;
+using QuikForm.Business.Contracts.Business;
 using QuikForm.Entities;
 using QuikForm.Repositories.Contexts;
 using QuikForm.Repositories.Repositories;
@@ -25,6 +27,9 @@ builder.Services.AddTransient<IQuestionRepository, QuestionRepository>();
 builder.Services.AddTransient<IRecordRepository, RecordRepository>();
 
 // Add Business
+builder.Services.AddTransient<IFieldBusiness, FieldBusiness>();
+builder.Services.AddTransient<IFormBusiness, FormBusiness>();
+builder.Services.AddTransient<IQuestionBusiness, QuestionBusiness>();
 
 
 var app = builder.Build();

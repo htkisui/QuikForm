@@ -236,7 +236,6 @@ namespace QuikForm.Repositories.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Label")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -292,7 +291,6 @@ namespace QuikForm.Repositories.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -315,7 +313,6 @@ namespace QuikForm.Repositories.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -332,7 +329,7 @@ namespace QuikForm.Repositories.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("FormId")
+                    b.Property<int?>("FormId")
                         .HasColumnType("int");
 
                     b.Property<int?>("InputId")
@@ -345,7 +342,6 @@ namespace QuikForm.Repositories.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Label")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -474,9 +470,7 @@ namespace QuikForm.Repositories.Migrations
                 {
                     b.HasOne("QuikForm.Entities.Form", "Form")
                         .WithMany("Questions")
-                        .HasForeignKey("FormId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FormId");
 
                     b.HasOne("QuikForm.Entities.InputType", "InputType")
                         .WithMany("Questions")

@@ -12,16 +12,16 @@ public class Question
     [Key]
     public int Id { get; set; }
 
-    [Required]
+    //[Required]
     [MaxLength(255)]
     public string? Label { get; set; }
 
-    [Required]
+    //[Required]
     public bool IsMandatory { get; set; }
 
 
-    [Required]
-    public int FormId { get; set; }
+    //[Required]
+    public int? FormId { get; set; }
 
     public Form Form { get; set; } = null!;
 

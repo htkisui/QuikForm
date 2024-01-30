@@ -1,0 +1,8 @@
+﻿@model List<FormViewModel>
+
+<div class="grid">
+    @foreach (var form in Model)
+    {
+        <vc:form-short form-view-model="@form" />
+    }
+</div>

@@ -12,7 +12,7 @@ public class Form
     public int Id { get; set; }
 
     [MaxLength(255)]
-    [Required]
+    //[Required]
     public string? Title { get; set; }
 
     public string? Description { get; set; }

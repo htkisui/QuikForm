@@ -58,7 +58,7 @@ namespace QuikForm.Repositories.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -177,7 +177,7 @@ namespace QuikForm.Repositories.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -221,9 +221,9 @@ namespace QuikForm.Repositories.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Label = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Label = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     IsMandatory = table.Column<bool>(type: "bit", nullable: false),
-                    FormId = table.Column<int>(type: "int", nullable: false),
+                    FormId = table.Column<int>(type: "int", nullable: true),
                     InputId = table.Column<int>(type: "int", nullable: true),
                     InputTypeId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -234,8 +234,7 @@ namespace QuikForm.Repositories.Migrations
                         name: "FK_Questions_Forms_FormId",
                         column: x => x.FormId,
                         principalTable: "Forms",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Questions_InputTypes_InputTypeId",
                         column: x => x.InputTypeId,
@@ -250,7 +249,7 @@ namespace QuikForm.Repositories.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Label = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Label = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     QuestionId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

@@ -12,8 +12,4 @@ public class FieldFormViewComponent : ViewComponent
         ViewBag.MockInputType = "radio"; //temp
         return View(fieldViewModel);
     }
-    //public async Task<IViewComponentResult> InvokeAsync()
-    //{
-    //    return View();
-    //}
 }

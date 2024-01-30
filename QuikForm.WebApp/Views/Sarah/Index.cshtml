@@ -1,1 +1,41 @@
-﻿<vc:form-full form-view-model='new FormViewModel(){ Id = 1, Title="Titre1", Description="Description 1", CreatedAt=DateTime.Now, PublishedAt=DateTime.Now, UpdatedAt=DateTime.Now, ClosedAt=DateTime.Now }' role="User" />
+﻿***************AFFICHAGE FORMFULL***************
+
+<vc:form-full form-view-model='new FormViewModel(){ Id = 1, Title="Titre1", Description="Description 1", CreatedAt=DateTime.Now, PublishedAt=DateTime.Now, UpdatedAt=DateTime.Now, ClosedAt=DateTime.Now }' role="User" />
+
+<vc:question-form question-view-model='new QuestionViewModel(){Label ="question1", IsMandatory= true}' />
+
+----------------- Test question List -----------------
+<vc:question-form-list question-view-models='new List<QuestionViewModel>()
+                        {  new QuestionViewModel(){Label ="question1", IsMandatory= true},
+                           new QuestionViewModel(){Label ="question2", IsMandatory= false},
+                           new QuestionViewModel(){Label ="question2", IsMandatory= true}
+                           }' />
+
+***************AFFICHAGE FORMSHORT***************
+
+@{
+    var forms = new List<FormViewModel>
+    {
+        new FormViewModel { Id = 1, Title = "Titre 1", Description = "questionnaire 1 : fermé le 15/01/2024", CreatedAt = DateTime.Parse("01/01/2024"), PublishedAt = DateTime.Parse("01/01/2024"), ClosedAt = DateTime.Parse("2024/01/15") },
+        new FormViewModel { Id = 2, Title = "Titre 2", Description = "questionnaire 2 : fermé le 25/01/2024", CreatedAt = DateTime.Parse("05/01/2024"), PublishedAt = DateTime.Parse("06/01/2024"), ClosedAt = DateTime.Parse("2024/01/25") },
+        new FormViewModel { Id = 3, Title = "Titre 3", Description = "questionnaire 3 : non publié", CreatedAt = DateTime.Parse("01/01/2024"), UpdatedAt = DateTime.Parse("2024/01/04") },
+        new FormViewModel { Id = 4, Title = "Titre 4", Description = "questionnaire 4 : publié le 08/01/2024", CreatedAt = DateTime.Parse("02/01/2024"), UpdatedAt = DateTime.Parse("08/01/2024"), PublishedAt = DateTime.Parse("2024/01/08") }
+    };
+}
+
+
+@foreach (var formviewmodel in forms)
+{
+    <vc:form-short form-view-model="@formviewmodel" />
+}
+
+***************AFFICHAGE FORMLIST***************
+
+<article class="form-list-vc">
+    <header>
+        <h2>Répondre</h2>
+    </header>
+    <section>
+        <vc:form-list form-view-models="forms" />
+    </section>
+</article>

@@ -7,4 +7,5 @@ using System.Threading.Tasks;
 namespace QuikForm.Business.Contracts.Business;
 public interface IFieldBusiness
 {
+    Task<int> CreateAsync();
 }

@@ -11,9 +11,9 @@ public class Field
     [Key]
     public int Id { get; set; }
 
-    [Required]
+    //[Required]
     [MaxLength(255)]
-    public string? Label { get; set; }
+    public string? Label { get; set; } = null!;
 
     //[Required]
     public int? QuestionId { get; set; }
