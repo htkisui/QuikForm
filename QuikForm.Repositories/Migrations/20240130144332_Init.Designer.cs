@@ -12,8 +12,8 @@ using QuikForm.Repositories.Contexts;
 namespace QuikForm.Repositories.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240130130512_init")]
-    partial class init
+    [Migration("20240130144332_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
