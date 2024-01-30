@@ -1,0 +1,30 @@
+﻿.question-form-vc {
+    padding: 1.5rem;
+    margin: 1rem;
+}
+
+div.question-label {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 1.5rem;
+}
+
+div.question-label select option {
+    font-family: "Raleway";
+}
+
+.mandatory-trash {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.trash:hover {
+    color: red;
+}
+
+@media (prefers-color-scheme: dark) {
+    .question-form-vc {
+        background-color: #0F2E38;
+    }
+}

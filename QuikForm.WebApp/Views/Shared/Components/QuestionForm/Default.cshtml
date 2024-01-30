@@ -2,7 +2,7 @@
 
 <div class="question-form-vc">
     <form>
-        <div>
+        <div class="question-label">
             <input asp-for="Label" type="text" placeholder="Entrez votre question" />
             <select name="question-type" id="question-type-select">
                 @foreach (string inputType in ViewBag.InputTypes)
@@ -12,14 +12,14 @@
             </select>
         </div>
          <vc:field-form-list field-view-models="Model.FieldViewModels" question-id="Model.Id"/>
-        <div>
+        <div class="mandatory-trash">
             <div>
                 <label for="switch">
                     Obligatoire
                     <input type="checkbox" id="switch" name="switch" role="switch" />
                 </label>
             </div>
-            <a href="#" role="button">Delete</a>
+            <div class="trash"><i class="fa-regular fa-trash-can"></i></div>
         </div>
     </form>
 </div>
