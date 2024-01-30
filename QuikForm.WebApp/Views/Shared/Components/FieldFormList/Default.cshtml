@@ -1,21 +1,23 @@
 ﻿@model List<FieldViewModel>
-
 <div class="field-form-list-vc">
-    <div id="field-form-list-list">
+    <div id="field-form-list-@ViewBag.QuestionId" data-question-id="@ViewBag.QuestionId">
         @foreach (FieldViewModel fieldViewModel in Model)
         {
             <vc:field-form field-view-model="fieldViewModel" />
         }
     </div>
-    <p id="create-field-@ViewBag.QuestionId">Ajouter une réponse</p>
+    <p class="create-field-button" data-target-list="field-form-list-@ViewBag.QuestionId">Ajouter une réponse</p>
 </div>
 
 <script>
     $(function () {
-        $("#create-field-@ViewBag.QuestionId").on("click", (e) => {
-            $.post("/Field/Create", (data) => {
-                $("#field-form-list-list").append(data)
-            });
+        $(".create-field-button").on("click", function (e) {
+            var questionId = $(this).data("target-list");
+            var targetList = $("#" + questionId);
+            if (e.target ) {
+                alert(questionId);
+            }
+
         });
     });
 </script>

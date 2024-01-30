@@ -9,9 +9,9 @@ public class QuestionViewModel
 
     public string? Label { get; set; }
 
-    public bool IsMandatory { get; set; }
+    public bool? IsMandatory { get; set; }
 
-    //public List<FieldViewModel> FieldViewModels { get; set; } = [];
+    public List<FieldViewModel> FieldViewModels { get; set; } = [];
 
-    //public InputTypeViewModel InputTypeViewModel { get; set; } = null!;
+    public InputTypeViewModel InputTypeViewModel { get; set; } = null!;
 }
