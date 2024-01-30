@@ -1,15 +1,15 @@
 ﻿@model FormViewModel
 
-<div class="form-row-vc">
-    <div class="title-col"><p>@Model.Title</p></div>
-    <div class="date-col">
+<tr class="form-row-vc">
+    <th class="title-col"><p>@Model.Title</p></th>
+    <th class="date-col">
         @if (@Model.UpdatedAt == null)
         {
-            <p>@Model.UpdatedAt</p>
+            @Model.UpdatedAt
         }
-        <p>@Model.CreatedAt</p>
-    </div>
-    <div class="status-col">
+        @Model.CreatedAt
+    </th>
+    <th class="status-col">
         @if (Model.PublishedAt == null & Model.ClosedAt == null)
         {
             <p>Brouillon</p>
@@ -22,10 +22,10 @@
         {
             <p>Cloturé</p>
         }
-    </div>
-    <div class="actions-col">
+    </th>
+    <th class="actions-col">
         <button>Voir</button>
         <button>Editer</button>
         <button>Dupliquer</button>
-    </div>
-</div>
+    </th>
+</tr>
