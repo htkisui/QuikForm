@@ -1,4 +1,5 @@
 ﻿using QuikForm.Business.Contracts.Business;
+using QuikForm.Entities;
 using QuikForm.Repository.Contracts.Contracts;
 using System;
 using System.Collections.Generic;
@@ -14,5 +15,13 @@ public class QuestionBusiness : IQuestionBusiness
     public QuestionBusiness(IQuestionRepository questionRepository)
     {
         _questionRepository = questionRepository;
+    }
+
+    public async Task<int> CreateAsync()
+    {
+        Question question = new Question { };
+        await _questionRepository.CreateAsync(question);
+        return question.Id;
+
     }
 }
