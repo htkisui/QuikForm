@@ -25,7 +25,7 @@
     </th>
     <th class="actions-col">
         <button>Voir</button>
-        <button>Editer</button>
+        <a asp-controller="Admin" asp-action="Edit" asp-route-id="@Model.Id">Editer</a>
         <button>Dupliquer</button>
     </th>
 </tr>

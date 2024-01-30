@@ -23,4 +23,14 @@ public class FormBusiness : IFormBusiness
         await _formRepository.CreateAsync(form);
         return form.Id;
     }
+
+    public async Task<List<Form>> GetAllAsync()
+    {
+        return await _formRepository.GetAllAsync();
+    }
+
+    public async Task<Form> GetByIdAsync(int id)
+    {
+        return await _formRepository.GetByIdAsync(id);
+    }
 }

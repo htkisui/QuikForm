@@ -8,8 +8,8 @@ namespace QuikForm.WebApp.Views.Shared.Components.FormTable;
 
 public class FormTableViewComponent : ViewComponent
 {
-    public async Task<IViewComponentResult> InvokeAsync(List<FormViewModel> forms)
+    public async Task<IViewComponentResult> InvokeAsync(List<FormViewModel> formViewModels)
     {
-        return View(forms);
+        return View(formViewModels);
     }
 }

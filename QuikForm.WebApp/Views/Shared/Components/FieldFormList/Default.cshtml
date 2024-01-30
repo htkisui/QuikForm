@@ -8,16 +8,3 @@
     </div>
     <p class="create-field-button" data-target-list="field-form-list-@ViewBag.QuestionId">Ajouter une réponse</p>
 </div>
-
-<script>
-    $(function () {
-        $(".create-field-button").on("click", function (e) {
-            var questionId = $(this).data("target-list");
-            var targetList = $("#" + questionId);
-            if (e.target ) {
-                alert(questionId);
-            }
-
-        });
-    });
-</script>

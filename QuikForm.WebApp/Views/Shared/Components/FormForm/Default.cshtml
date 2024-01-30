@@ -1,5 +1,4 @@
 ﻿@model FormViewModel
-<div>Bonjour</div>
 <section class="form-form-vc">
     <form asp-controller="" asp-action="">
         <label>
@@ -10,6 +9,7 @@
             Description
             <input asp-for="Description" placeholder="Entrez votre description" />
         </label>
-        <vc:question-form-list question-view-models="@ViewBag.questionViewModels"/>
+        <hr/>
+        <vc:question-form-list question-view-models="Model.QuestionViewModels"/>
     </form>
 </section>

@@ -41,7 +41,7 @@ public class FormRepository : IFormRepository
 
     public async Task<Form> GetByIdAsync(int id)
     {
-        Form form = await _context.Forms.FirstOrDefaultAsync(f => f.Id == id) ?? throw new FormNotFoundException();
+        Form form = await _context.Forms.Include(f => f.Questions).ThenInclude(q => q.Fields).FirstOrDefaultAsync(f => f.Id == id) ?? throw new FormNotFoundException();
         return form;
     }
 
