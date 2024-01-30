@@ -24,3 +24,9 @@ body {
 .quikform {
     font-family: 'Rubik Mono One', monospace; 
 }
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: #0F2E38;
+    }
+}

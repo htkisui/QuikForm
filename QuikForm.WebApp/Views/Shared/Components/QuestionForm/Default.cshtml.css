@@ -1,6 +1,6 @@
 ﻿.question-form-vc {
     padding: 1.5rem;
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
 div.question-label {
@@ -21,6 +21,7 @@ div.question-label select option {
 
 .trash:hover {
     color: red;
+    cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {
