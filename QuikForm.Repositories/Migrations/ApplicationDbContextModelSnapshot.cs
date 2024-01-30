@@ -701,7 +701,9 @@ namespace QuikForm.Repositories.Migrations
                     b.Property<int?>("InputTypeId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsMandatory")
+
+                    b.Property<bool?>("IsMandatory")
+
                         .HasColumnType("bit");
 
                     b.Property<string>("Label")
