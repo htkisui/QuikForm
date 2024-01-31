@@ -8,7 +8,7 @@
     });
 
     // Create Field
-    $(".create-field-button").on("click", function (e) {
+    $(document).on("click", ".create-field-button", function (e) {
         const fieldContainer = $(this).data("target-list");
         const targetList = $("#" + fieldContainer);
 
@@ -21,7 +21,7 @@
     });
 
     // Delete Field
-    $(".delete-field-button").on("click", function (e) {
+    $(document).on("click", ".delete-field-button", function (e) {
         const field = $(this).data("target-field");
         const targetField = $("." + field);
       
