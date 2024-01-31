@@ -23,4 +23,16 @@ public class QuestionBusiness : IQuestionBusiness
         Question questionWithInputType = await _questionRepository.CreateAsync(question);
         return questionWithInputType;
     }
+
+    public async Task DeleteAsync(int id)
+    {
+        await _questionRepository.DeleteAsync(id);
+    }
+
+    //public async Task<Question> UpdateAsync(int id, string label, bool isMandatory)
+    //{
+    //    Question question = new Question {  Id = id, Label = label, IsMandatory = isMandatory };
+    //    await _questionRepository.UpdateAsync(question);
+    //    return question;
+    //}
 }

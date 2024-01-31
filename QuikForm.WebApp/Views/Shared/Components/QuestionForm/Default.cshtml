@@ -1,6 +1,6 @@
 ﻿@model QuestionViewModel
 
-<div class="question-form-vc">
+<div class="question-form-vc" id="question-id-@Model.Id">
     <form>
         <div class="question-label">
             <input asp-for="Label" type="text" placeholder="Entrez votre question" />
@@ -17,7 +17,7 @@
                     }
                 }
             </select>
-            <vc:field-form-list field-view-models="Model.FieldViewModels" question-id="Model.Id" input-type-view-model="Model.InputTypeViewModel"/>
+            <vc:field-form-list field-view-models="Model.FieldViewModels" question-id="Model.Id" input-type-view-model="Model.InputTypeViewModel" />
         </div>
         <div class="mandatory-trash">
             <div>
@@ -26,7 +26,7 @@
                     <input type="checkbox" id="switch" name="switch" role="switch" />
                 </label>
             </div>
-            <div class="trash"><i class="fa-regular fa-trash-can"></i></div>
+            <div class="trash delete-question-button" data-target-question="question-id-@Model.Id"><i class="fa-regular fa-trash-can"></i></div>
         </div>
     </form>
 </div>

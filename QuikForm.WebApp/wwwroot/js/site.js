@@ -13,6 +13,30 @@
         });
     });
 
+    // Question : Delete 
+    $(document).on("click", ".delete-question-button", function (e) {
+        const question = $(this).data("target-question");
+        const targetQuestion = $("#" + question);
+
+        const questionIdArray = question.split('-');
+        const questionIdPart = questionIdArray.slice(-1);
+
+        $.post("/Question/Delete", { id: questionIdPart }, () => {
+            targetQuestion.remove();
+        });
+    });
+
+    //// Question : Update
+    //$(document).on("focusout", ".question-label", function (e) {
+    //    const question = $(this).data("target-question");
+    //    const label = $(this).val()
+    //    const isMandatory = $(this).closest('.question-form-vc').find("input[type ='checkbox']".is(':checked');
+
+    //    const questionIdArray = question.split('-');
+    //    const questionIdPart = questionIdArray.slice(-1);
+
+    //    $.post("/Question/Update", { id: questionIdPart, label: label, isMandatory: isMandatory }, () => { });
+    //})
 
 
     // Field : Create 
