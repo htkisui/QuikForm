@@ -17,11 +17,11 @@ public class FormBusiness : IFormBusiness
         _formRepository = formRepository;
     }
 
-    public async Task<int> CreateAsync()
+    public async Task<Form> CreateAsync()
     {
         Form form = new Form { };
         await _formRepository.CreateAsync(form);
-        return form.Id;
+        return form;
     }
 
     public async Task<List<Form>> GetAllAsync()
@@ -32,5 +32,19 @@ public class FormBusiness : IFormBusiness
     public async Task<Form> GetByIdAsync(int id)
     {
         return await _formRepository.GetByIdAsync(id);
+    }
+
+    public async Task UpdateDescriptionAsync(int id, string description)
+    {
+        Form form = await _formRepository.GetByIdAsync(id);
+        form.Description = description;
+        await _formRepository.UpdateAsync(form);
+    }
+
+    public async Task UpdateTitleAsync(int id, string title)
+    {
+        Form form = await _formRepository.GetByIdAsync(id);
+        form.Title = title;
+        await _formRepository.UpdateAsync(form);
     }
 }
