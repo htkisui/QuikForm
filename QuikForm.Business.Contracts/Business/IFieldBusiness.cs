@@ -10,4 +10,5 @@ public interface IFieldBusiness
 {
     Task<Field> CreateAsync(int questionId);
     Task DeleteAsync(int id);
+    Task<Field> UpdateAsync(int id, string label);
 }

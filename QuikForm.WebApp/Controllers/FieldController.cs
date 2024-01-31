@@ -24,7 +24,7 @@ public class FieldController : Controller
             Field field = await _fieldBusiness.CreateAsync(questionId);
             FieldViewModel fieldViewModel = _fieldMapper.ToFieldViewModel(field);
 
-            return ViewComponent("FieldForm", new { fieldViewModel =  fieldViewModel});
+            return ViewComponent("FieldForm", new { fieldViewModel = fieldViewModel });
         }
         catch (Exception e)
         {
@@ -44,5 +44,21 @@ public class FieldController : Controller
         {
             return BadRequest(e.Message);
         }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Update(int id, string label)
+    {
+        try
+        {
+            await _fieldBusiness.UpdateAsync(id, label);
+            return NoContent();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+
+
     }
 }
