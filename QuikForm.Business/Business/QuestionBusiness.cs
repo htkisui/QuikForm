@@ -17,11 +17,10 @@ public class QuestionBusiness : IQuestionBusiness
         _questionRepository = questionRepository;
     }
 
-    public async Task<int> CreateAsync()
+    public async Task<Question> CreateAsync(int formId)
     {
-        Question question = new Question { IsMandatory = true };
-        await _questionRepository.CreateAsync(question);
-        return question.Id;
-
+        Question question = new Question { FormId = formId, InputTypeId = 1 };
+        Question questionWithInputType = await _questionRepository.CreateAsync(question);
+        return questionWithInputType;
     }
 }

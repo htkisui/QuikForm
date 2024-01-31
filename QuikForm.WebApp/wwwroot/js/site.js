@@ -1,13 +1,21 @@
 ﻿$(function () {
 
-    // Create Question
-    $("#create-question").on("click", (e) => {
-        $.post("/Question/Create", (data) => {
-            $("#question-form-list").append(data)
+    // Question : Create
+    $(document).on("click", ".create-question-button", function (e) {
+        const questionContainer = $(this).data("target-list");
+        const targetList = $("#" + questionContainer);
+
+        const formIdArray = questionContainer.split("-");
+        const questionIdPart = formIdArray.slice(-1);
+
+        $.post("/Question/Create", { formId: questionIdPart }, (data) => {
+            targetList.append(data);
         });
     });
 
-    // Create Field
+
+
+    // Field : Create 
     $(document).on("click", ".create-field-button", function (e) {
         const fieldContainer = $(this).data("target-list");
         const targetList = $("#" + fieldContainer);
@@ -15,16 +23,16 @@
         const questionIdArray = fieldContainer.split('-');
         const questionIdPart = questionIdArray.slice(-1);
 
-        $.post("/Field/Create", { questionId : questionIdPart } , (data) => {
+        $.post("/Field/Create", { questionId: questionIdPart }, (data) => {
             targetList.append(data);
         });
     });
 
-    // Delete Field
+    // Field : Delete 
     $(document).on("click", ".delete-field-button", function (e) {
         const field = $(this).data("target-field");
         const targetField = $("#" + field);
-      
+
         const fieldIdArray = field.split('-');
         const fieldIdPart = fieldIdArray.slice(-1);
 
@@ -33,7 +41,7 @@
         });
     });
 
-    // Update Field
+    // Field : Update 
     $(document).on("focusout", ".field-label", function (e) {
         const field = $(this).data("target-field");
 

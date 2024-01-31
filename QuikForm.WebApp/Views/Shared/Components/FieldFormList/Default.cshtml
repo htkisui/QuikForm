@@ -1,6 +1,6 @@
 ﻿@model List<FieldViewModel>
 <div class="field-form-list-vc">
-    <div id="field-form-list-@ViewBag.QuestionId" data-question-id="@ViewBag.QuestionId">
+    <div id="field-form-list-@ViewBag.QuestionId">
         @foreach (FieldViewModel fieldViewModel in Model)
         {
             <vc:field-form field-view-model="fieldViewModel" input-type-view-model="ViewBag.InputTypeViewModel" />
