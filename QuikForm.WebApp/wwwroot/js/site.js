@@ -20,4 +20,16 @@
         });
     });
 
+    // Delete Field
+    $(".delete-field-button").on("click", function (e) {
+        const field = $(this).data("target-field");
+        const targetField = $("." + field);
+      
+        let fieldIdArray = field.split('-');
+        const fieldIdPart = fieldIdArray.slice(-1);
+
+        $.post("/Field/Delete", { id: fieldIdPart }, () => {
+            targetField.remove();
+        });
+    });
 });

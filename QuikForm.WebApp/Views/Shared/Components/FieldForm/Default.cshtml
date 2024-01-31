@@ -1,5 +1,5 @@
 ﻿@model FieldViewModel;
-<p class="field-form-vc" style="display: flex; align-items: center">
+<p class="field-form-vc field-id-@Model.Id" style="display: flex; align-items: center">
     @*Display input type*@
     @if (ViewBag.MockInputType == "textarea")
     {
@@ -11,7 +11,6 @@
     }
     else
     {
-
         <input id="option-@Model.Id" type="@ViewBag.MockInputType" disabled />
     }
 
@@ -19,7 +18,6 @@
     @if (ViewBag.MockInputType != "text" || ViewBag.MockInputType != "textarea")
     {
         <input type="text" placeholder="@Model.Label" style="flex-grow:1;">
-        <i class="fa-solid fa-xmark" title="Supprimer la réponse"></i>
     }
-
+    <i class="fa-solid fa-xmark delete-field-button" data-target-field="field-id-@Model.Id" title="Supprimer la réponse"></i>
 </p>

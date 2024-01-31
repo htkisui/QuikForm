@@ -31,4 +31,18 @@ public class FieldController : Controller
             return BadRequest(e.Message);
         }
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
+        {
+            await _fieldBusiness.DeleteAsync(id);
+            return NoContent();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }

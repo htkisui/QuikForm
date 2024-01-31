@@ -9,4 +9,5 @@ namespace QuikForm.Business.Contracts.Business;
 public interface IFieldBusiness
 {
     Task<Field> CreateAsync(int questionId);
+    Task DeleteAsync(int id);
 }

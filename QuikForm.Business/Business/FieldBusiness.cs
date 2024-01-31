@@ -23,4 +23,9 @@ public class FieldBusiness : IFieldBusiness
         await _fieldRepository.CreateAsync(field);
         return field;
     }
+
+    public async Task DeleteAsync(int id)
+    {
+        await _fieldRepository.DeleteAsync(id);
+    }
 }
