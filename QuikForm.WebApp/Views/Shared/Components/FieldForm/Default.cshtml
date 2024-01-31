@@ -1,22 +1,22 @@
 ﻿@model FieldViewModel;
 <p class="field-form-vc" style="display: flex; align-items: center">
     @*Display input type*@
-    @if (ViewBag.InputType.Markup == "textarea")
+    @if (ViewBag.InputTypeViewModel.Markup == "textarea")
     {
         <textarea disabled></textarea>
     }
-    else if (ViewBag.InputType.Markup == "select")
+    else if (ViewBag.InputTypeViewModel.Markup == "select")
     {
         <input type="radio" disabled />
     }
     else
     {
 
-        <input id="option-@Model.Id" type="@ViewBag.InputType.Markup" disabled />
+        <input id="option-@Model.Id" type="@ViewBag.InputTypeViewModel.Markup" disabled />
     }
 
     @*Display label if needed*@
-    @if (ViewBag.InputType.Markup != "text" || ViewBag.InputType.Markup != "textarea")
+    @if (ViewBag.InputTypeViewModel.Markup != "text" || ViewBag.InputTypeViewModel.Markup != "textarea")
     {
         <input type="text" placeholder="@Model.Label" style="flex-grow:1;">
         <i class="fa-solid fa-xmark" title="Supprimer la réponse"></i>

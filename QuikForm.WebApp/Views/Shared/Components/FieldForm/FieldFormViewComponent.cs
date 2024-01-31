@@ -8,7 +8,7 @@ public class FieldFormViewComponent : ViewComponent
 {
     public async Task<IViewComponentResult> InvokeAsync(FieldViewModel fieldViewModel, InputTypeViewModel inputTypeViewModel)
     {
-        ViewBag.InputType = inputTypeViewModel;
+        ViewBag.InputTypeViewModel = inputTypeViewModel;
         return View(fieldViewModel);
     }
 }
