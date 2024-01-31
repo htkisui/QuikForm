@@ -24,10 +24,5 @@ public class AdminController : Controller
         return View(formViewModels);
     }
 
-    public async Task<IActionResult> Edit(int id)
-    {
-        Form form = await _formBusiness.GetByIdAsync(id);
-        FormViewModel formViewmodel = _formMapper.ToFormViewModel(form);
-        return View(formViewmodel);
-    }
+
 }

@@ -1,4 +1,23 @@
 ﻿$(function () {
+    // Form Title Update
+    $(document).on("focusout", "#title-content", function (e) {
+        const form = $(this).data("target-form");
+
+        const formIdArray = form.split('-');
+        const formIdPart = formIdArray.slice(-1);
+
+        $.post("/Form/UpdateTitle", { id: formIdPart, title: $(this).val() }, () => { });
+    })
+
+    // Form Description Update
+    $(document).on("focusout", "#description-content", function (e) {
+        const form = $(this).data("target-form");
+
+        const formIdArray = form.split('-');
+        const formIdPart = formIdArray.slice(-1);
+
+        $.post("/Form/UpdateDescription", { id: formIdPart, description: $(this).val() }, () => { });
+    })
 
     // Create Question
     $("#create-question").on("click", (e) => {

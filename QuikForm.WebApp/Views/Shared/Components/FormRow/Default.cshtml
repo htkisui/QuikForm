@@ -20,12 +20,12 @@
         }
         @if (Model.ClosedAt != null)
         {
-            <p>Cloturé</p>
+            <p>Clôturé</p>
         }
     </th>
     <th class="actions-col">
-        <button>Voir</button>
-        <a asp-controller="Admin" asp-action="Edit" asp-route-id="@Model.Id">Editer</a>
-        <button>Dupliquer</button>
+        <a href="#" role="button">Voir</a>
+        <a asp-controller="Form" asp-action="Edit" asp-route-id="@Model.Id" role="button">Editer</a>
+        <a href="#" role="button">Dupliquer</a>
     </th>
 </tr>
