@@ -9,9 +9,13 @@
 
     // Create Field
     $(".create-field-button").on("click", function (e) {
-        var questionId = $(this).data("target-list");
-        var targetList = $("#" + questionId);
-        $.post("/Field/Create", (data) => {
+        const fieldContainer = $(this).data("target-list");
+        const targetList = $("#" + fieldContainer);
+
+        let questionIdArray = fieldContainer.split('-');
+        const questionIdPart = questionIdArray.slice(-1);
+
+        $.post("/Field/Create", { questionId : questionIdPart } , (data) => {
             targetList.append(data);
         });
     });
