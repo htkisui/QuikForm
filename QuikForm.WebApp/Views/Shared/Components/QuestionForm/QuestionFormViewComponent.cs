@@ -1,37 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuikForm.Business.Contracts.Business;
+using QuikForm.Entities;
 using QuikForm.WebApp.Mappers.InputTypes;
 using QuikForm.WebApp.Models.InputTypes;
 using QuikForm.WebApp.Models.Questions;
+using QuikForm.WebApp.Services;
 
 namespace QuikForm.WebApp.Views.Shared.Components.QuestionForm;
 
 public class QuestionFormViewComponent : ViewComponent
 {
-    public async Task<IViewComponentResult> InvokeAsync(QuestionViewModel questionViewModel)
+    private readonly InputTypeService _inputTypeService;
+
+    public QuestionFormViewComponent(InputTypeService inputTypeService)
     {
-        var inputTypes = new List<string>()
-        {
-            "radio", "checkbox", "select", "text", "textarea"
-        };
-        ViewBag.InputTypes = inputTypes;
-        return View(questionViewModel);
+        _inputTypeService = inputTypeService;
     }
 
-    //private readonly IInputTypeBusiness _inputTypeBusiness;
-    //private readonly IInputTypeMapper _inputTypeMapper;
-
-    //public QuestionFormViewComponent(IInputTypeBusiness inputTypeBusiness, IInputTypeMapper inputTypeMapper)
-    //{
-    //    _inputTypeBusiness = inputTypeBusiness;
-    //    _inputTypeMapper = inputTypeMapper;
-    //}
-
-    //public async Task<IViewComponentResult> InvokeAsync(QuestionViewModel questionViewModel)
-    //{
-    //    List<InputType> inputTypes = await _inputTypeBusiness.GetAllAsync();
-    //    List<InputTypeViewModel> inputTypeViewModels = inputTypes.Select(i => _inputTypeMapper.ToInputTypeViewModel(i)).ToList();
-    //    ViewBag.InputTypes = inputTypeViewModels;
-    //    return View(questionViewModel);
-    //}
+    public async Task<IViewComponentResult> InvokeAsync(QuestionViewModel questionViewModel)
+    {
+        List<InputTypeViewModel> inputTypeViewModels = await _inputTypeService.GetAllAsync();
+        ViewBag.InputTypes = inputTypeViewModels;
+        return View(questionViewModel);
+    }
 }

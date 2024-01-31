@@ -6,10 +6,9 @@ namespace QuikForm.WebApp.Views.Shared.Components.FieldForm;
 
 public class FieldFormViewComponent : ViewComponent
 {
-    public async Task<IViewComponentResult> InvokeAsync(FieldViewModel fieldViewModel, InputTypeViewModel inputTypeViewModel = null)
+    public async Task<IViewComponentResult> InvokeAsync(FieldViewModel fieldViewModel, InputTypeViewModel inputTypeViewModel)
     {
-        ViewBag.InputType = inputTypeViewModel?.Name;
-        ViewBag.MockInputType = "radio"; //temp
+        ViewBag.InputTypeViewModel = inputTypeViewModel;
         return View(fieldViewModel);
     }
 }

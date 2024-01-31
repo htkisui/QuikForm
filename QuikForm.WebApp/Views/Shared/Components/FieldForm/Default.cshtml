@@ -1,21 +1,21 @@
 ﻿@model FieldViewModel;
 <p class="field-form-vc" id="field-id-@Model.Id" style="display: flex; align-items: center">
     @*Display input type*@
-    @if (ViewBag.MockInputType == "textarea")
+    @if (ViewBag.InputTypeViewModel.Markup == "textarea")
     {
         <textarea disabled></textarea>
     }
-    else if (ViewBag.MockInputType == "select")
+    else if (ViewBag.InputTypeViewModel.Markup == "select")
     {
         <input type="radio" disabled />
     }
     else
     {
-        <input id="option-@Model.Id" type="@ViewBag.MockInputType" disabled />
+        <input id="option-@Model.Id" type="@ViewBag.InputTypeViewModel.Markup" disabled />
     }
 
     @*Display label if needed*@
-    @if (ViewBag.MockInputType != "text" || ViewBag.MockInputType != "textarea")
+    @if (ViewBag.InputTypeViewModel.Markup != "text" || ViewBag.InputTypeViewModel.Markup != "textarea")
     {
         <input class="field-label" data-target-field="field-id-@Model.Id" type="text" placeholder="@Model.Label" style="flex-grow:1;">
     }

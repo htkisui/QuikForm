@@ -7,7 +7,9 @@ using QuikForm.Repositories.Repositories;
 using QuikForm.Repository.Contracts.Contracts;
 using QuikForm.WebApp.Mappers.Fields;
 using QuikForm.WebApp.Mappers.Forms;
+using QuikForm.WebApp.Mappers.InputTypes;
 using QuikForm.WebApp.Mappers.Questions;
+using QuikForm.WebApp.Services;
 using QuikForm.WebApp.Views.Shared.Components.QuestionForm;
 
 
@@ -40,8 +42,11 @@ builder.Services.AddTransient<IQuestionBusiness, QuestionBusiness>();
 builder.Services.AddScoped<IFormMapper, FormMapper>();
 builder.Services.AddScoped<IQuestionMapper, QuestionMapper>();
 builder.Services.AddScoped<IFieldMapper, FieldMapper>();
+builder.Services.AddScoped<IInputTypeMapper, InputTypeMapper>();
 
-builder.Services.AddTransient<QuestionFormViewComponent>();
+
+// Add Services
+builder.Services.AddScoped<InputTypeService>();
 
 var app = builder.Build();
 

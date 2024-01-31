@@ -3,7 +3,7 @@
     <div id="field-form-list-@ViewBag.QuestionId" data-question-id="@ViewBag.QuestionId">
         @foreach (FieldViewModel fieldViewModel in Model)
         {
-            <vc:field-form field-view-model="fieldViewModel" />
+            <vc:field-form field-view-model="fieldViewModel" input-type-view-model="ViewBag.InputTypeViewModel" />
         }
     </div>
     <p class="create-field-button" data-target-list="field-form-list-@ViewBag.QuestionId">

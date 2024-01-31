@@ -13,7 +13,11 @@ public class InputType
 
     //[Required]
     [MaxLength(255)]
-    public string? Name { get; set; }
+    public string? Label { get; set; }
+
+    //[Required]
+    [MaxLength(255)]
+    public string? Markup { get; set; }
 
     public List<Question> Questions { get; set; } = [];
 }
