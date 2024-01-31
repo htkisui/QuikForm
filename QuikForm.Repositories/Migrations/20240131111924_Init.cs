@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace QuikForm.Repositories.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -60,7 +60,8 @@ namespace QuikForm.Repositories.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true)
+                    Label = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    Markup = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -292,22 +293,22 @@ namespace QuikForm.Repositories.Migrations
                 columns: new[] { "Id", "ApplicationUserId", "ClosedAt", "CreatedAt", "Description", "PublishedAt", "Title", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1, null, null, new DateTime(2024, 1, 4, 15, 28, 43, 581, DateTimeKind.Unspecified).AddTicks(599), "Odit a vel quo autem rerum. Voluptatum velit minus unde. Rerum a perferendis sed et quas repellendus sapiente.", null, "Aut qui veniam error corporis.", new DateTime(2024, 1, 19, 9, 58, 55, 207, DateTimeKind.Unspecified).AddTicks(8455) },
-                    { 2, null, null, new DateTime(2024, 1, 3, 5, 1, 19, 289, DateTimeKind.Unspecified).AddTicks(1787), "Quod voluptatem qui. Sunt mollitia vel velit natus ullam non alias fugit ut. Quaerat nesciunt ad non et dolorem.", null, "Mollitia eaque molestias sit libero.", new DateTime(2024, 1, 24, 18, 24, 48, 791, DateTimeKind.Unspecified).AddTicks(4885) },
-                    { 3, null, null, new DateTime(2024, 1, 1, 17, 2, 18, 350, DateTimeKind.Unspecified).AddTicks(567), "Est eum qui modi repudiandae magni fugit. Recusandae reprehenderit quas aut aspernatur eum ipsam. Incidunt adipisci maiores sunt quos qui quasi fugit. Officiis veniam consectetur ea aliquid esse.", null, "Dolor alias molestiae voluptatum temporibus.", new DateTime(2024, 1, 28, 9, 47, 15, 655, DateTimeKind.Unspecified).AddTicks(1722) },
-                    { 4, null, null, new DateTime(2024, 1, 3, 6, 33, 44, 267, DateTimeKind.Unspecified).AddTicks(8513), "Quibusdam sed illo reprehenderit tempora. Quas repellat nulla autem nobis nobis in ab. Itaque possimus quidem amet consequatur molestias veritatis tempora facere ducimus.", null, "Et ut impedit beatae quaerat.", new DateTime(2024, 1, 17, 8, 15, 54, 757, DateTimeKind.Unspecified).AddTicks(1521) },
-                    { 5, null, null, new DateTime(2024, 1, 1, 11, 57, 27, 491, DateTimeKind.Unspecified).AddTicks(1749), "Magni consequatur est odit sed eligendi nulla nostrum enim. Maiores quasi tempora reprehenderit asperiores. Quisquam pariatur aut et voluptas et et aut fugit. Corporis pariatur sed ut doloribus autem incidunt ducimus est.", null, "Facere itaque illum non explicabo.", new DateTime(2024, 1, 10, 3, 2, 29, 677, DateTimeKind.Unspecified).AddTicks(1118) }
+                    { 1, null, null, new DateTime(2024, 1, 2, 1, 8, 35, 803, DateTimeKind.Unspecified).AddTicks(2559), "Incidunt sit corporis quod. In aliquid pariatur. In voluptas esse asperiores accusantium sit sunt velit est consectetur. Quia magnam pariatur.", null, "Voluptatem omnis magnam totam quis.", new DateTime(2024, 1, 16, 22, 21, 51, 460, DateTimeKind.Unspecified).AddTicks(4619) },
+                    { 2, null, null, new DateTime(2024, 1, 1, 16, 47, 4, 188, DateTimeKind.Unspecified).AddTicks(6931), "Maxime et qui ab qui. Laboriosam qui tempore sapiente itaque eius aut. Incidunt autem et dolorum autem nesciunt. Non omnis voluptas ut ex est atque. Minima consequatur aperiam quod enim nesciunt repellat in illum consequatur. Numquam voluptatem quia est asperiores hic.", null, "Ipsa nostrum ab eaque magni.", new DateTime(2024, 1, 25, 4, 24, 54, 785, DateTimeKind.Unspecified).AddTicks(8983) },
+                    { 3, null, null, new DateTime(2024, 1, 1, 19, 46, 20, 55, DateTimeKind.Unspecified).AddTicks(1316), "Nesciunt nostrum quaerat quasi hic molestiae magni. In et aut nam sed totam sunt qui. Qui asperiores doloremque cupiditate dolores explicabo aut a. Perspiciatis amet modi magni doloribus vitae molestiae nobis. Et omnis cupiditate sit ut blanditiis perspiciatis blanditiis. Earum vero tenetur eum veritatis quia autem beatae.", null, "Dignissimos quaerat mollitia et sed.", new DateTime(2024, 1, 24, 21, 58, 28, 945, DateTimeKind.Unspecified).AddTicks(5036) },
+                    { 4, null, null, new DateTime(2024, 1, 4, 15, 14, 30, 545, DateTimeKind.Unspecified).AddTicks(1839), "Tempore ut voluptas molestias. Est quia repellat excepturi. Blanditiis perferendis sunt. Tenetur eum iste officia ipsa architecto.", null, "Cum odio quo qui consequuntur.", new DateTime(2024, 1, 14, 21, 52, 13, 658, DateTimeKind.Unspecified).AddTicks(860) },
+                    { 5, null, null, new DateTime(2024, 1, 1, 18, 39, 13, 297, DateTimeKind.Unspecified).AddTicks(2110), "Voluptatem sunt sint. Vero vero soluta vel ullam. Et id praesentium non sequi qui eos illum omnis.", null, "Distinctio nam illo qui reprehenderit.", new DateTime(2024, 1, 28, 1, 7, 44, 57, DateTimeKind.Unspecified).AddTicks(8581) }
                 });
 
             migrationBuilder.InsertData(
                 table: "InputTypes",
-                columns: new[] { "Id", "Name" },
+                columns: new[] { "Id", "Label", "Markup" },
                 values: new object[,]
                 {
-                    { 1, "text" },
-                    { 2, "textarea" },
-                    { 3, "checkbox" },
-                    { 4, "radio" }
+                    { 1, "Champs texte", "text" },
+                    { 2, "Champs paragraphe", "textarea" },
+                    { 3, "Choix multiples", "checkbox" },
+                    { 4, "Choix unique", "radio" }
                 });
 
             migrationBuilder.InsertData(
@@ -315,26 +316,26 @@ namespace QuikForm.Repositories.Migrations
                 columns: new[] { "Id", "FormId", "InputTypeId", "IsMandatory", "Label" },
                 values: new object[,]
                 {
-                    { 1, 2, 3, false, "Nihil eos facere consequatur facere." },
-                    { 2, 5, 2, true, "Ut fuga molestias harum ad." },
-                    { 3, 3, 4, true, "Quod non ex quisquam minus." },
-                    { 4, 1, 4, true, "Beatae perferendis voluptatum voluptas tenetur." },
-                    { 5, 3, 4, true, "Iste magnam excepturi accusantium autem." },
-                    { 6, 4, 4, true, "Omnis rerum illo inventore dolorem." },
-                    { 7, 2, 4, false, "Fuga dolores reprehenderit ut numquam." },
-                    { 8, 5, 1, false, "Labore dolores fugit eum aliquam." },
-                    { 9, 5, 4, false, "Est cumque vel deserunt quo." },
-                    { 10, 2, 4, true, "At eligendi et consequatur aut." },
-                    { 11, 2, 3, true, "Porro dolorem ut vel doloremque." },
-                    { 12, 2, 3, true, "Vitae rerum et labore provident." },
-                    { 13, 4, 4, true, "Dolores similique vel saepe inventore." },
-                    { 14, 4, 4, true, "Nobis dolorum quidem cupiditate molestiae." },
-                    { 15, 2, 3, true, "Ipsam quis quo debitis facere." },
-                    { 16, 5, 2, true, "Consequatur est modi voluptates delectus." },
-                    { 17, 1, 2, false, "Quis blanditiis quasi quia numquam." },
-                    { 18, 1, 4, false, "Odit ipsam velit quisquam voluptas." },
-                    { 19, 4, 3, true, "Aut amet sit minima in." },
-                    { 20, 3, 2, false, "Natus et ex soluta asperiores." }
+                    { 1, 4, 3, false, "Quibusdam illo voluptate recusandae eligendi." },
+                    { 2, 3, 1, false, "Aperiam eum ullam quis ipsa." },
+                    { 3, 3, 3, false, "Voluptatum nihil provident veniam provident." },
+                    { 4, 5, 1, true, "Molestiae dolores nulla et minima." },
+                    { 5, 3, 2, true, "Sunt veritatis error delectus odio." },
+                    { 6, 5, 2, false, "Ducimus adipisci ratione ipsam et." },
+                    { 7, 5, 4, false, "Consequatur consequatur consequatur quia et." },
+                    { 8, 1, 3, true, "Earum explicabo amet iusto mollitia." },
+                    { 9, 2, 4, false, "Et quia et natus natus." },
+                    { 10, 4, 1, false, "Illo perspiciatis est molestias omnis." },
+                    { 11, 1, 1, true, "Consequatur et ipsa ad consequatur." },
+                    { 12, 5, 1, false, "Repellat consequuntur ex sit necessitatibus." },
+                    { 13, 5, 2, false, "Soluta odit omnis ratione ut." },
+                    { 14, 5, 3, false, "Corporis at voluptatibus rem beatae." },
+                    { 15, 5, 4, false, "Debitis minus non voluptatem rerum." },
+                    { 16, 1, 4, false, "Sed temporibus quis magni architecto." },
+                    { 17, 3, 4, true, "Laudantium rem consequuntur quibusdam ut." },
+                    { 18, 1, 4, true, "Quae et ut quia dolorum." },
+                    { 19, 1, 1, false, "Dolorem voluptatem quo eum et." },
+                    { 20, 5, 3, false, "Occaecati quos sit necessitatibus voluptates." }
                 });
 
             migrationBuilder.InsertData(
@@ -342,56 +343,56 @@ namespace QuikForm.Repositories.Migrations
                 columns: new[] { "Id", "Label", "QuestionId" },
                 values: new object[,]
                 {
-                    { 1, "Illo.", 13 },
-                    { 2, "Qui.", 3 },
-                    { 3, "Nobis.", 8 },
-                    { 4, "Natus.", 10 },
-                    { 5, "Est.", 1 },
-                    { 6, "Rem.", 6 },
-                    { 7, "Rerum.", 15 },
-                    { 8, "Ea.", 20 },
-                    { 9, "Omnis.", 10 },
-                    { 10, "Ipsum.", 17 },
-                    { 11, "Est.", 14 },
-                    { 12, "Mollitia.", 11 },
-                    { 13, "Molestias.", 10 },
-                    { 14, "Quia.", 6 },
-                    { 15, "Impedit.", 13 },
-                    { 16, "Voluptas.", 11 },
-                    { 17, "Est.", 9 },
-                    { 18, "Adipisci.", 19 },
-                    { 19, "Explicabo.", 12 },
-                    { 20, "Unde.", 20 },
-                    { 21, "Dolorem.", 4 },
-                    { 22, "Repellat.", 13 },
-                    { 23, "Nisi.", 5 },
-                    { 24, "Magnam.", 2 },
-                    { 25, "Rerum.", 9 },
-                    { 26, "Optio.", 12 },
-                    { 27, "Aut.", 19 },
-                    { 28, "At.", 8 },
-                    { 29, "Assumenda.", 1 },
-                    { 30, "Perferendis.", 13 },
-                    { 31, "Velit.", 18 },
-                    { 32, "Quia.", 19 },
-                    { 33, "Qui.", 7 },
-                    { 34, "Ullam.", 10 },
-                    { 35, "Maiores.", 9 },
-                    { 36, "Eum.", 3 },
-                    { 37, "Nobis.", 20 },
-                    { 38, "Occaecati.", 8 },
-                    { 39, "Amet.", 2 },
-                    { 40, "Velit.", 12 },
-                    { 41, "Necessitatibus.", 9 },
-                    { 42, "Aperiam.", 2 },
-                    { 43, "Quod.", 15 },
-                    { 44, "Voluptatem.", 16 },
-                    { 45, "Alias.", 18 },
-                    { 46, "Deserunt.", 1 },
-                    { 47, "Dolor.", 12 },
-                    { 48, "Perspiciatis.", 1 },
-                    { 49, "Sint.", 17 },
-                    { 50, "Ab.", 16 }
+                    { 1, "Aut.", 20 },
+                    { 2, "Distinctio.", 3 },
+                    { 3, "Magni.", 4 },
+                    { 4, "Id.", 2 },
+                    { 5, "Nobis.", 2 },
+                    { 6, "Et.", 15 },
+                    { 7, "Commodi.", 12 },
+                    { 8, "Aut.", 19 },
+                    { 9, "Et.", 12 },
+                    { 10, "Iste.", 3 },
+                    { 11, "Voluptatem.", 2 },
+                    { 12, "Qui.", 16 },
+                    { 13, "Porro.", 3 },
+                    { 14, "Itaque.", 15 },
+                    { 15, "Earum.", 2 },
+                    { 16, "Veniam.", 19 },
+                    { 17, "Velit.", 18 },
+                    { 18, "Dolor.", 8 },
+                    { 19, "Qui.", 7 },
+                    { 20, "Ut.", 18 },
+                    { 21, "Nihil.", 6 },
+                    { 22, "Eum.", 8 },
+                    { 23, "Blanditiis.", 13 },
+                    { 24, "Ratione.", 16 },
+                    { 25, "Eaque.", 15 },
+                    { 26, "Eveniet.", 2 },
+                    { 27, "Sint.", 19 },
+                    { 28, "Soluta.", 7 },
+                    { 29, "Et.", 9 },
+                    { 30, "Eveniet.", 2 },
+                    { 31, "Voluptatibus.", 18 },
+                    { 32, "Incidunt.", 6 },
+                    { 33, "Officia.", 8 },
+                    { 34, "Est.", 13 },
+                    { 35, "Vitae.", 16 },
+                    { 36, "Provident.", 2 },
+                    { 37, "Facere.", 10 },
+                    { 38, "Et.", 9 },
+                    { 39, "In.", 1 },
+                    { 40, "Debitis.", 12 },
+                    { 41, "Vitae.", 5 },
+                    { 42, "At.", 1 },
+                    { 43, "Ut.", 8 },
+                    { 44, "Sed.", 12 },
+                    { 45, "Sit.", 11 },
+                    { 46, "Esse.", 17 },
+                    { 47, "Est.", 5 },
+                    { 48, "Ut.", 5 },
+                    { 49, "Quasi.", 19 },
+                    { 50, "Nulla.", 8 }
                 });
 
             migrationBuilder.CreateIndex(

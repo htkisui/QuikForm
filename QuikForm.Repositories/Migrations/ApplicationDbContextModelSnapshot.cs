@@ -252,302 +252,302 @@ namespace QuikForm.Repositories.Migrations
                         new
                         {
                             Id = 1,
-                            Label = "Illo.",
-                            QuestionId = 13
+                            Label = "Aut.",
+                            QuestionId = 20
                         },
                         new
                         {
                             Id = 2,
-                            Label = "Qui.",
+                            Label = "Distinctio.",
                             QuestionId = 3
                         },
                         new
                         {
                             Id = 3,
-                            Label = "Nobis.",
-                            QuestionId = 8
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Label = "Natus.",
-                            QuestionId = 10
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Label = "Est.",
-                            QuestionId = 1
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Label = "Rem.",
-                            QuestionId = 6
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Label = "Rerum.",
-                            QuestionId = 15
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Label = "Ea.",
-                            QuestionId = 20
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Label = "Omnis.",
-                            QuestionId = 10
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Label = "Ipsum.",
-                            QuestionId = 17
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Label = "Est.",
-                            QuestionId = 14
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Label = "Mollitia.",
-                            QuestionId = 11
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Label = "Molestias.",
-                            QuestionId = 10
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Label = "Quia.",
-                            QuestionId = 6
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Label = "Impedit.",
-                            QuestionId = 13
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Label = "Voluptas.",
-                            QuestionId = 11
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Label = "Est.",
-                            QuestionId = 9
-                        },
-                        new
-                        {
-                            Id = 18,
-                            Label = "Adipisci.",
-                            QuestionId = 19
-                        },
-                        new
-                        {
-                            Id = 19,
-                            Label = "Explicabo.",
-                            QuestionId = 12
-                        },
-                        new
-                        {
-                            Id = 20,
-                            Label = "Unde.",
-                            QuestionId = 20
-                        },
-                        new
-                        {
-                            Id = 21,
-                            Label = "Dolorem.",
+                            Label = "Magni.",
                             QuestionId = 4
                         },
                         new
                         {
-                            Id = 22,
-                            Label = "Repellat.",
-                            QuestionId = 13
-                        },
-                        new
-                        {
-                            Id = 23,
-                            Label = "Nisi.",
-                            QuestionId = 5
-                        },
-                        new
-                        {
-                            Id = 24,
-                            Label = "Magnam.",
+                            Id = 4,
+                            Label = "Id.",
                             QuestionId = 2
                         },
                         new
                         {
-                            Id = 25,
-                            Label = "Rerum.",
-                            QuestionId = 9
+                            Id = 5,
+                            Label = "Nobis.",
+                            QuestionId = 2
                         },
                         new
                         {
-                            Id = 26,
-                            Label = "Optio.",
+                            Id = 6,
+                            Label = "Et.",
+                            QuestionId = 15
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Label = "Commodi.",
                             QuestionId = 12
                         },
                         new
                         {
-                            Id = 27,
+                            Id = 8,
                             Label = "Aut.",
                             QuestionId = 19
                         },
                         new
                         {
-                            Id = 28,
-                            Label = "At.",
-                            QuestionId = 8
+                            Id = 9,
+                            Label = "Et.",
+                            QuestionId = 12
                         },
                         new
                         {
-                            Id = 29,
-                            Label = "Assumenda.",
-                            QuestionId = 1
+                            Id = 10,
+                            Label = "Iste.",
+                            QuestionId = 3
                         },
                         new
                         {
-                            Id = 30,
-                            Label = "Perferendis.",
-                            QuestionId = 13
+                            Id = 11,
+                            Label = "Voluptatem.",
+                            QuestionId = 2
                         },
                         new
                         {
-                            Id = 31,
+                            Id = 12,
+                            Label = "Qui.",
+                            QuestionId = 16
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Label = "Porro.",
+                            QuestionId = 3
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Label = "Itaque.",
+                            QuestionId = 15
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Label = "Earum.",
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Label = "Veniam.",
+                            QuestionId = 19
+                        },
+                        new
+                        {
+                            Id = 17,
                             Label = "Velit.",
                             QuestionId = 18
                         },
                         new
                         {
-                            Id = 32,
-                            Label = "Quia.",
-                            QuestionId = 19
+                            Id = 18,
+                            Label = "Dolor.",
+                            QuestionId = 8
                         },
                         new
                         {
-                            Id = 33,
+                            Id = 19,
                             Label = "Qui.",
                             QuestionId = 7
                         },
                         new
                         {
-                            Id = 34,
-                            Label = "Ullam.",
-                            QuestionId = 10
+                            Id = 20,
+                            Label = "Ut.",
+                            QuestionId = 18
                         },
                         new
                         {
-                            Id = 35,
-                            Label = "Maiores.",
-                            QuestionId = 9
+                            Id = 21,
+                            Label = "Nihil.",
+                            QuestionId = 6
                         },
                         new
                         {
-                            Id = 36,
+                            Id = 22,
                             Label = "Eum.",
-                            QuestionId = 3
-                        },
-                        new
-                        {
-                            Id = 37,
-                            Label = "Nobis.",
-                            QuestionId = 20
-                        },
-                        new
-                        {
-                            Id = 38,
-                            Label = "Occaecati.",
                             QuestionId = 8
                         },
                         new
                         {
-                            Id = 39,
-                            Label = "Amet.",
+                            Id = 23,
+                            Label = "Blanditiis.",
+                            QuestionId = 13
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Label = "Ratione.",
+                            QuestionId = 16
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Label = "Eaque.",
+                            QuestionId = 15
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Label = "Eveniet.",
                             QuestionId = 2
                         },
                         new
                         {
+                            Id = 27,
+                            Label = "Sint.",
+                            QuestionId = 19
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Label = "Soluta.",
+                            QuestionId = 7
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Label = "Et.",
+                            QuestionId = 9
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Label = "Eveniet.",
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Label = "Voluptatibus.",
+                            QuestionId = 18
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Label = "Incidunt.",
+                            QuestionId = 6
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Label = "Officia.",
+                            QuestionId = 8
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Label = "Est.",
+                            QuestionId = 13
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Label = "Vitae.",
+                            QuestionId = 16
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Label = "Provident.",
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Label = "Facere.",
+                            QuestionId = 10
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Label = "Et.",
+                            QuestionId = 9
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Label = "In.",
+                            QuestionId = 1
+                        },
+                        new
+                        {
                             Id = 40,
-                            Label = "Velit.",
+                            Label = "Debitis.",
                             QuestionId = 12
                         },
                         new
                         {
                             Id = 41,
-                            Label = "Necessitatibus.",
-                            QuestionId = 9
+                            Label = "Vitae.",
+                            QuestionId = 5
                         },
                         new
                         {
                             Id = 42,
-                            Label = "Aperiam.",
-                            QuestionId = 2
+                            Label = "At.",
+                            QuestionId = 1
                         },
                         new
                         {
                             Id = 43,
-                            Label = "Quod.",
-                            QuestionId = 15
+                            Label = "Ut.",
+                            QuestionId = 8
                         },
                         new
                         {
                             Id = 44,
-                            Label = "Voluptatem.",
-                            QuestionId = 16
-                        },
-                        new
-                        {
-                            Id = 45,
-                            Label = "Alias.",
-                            QuestionId = 18
-                        },
-                        new
-                        {
-                            Id = 46,
-                            Label = "Deserunt.",
-                            QuestionId = 1
-                        },
-                        new
-                        {
-                            Id = 47,
-                            Label = "Dolor.",
+                            Label = "Sed.",
                             QuestionId = 12
                         },
                         new
                         {
-                            Id = 48,
-                            Label = "Perspiciatis.",
-                            QuestionId = 1
+                            Id = 45,
+                            Label = "Sit.",
+                            QuestionId = 11
                         },
                         new
                         {
-                            Id = 49,
-                            Label = "Sint.",
+                            Id = 46,
+                            Label = "Esse.",
                             QuestionId = 17
                         },
                         new
                         {
+                            Id = 47,
+                            Label = "Est.",
+                            QuestionId = 5
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Label = "Ut.",
+                            QuestionId = 5
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Label = "Quasi.",
+                            QuestionId = 19
+                        },
+                        new
+                        {
                             Id = 50,
-                            Label = "Ab.",
-                            QuestionId = 16
+                            Label = "Nulla.",
+                            QuestionId = 8
                         });
                 });
 
@@ -609,42 +609,42 @@ namespace QuikForm.Repositories.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 1, 4, 15, 28, 43, 581, DateTimeKind.Unspecified).AddTicks(599),
-                            Description = "Odit a vel quo autem rerum. Voluptatum velit minus unde. Rerum a perferendis sed et quas repellendus sapiente.",
-                            Title = "Aut qui veniam error corporis.",
-                            UpdatedAt = new DateTime(2024, 1, 19, 9, 58, 55, 207, DateTimeKind.Unspecified).AddTicks(8455)
+                            CreatedAt = new DateTime(2024, 1, 2, 1, 8, 35, 803, DateTimeKind.Unspecified).AddTicks(2559),
+                            Description = "Incidunt sit corporis quod. In aliquid pariatur. In voluptas esse asperiores accusantium sit sunt velit est consectetur. Quia magnam pariatur.",
+                            Title = "Voluptatem omnis magnam totam quis.",
+                            UpdatedAt = new DateTime(2024, 1, 16, 22, 21, 51, 460, DateTimeKind.Unspecified).AddTicks(4619)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 1, 3, 5, 1, 19, 289, DateTimeKind.Unspecified).AddTicks(1787),
-                            Description = "Quod voluptatem qui. Sunt mollitia vel velit natus ullam non alias fugit ut. Quaerat nesciunt ad non et dolorem.",
-                            Title = "Mollitia eaque molestias sit libero.",
-                            UpdatedAt = new DateTime(2024, 1, 24, 18, 24, 48, 791, DateTimeKind.Unspecified).AddTicks(4885)
+                            CreatedAt = new DateTime(2024, 1, 1, 16, 47, 4, 188, DateTimeKind.Unspecified).AddTicks(6931),
+                            Description = "Maxime et qui ab qui. Laboriosam qui tempore sapiente itaque eius aut. Incidunt autem et dolorum autem nesciunt. Non omnis voluptas ut ex est atque. Minima consequatur aperiam quod enim nesciunt repellat in illum consequatur. Numquam voluptatem quia est asperiores hic.",
+                            Title = "Ipsa nostrum ab eaque magni.",
+                            UpdatedAt = new DateTime(2024, 1, 25, 4, 24, 54, 785, DateTimeKind.Unspecified).AddTicks(8983)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 1, 1, 17, 2, 18, 350, DateTimeKind.Unspecified).AddTicks(567),
-                            Description = "Est eum qui modi repudiandae magni fugit. Recusandae reprehenderit quas aut aspernatur eum ipsam. Incidunt adipisci maiores sunt quos qui quasi fugit. Officiis veniam consectetur ea aliquid esse.",
-                            Title = "Dolor alias molestiae voluptatum temporibus.",
-                            UpdatedAt = new DateTime(2024, 1, 28, 9, 47, 15, 655, DateTimeKind.Unspecified).AddTicks(1722)
+                            CreatedAt = new DateTime(2024, 1, 1, 19, 46, 20, 55, DateTimeKind.Unspecified).AddTicks(1316),
+                            Description = "Nesciunt nostrum quaerat quasi hic molestiae magni. In et aut nam sed totam sunt qui. Qui asperiores doloremque cupiditate dolores explicabo aut a. Perspiciatis amet modi magni doloribus vitae molestiae nobis. Et omnis cupiditate sit ut blanditiis perspiciatis blanditiis. Earum vero tenetur eum veritatis quia autem beatae.",
+                            Title = "Dignissimos quaerat mollitia et sed.",
+                            UpdatedAt = new DateTime(2024, 1, 24, 21, 58, 28, 945, DateTimeKind.Unspecified).AddTicks(5036)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 1, 3, 6, 33, 44, 267, DateTimeKind.Unspecified).AddTicks(8513),
-                            Description = "Quibusdam sed illo reprehenderit tempora. Quas repellat nulla autem nobis nobis in ab. Itaque possimus quidem amet consequatur molestias veritatis tempora facere ducimus.",
-                            Title = "Et ut impedit beatae quaerat.",
-                            UpdatedAt = new DateTime(2024, 1, 17, 8, 15, 54, 757, DateTimeKind.Unspecified).AddTicks(1521)
+                            CreatedAt = new DateTime(2024, 1, 4, 15, 14, 30, 545, DateTimeKind.Unspecified).AddTicks(1839),
+                            Description = "Tempore ut voluptas molestias. Est quia repellat excepturi. Blanditiis perferendis sunt. Tenetur eum iste officia ipsa architecto.",
+                            Title = "Cum odio quo qui consequuntur.",
+                            UpdatedAt = new DateTime(2024, 1, 14, 21, 52, 13, 658, DateTimeKind.Unspecified).AddTicks(860)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 1, 1, 11, 57, 27, 491, DateTimeKind.Unspecified).AddTicks(1749),
-                            Description = "Magni consequatur est odit sed eligendi nulla nostrum enim. Maiores quasi tempora reprehenderit asperiores. Quisquam pariatur aut et voluptas et et aut fugit. Corporis pariatur sed ut doloribus autem incidunt ducimus est.",
-                            Title = "Facere itaque illum non explicabo.",
-                            UpdatedAt = new DateTime(2024, 1, 10, 3, 2, 29, 677, DateTimeKind.Unspecified).AddTicks(1118)
+                            CreatedAt = new DateTime(2024, 1, 1, 18, 39, 13, 297, DateTimeKind.Unspecified).AddTicks(2110),
+                            Description = "Voluptatem sunt sint. Vero vero soluta vel ullam. Et id praesentium non sequi qui eos illum omnis.",
+                            Title = "Distinctio nam illo qui reprehenderit.",
+                            UpdatedAt = new DateTime(2024, 1, 28, 1, 7, 44, 57, DateTimeKind.Unspecified).AddTicks(8581)
                         });
                 });
 
@@ -656,7 +656,11 @@ namespace QuikForm.Repositories.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Label")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Markup")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -668,22 +672,26 @@ namespace QuikForm.Repositories.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "text"
+                            Label = "Champs texte",
+                            Markup = "text"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "textarea"
+                            Label = "Champs paragraphe",
+                            Markup = "textarea"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "checkbox"
+                            Label = "Choix multiples",
+                            Markup = "checkbox"
                         },
                         new
                         {
                             Id = 4,
-                            Name = "radio"
+                            Label = "Choix unique",
+                            Markup = "radio"
                         });
                 });
 
@@ -720,162 +728,162 @@ namespace QuikForm.Repositories.Migrations
                         new
                         {
                             Id = 1,
-                            FormId = 2,
+                            FormId = 4,
                             InputTypeId = 3,
                             IsMandatory = false,
-                            Label = "Nihil eos facere consequatur facere."
+                            Label = "Quibusdam illo voluptate recusandae eligendi."
                         },
                         new
                         {
                             Id = 2,
-                            FormId = 5,
-                            InputTypeId = 2,
-                            IsMandatory = true,
-                            Label = "Ut fuga molestias harum ad."
+                            FormId = 3,
+                            InputTypeId = 1,
+                            IsMandatory = false,
+                            Label = "Aperiam eum ullam quis ipsa."
                         },
                         new
                         {
                             Id = 3,
                             FormId = 3,
-                            InputTypeId = 4,
-                            IsMandatory = true,
-                            Label = "Quod non ex quisquam minus."
+                            InputTypeId = 3,
+                            IsMandatory = false,
+                            Label = "Voluptatum nihil provident veniam provident."
                         },
                         new
                         {
                             Id = 4,
-                            FormId = 1,
-                            InputTypeId = 4,
+                            FormId = 5,
+                            InputTypeId = 1,
                             IsMandatory = true,
-                            Label = "Beatae perferendis voluptatum voluptas tenetur."
+                            Label = "Molestiae dolores nulla et minima."
                         },
                         new
                         {
                             Id = 5,
                             FormId = 3,
-                            InputTypeId = 4,
+                            InputTypeId = 2,
                             IsMandatory = true,
-                            Label = "Iste magnam excepturi accusantium autem."
+                            Label = "Sunt veritatis error delectus odio."
                         },
                         new
                         {
                             Id = 6,
-                            FormId = 4,
-                            InputTypeId = 4,
-                            IsMandatory = true,
-                            Label = "Omnis rerum illo inventore dolorem."
+                            FormId = 5,
+                            InputTypeId = 2,
+                            IsMandatory = false,
+                            Label = "Ducimus adipisci ratione ipsam et."
                         },
                         new
                         {
                             Id = 7,
-                            FormId = 2,
+                            FormId = 5,
                             InputTypeId = 4,
                             IsMandatory = false,
-                            Label = "Fuga dolores reprehenderit ut numquam."
+                            Label = "Consequatur consequatur consequatur quia et."
                         },
                         new
                         {
                             Id = 8,
-                            FormId = 5,
-                            InputTypeId = 1,
-                            IsMandatory = false,
-                            Label = "Labore dolores fugit eum aliquam."
+                            FormId = 1,
+                            InputTypeId = 3,
+                            IsMandatory = true,
+                            Label = "Earum explicabo amet iusto mollitia."
                         },
                         new
                         {
                             Id = 9,
-                            FormId = 5,
+                            FormId = 2,
                             InputTypeId = 4,
                             IsMandatory = false,
-                            Label = "Est cumque vel deserunt quo."
+                            Label = "Et quia et natus natus."
                         },
                         new
                         {
                             Id = 10,
-                            FormId = 2,
-                            InputTypeId = 4,
-                            IsMandatory = true,
-                            Label = "At eligendi et consequatur aut."
+                            FormId = 4,
+                            InputTypeId = 1,
+                            IsMandatory = false,
+                            Label = "Illo perspiciatis est molestias omnis."
                         },
                         new
                         {
                             Id = 11,
-                            FormId = 2,
-                            InputTypeId = 3,
+                            FormId = 1,
+                            InputTypeId = 1,
                             IsMandatory = true,
-                            Label = "Porro dolorem ut vel doloremque."
+                            Label = "Consequatur et ipsa ad consequatur."
                         },
                         new
                         {
                             Id = 12,
-                            FormId = 2,
-                            InputTypeId = 3,
-                            IsMandatory = true,
-                            Label = "Vitae rerum et labore provident."
+                            FormId = 5,
+                            InputTypeId = 1,
+                            IsMandatory = false,
+                            Label = "Repellat consequuntur ex sit necessitatibus."
                         },
                         new
                         {
                             Id = 13,
-                            FormId = 4,
-                            InputTypeId = 4,
-                            IsMandatory = true,
-                            Label = "Dolores similique vel saepe inventore."
+                            FormId = 5,
+                            InputTypeId = 2,
+                            IsMandatory = false,
+                            Label = "Soluta odit omnis ratione ut."
                         },
                         new
                         {
                             Id = 14,
-                            FormId = 4,
-                            InputTypeId = 4,
-                            IsMandatory = true,
-                            Label = "Nobis dolorum quidem cupiditate molestiae."
+                            FormId = 5,
+                            InputTypeId = 3,
+                            IsMandatory = false,
+                            Label = "Corporis at voluptatibus rem beatae."
                         },
                         new
                         {
                             Id = 15,
-                            FormId = 2,
-                            InputTypeId = 3,
-                            IsMandatory = true,
-                            Label = "Ipsam quis quo debitis facere."
+                            FormId = 5,
+                            InputTypeId = 4,
+                            IsMandatory = false,
+                            Label = "Debitis minus non voluptatem rerum."
                         },
                         new
                         {
                             Id = 16,
-                            FormId = 5,
-                            InputTypeId = 2,
-                            IsMandatory = true,
-                            Label = "Consequatur est modi voluptates delectus."
+                            FormId = 1,
+                            InputTypeId = 4,
+                            IsMandatory = false,
+                            Label = "Sed temporibus quis magni architecto."
                         },
                         new
                         {
                             Id = 17,
-                            FormId = 1,
-                            InputTypeId = 2,
-                            IsMandatory = false,
-                            Label = "Quis blanditiis quasi quia numquam."
+                            FormId = 3,
+                            InputTypeId = 4,
+                            IsMandatory = true,
+                            Label = "Laudantium rem consequuntur quibusdam ut."
                         },
                         new
                         {
                             Id = 18,
                             FormId = 1,
                             InputTypeId = 4,
-                            IsMandatory = false,
-                            Label = "Odit ipsam velit quisquam voluptas."
+                            IsMandatory = true,
+                            Label = "Quae et ut quia dolorum."
                         },
                         new
                         {
                             Id = 19,
-                            FormId = 4,
-                            InputTypeId = 3,
-                            IsMandatory = true,
-                            Label = "Aut amet sit minima in."
+                            FormId = 1,
+                            InputTypeId = 1,
+                            IsMandatory = false,
+                            Label = "Dolorem voluptatem quo eum et."
                         },
                         new
                         {
                             Id = 20,
-                            FormId = 3,
-                            InputTypeId = 2,
+                            FormId = 5,
+                            InputTypeId = 3,
                             IsMandatory = false,
-                            Label = "Natus et ex soluta asperiores."
+                            Label = "Occaecati quos sit necessitatibus voluptates."
                         });
                 });
 

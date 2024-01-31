@@ -2,5 +2,7 @@
 
 public class InputTypeViewModel
 {
-    public string Name { get; set; } = null!;
+    public int Id { get; set; }
+    public string Label { get; set; } = null!;
+    public string Markup { get; set; } = null!;
 }

@@ -46,7 +46,8 @@ public class InputTypeRepository : IInputTypeRepository
     public async Task<InputType> UpdateAsync(InputType inputType)
     {
         InputType inputTypeToUpdate = await _context.InputTypes.FirstOrDefaultAsync(i => i.Id == inputType.Id) ?? throw new InputTypeNotFoundException();
-        inputTypeToUpdate.Name = inputType.Name;
+        inputTypeToUpdate.Label = inputType.Label;
+        inputTypeToUpdate.Markup = inputType.Markup;
 
         await _context.SaveChangesAsync();
         return inputTypeToUpdate;

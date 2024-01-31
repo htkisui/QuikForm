@@ -5,16 +5,19 @@
         <div class="question-label">
             <input asp-for="Label" type="text" placeholder="Entrez votre question" />
             <select name="question-type" id="question-type-select">
-                @foreach (string inputType in ViewBag.InputTypes)
+                @foreach (InputTypeViewModel inputTypeViewModel in ViewBag.InputTypes)
                 {
-                    <option value="@inputType">@inputType</option>
+                    @if (Model.InputTypeViewModel.Id == inputTypeViewModel.Id)
+                    {
+                        <option value="@inputTypeViewModel.Markup" selected>@inputTypeViewModel.Label</option>
+                    }
+                    else
+                    {
+                        <option value="@inputTypeViewModel.Markup">@inputTypeViewModel.Label</option>
+                    }
                 }
-                @* @foreach (InputTypeViewModel inputTypeViewModel in ViewBag.InputTypes)
-                {
-                    <option value="@inputTypeViewModel.Name">@inputTypeViewModel.Name</option>
-                } *@
             </select>
-         <vc:field-form-list field-view-models="Model.FieldViewModels" question-id="Model.Id"/>
+            <vc:field-form-list field-view-models="Model.FieldViewModels" question-id="Model.Id" />
         </div>
         <div class="mandatory-trash">
             <div>

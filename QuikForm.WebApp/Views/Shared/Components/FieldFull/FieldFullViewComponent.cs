@@ -6,9 +6,9 @@ namespace QuikForm.WebApp.Views.Shared.Components.FieldFull;
 
 public class FieldFullViewComponent : ViewComponent
 {
-    public IViewComponentResult Invoke(FieldViewModel fieldViewModel, InputTypeViewModel? inputTypeViewModel = null)
+    public IViewComponentResult Invoke(FieldViewModel fieldViewModel, InputTypeViewModel? inputTypeViewModel)
     {
-        ViewBag.InputType = inputTypeViewModel?.Name;
+        ViewBag.InputType = inputTypeViewModel;
         ViewBag.MockInputType = "checkbox"; //temp (update in cshtml too)
         return View(fieldViewModel);
     }

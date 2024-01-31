@@ -60,10 +60,10 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
     private List<InputType> CreateInputTypes()
     {
         return new List<InputType>() {
-            new InputType { Id = 1, Name ="text" },
-            new InputType { Id = 2, Name ="textarea" },
-            new InputType { Id = 3, Name ="checkbox" },
-            new InputType { Id = 4, Name ="radio" },
+            new InputType { Id = 1, Label = "Champs texte", Markup ="text" },
+            new InputType { Id = 2, Label = "Champs paragraphe", Markup ="textarea" },
+            new InputType { Id = 3, Label = "Choix multiples", Markup = "checkbox" },
+            new InputType { Id = 4, Label = "Choix unique", Markup = "radio" },
        };
     }
 
@@ -89,7 +89,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
             .RuleFor(fo => fo.Description, fa => fa.Lorem.Paragraph())
             .RuleFor(fo => fo.CreatedAt, fa => fa.Date.Between(DateTime.Parse("2024/01/01"), DateTime.Parse("2024/01/05")))
             .RuleFor(fo => fo.UpdatedAt, fa => fa.Date.Between(DateTime.Parse("2024/01/10"), DateTime.Now));
-            //.RuleFor(fo => fo.ApplicationUserId, fa => 1);
+        //.RuleFor(fo => fo.ApplicationUserId, fa => 1);
 
         return formFaker.Generate(FORM_NUMBER);
     }
