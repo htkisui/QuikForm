@@ -17,10 +17,22 @@ public class FieldBusiness : IFieldBusiness
         _fieldRepository = fieldRepository;
     }
 
-    public async Task<int> CreateAsync()
+    public async Task<Field> CreateAsync(int questionId)
     {
-        Field field = new Field { };
+        Field field = new Field { QuestionId = questionId};
         await _fieldRepository.CreateAsync(field);
-        return field.Id;
+        return field;
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+        await _fieldRepository.DeleteAsync(id);
+    }
+
+    public async Task<Field> UpdateAsync(int id, string label)
+    {
+        Field field = new Field() { Id = id, Label = label };
+        await _fieldRepository.UpdateAsync(field);
+        return field;
     }
 }
