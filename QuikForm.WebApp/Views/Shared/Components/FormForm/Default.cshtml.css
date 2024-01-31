@@ -1,0 +1,14 @@
+﻿.form-form-vc {
+    padding:2.5rem;
+}
+
+input[type=text] {
+    --background-color: #003D53;
+}
+
+@media (prefers-color-scheme: dark) {
+    .form-form-vc {
+        background-color: #003D53;
+    }
+}
+
