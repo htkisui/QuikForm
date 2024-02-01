@@ -15,7 +15,7 @@ public interface IFormBusiness
     Task<Form> CreateAsync();
 
     /// <summary>
-    /// Delete form and its children and its children's children (questions and fields)
+    /// Delete form and its children and its children's children (questions and fields).
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
@@ -35,19 +35,34 @@ public interface IFormBusiness
     Task<Form> GetByIdAsync(int id);
 
     /// <summary>
-    /// Update Title of Form
+    /// Sets Form ClosedAt property to DateTime.Now.
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="title"></param>
+    /// <param name="id">Form Id</param>
     /// <returns></returns>
-
-    Task UpdateTitleAsync(int id,  string title);
+    Task UpdateClosedAt(int id);
 
     /// <summary>
-    /// Update Description of Form
+    /// Update Description of Form.
     /// </summary>
     /// <param name="id"></param>
     /// <param name="description"></param>
     /// <returns></returns>
-    Task UpdateDescriptionAsync(int id,  string description);
+    Task UpdateDescriptionAsync(int id, string description);
+
+    /// <summary>
+    /// Sets PublishedAt Form property to Date.Now.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    Task UpdatePublishedAt(int id);
+
+    /// <summary>
+    /// Update Title of Form.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="title"></param>
+    /// <returns></returns>
+    Task UpdateTitleAsync(int id, string title);
+
+
 }

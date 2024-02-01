@@ -29,12 +29,6 @@ public class FormRepository : IFormRepository
 
     public async Task DeleteAsync(int id)
     {
-        List<Question> questionsOfForm = await _context.Forms
-                                                      .Where(f => f.Id == id)
-                                                      .SelectMany(f => f.Questions)
-                                                      .ToListAsync();
-        _context.Questions.RemoveRange(questionsOfForm);
-        await _context.SaveChangesAsync();
         Form formToDelete = await _context.Forms.FirstOrDefaultAsync(f => f.Id == id) ?? throw new FormNotFoundException();
         _context.Forms.Remove(formToDelete);
         await _context.SaveChangesAsync();
