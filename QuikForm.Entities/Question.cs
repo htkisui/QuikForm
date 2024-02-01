@@ -21,14 +21,14 @@ public class Question
 
 
     //[Required]
-    public int? FormId { get; set; }
+    public int FormId { get; set; }
 
     public Form Form { get; set; } = null!;
 
     public List<Field> Fields { get; set; } = [];
 
     //[Required]
-    public int? InputTypeId { get; set; }
+    public int InputTypeId { get; set; }
 
     public InputType InputType { get; set; } = null!;
 }

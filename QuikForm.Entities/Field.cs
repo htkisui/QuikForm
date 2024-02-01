@@ -16,7 +16,7 @@ public class Field
     public string? Label { get; set; } = null!;
 
     //[Required]
-    public int? QuestionId { get; set; }
+    public int QuestionId { get; set; }
 
     public Question Question { get; set; } = null!;
 
