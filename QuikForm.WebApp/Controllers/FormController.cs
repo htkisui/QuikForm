@@ -77,4 +77,32 @@ public class FormController : Controller
             return BadRequest(e.Message);
         }
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Close(FormViewModel formViewModel)
+    {
+        try
+        {
+            await _formBusiness.UpdateClosedAt(formViewModel.Id);
+            return RedirectToAction("Index", "Admin");
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Publish(FormViewModel formViewModel)
+    {
+        try
+        {
+            await _formBusiness.UpdatePublishedAt(formViewModel.Id);
+            return RedirectToAction("Index", "Admin");
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }
