@@ -8,8 +8,7 @@
         Description
         <textarea asp-for="Description" placeholder="Entrez votre description" id="description-content" data-target-form="form-id-@Model.Id"></textarea>
     </label>
-    <hr />
-    <vc:question-form-list question-view-models="Model.QuestionViewModels" />
+    <vc:question-form-list question-view-models="Model.QuestionViewModels" form-id="@Model.Id" />
     <div class="submits">
         <form asp-controller="Form" asp-action="Publish">
             <input type="hidden" asp-for="Id" />
@@ -20,7 +19,6 @@
             <button role="button">Clôturer</button>
         </form>
         <form asp-controller="Form" asp-action="Delete">
-             @* @Html.AntiForgeryToken(); *@
             <input type="hidden" asp-for="Id" />
             <button role="button">Supprimer</button>
         </form>

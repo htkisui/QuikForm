@@ -62,7 +62,6 @@ public class FormController : Controller
         }
     }
 
-    //[ValidateAntiForgeryToken]
     [HttpPost]
     public async Task<IActionResult> Delete(FormViewModel formViewModel)
     {
