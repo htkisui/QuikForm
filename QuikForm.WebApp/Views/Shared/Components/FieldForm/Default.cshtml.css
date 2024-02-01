@@ -1,11 +1,12 @@
 ﻿.field-form-vc {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     justify-items: center;
     gap: .7rem;
 }
 
 input {
-    margin:0;
+    margin: 0;
+    flex-grow: 1;
 }

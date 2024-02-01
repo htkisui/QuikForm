@@ -1,5 +1,5 @@
 ﻿@model FieldViewModel;
-<p class="field-form-vc" id="field-id-@Model.Id" style="display: flex; align-items: center">
+<p class="field-form-vc" id="field-id-@Model.Id">
     @*Display input type*@
     @if (ViewBag.InputTypeViewModel.Markup == "textarea")
     {
@@ -15,9 +15,9 @@
     }
 
     @*Display label if needed*@
-    @if (ViewBag.InputTypeViewModel.Markup != "text" || ViewBag.InputTypeViewModel.Markup != "textarea")
+    @if (ViewBag.InputTypeViewModel.Markup != "text" && ViewBag.InputTypeViewModel.Markup != "textarea")
     {
-        <input class="field-label" data-target-field="field-id-@Model.Id" type="text" placeholder="@Model.Label" style="flex-grow:1;">
+        <input class="field-label" data-target-field="field-id-@Model.Id" type="text" placeholder="@Model.Label" >
     }
     <i class="fa-solid fa-xmark delete-field-button" data-target-field="field-id-@Model.Id" title="Supprimer la réponse"></i>
 </p>
