@@ -24,6 +24,11 @@ public class FormBusiness : IFormBusiness
         return form;
     }
 
+    public async Task DeleteAsync(int id)
+    {
+        await _formRepository.DeleteAsync(id);
+    }
+
     public async Task<List<Form>> GetAllAsync()
     {
         return await _formRepository.GetAllAsync();

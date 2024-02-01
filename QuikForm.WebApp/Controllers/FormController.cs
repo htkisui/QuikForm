@@ -61,4 +61,20 @@ public class FormController : Controller
             return BadRequest(e.Message);
         }
     }
+
+    //[ValidateAntiForgeryToken]
+    [HttpPost]
+    public async Task<IActionResult> Delete(FormViewModel formViewModel)
+    {
+        try
+        {
+            await _formBusiness.DeleteAsync(formViewModel.Id);
+            TempData["deletedMessage"] = "Formulaire supprimé";
+            return RedirectToAction("Index", "Admin");
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }

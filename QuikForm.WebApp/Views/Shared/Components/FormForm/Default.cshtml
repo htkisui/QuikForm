@@ -1,15 +1,28 @@
 ﻿@model FormViewModel
 <section class="form-form-vc form-id-@Model.Id">
-    <form asp-controller="" asp-action="">
-        <label>
-            Titre
-            <input asp-for="Title" placeholder="Entrez votre titre" id="title-content" data-target-form="form-id-@Model.Id" />
-        </label>
-        <label>
-            Description
-            <textarea asp-for="Description" placeholder="Entrez votre description" id="description-content" data-target-form="form-id-@Model.Id"></textarea>
-        </label>
-        <hr/>
-        <vc:question-form-list question-view-models="Model.QuestionViewModels"/>
-    </form>
+    <label>
+        Titre
+        <input asp-for="Title" placeholder="Entrez votre titre" id="title-content" data-target-form="form-id-@Model.Id" />
+    </label>
+    <label>
+        Description
+        <textarea asp-for="Description" placeholder="Entrez votre description" id="description-content" data-target-form="form-id-@Model.Id"></textarea>
+    </label>
+    <hr />
+    <vc:question-form-list question-view-models="Model.QuestionViewModels" />
+    <div class="submits">
+        <form asp-controller="Form" asp-action="Publish">
+            <input type="hidden" asp-for="Id" />
+            <button role="button">Publier</button>
+        </form>
+        <form asp-controller="Form" asp-action="Close">
+            <input type="hidden" asp-for="Id" />
+            <button role="button">Clôturer</button>
+        </form>
+        <form asp-controller="Form" asp-action="Delete">
+             @* @Html.AntiForgeryToken(); *@
+            <input type="hidden" asp-for="Id" />
+            <button role="button">Supprimer</button>
+        </form>
+    </div>
 </section>
