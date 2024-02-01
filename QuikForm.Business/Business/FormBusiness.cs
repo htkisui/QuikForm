@@ -24,6 +24,11 @@ public class FormBusiness : IFormBusiness
         return form;
     }
 
+    public async Task DeleteAsync(int id)
+    {
+        await _formRepository.DeleteAsync(id);
+    }
+
     public async Task<List<Form>> GetAllAsync()
     {
         return await _formRepository.GetAllAsync();
@@ -34,10 +39,24 @@ public class FormBusiness : IFormBusiness
         return await _formRepository.GetByIdAsync(id);
     }
 
+    public async Task UpdateClosedAt(int id)
+    {
+        Form form = await _formRepository.GetByIdAsync(id);
+        form.ClosedAt = DateTime.Now;
+        await _formRepository.UpdateAsync(form);
+    }
+
     public async Task UpdateDescriptionAsync(int id, string description)
     {
         Form form = await _formRepository.GetByIdAsync(id);
         form.Description = description;
+        await _formRepository.UpdateAsync(form);
+    }
+
+    public async Task UpdatePublishedAt(int id)
+    {
+        Form form = await _formRepository.GetByIdAsync(id);
+        form.PublishedAt = DateTime.Now;
         await _formRepository.UpdateAsync(form);
     }
 
