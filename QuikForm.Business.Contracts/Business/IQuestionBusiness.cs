@@ -13,7 +13,7 @@ public interface IQuestionBusiness
     /// </summary>
     /// <param name="fromId"></param>
     /// <returns>The question with its InputType.</returns>
-    Task<Question> CreateAsync(int fromId);
+    Task<Question> CreateAsync(int formId);
 
     /// <summary>
     /// Deleted a question ans its fields.
