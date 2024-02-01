@@ -48,29 +48,6 @@ public class QuestionController : Controller
         }
     }
 
-    //[HttpPost]
-    //public async Task<IActionResult> Update(int id, string label, bool isMandatory)
-    //{
-    //    try
-    //    {
-    //        Question question = await _questionBusiness.Questions.FirstOrDefaultAsync(q => q.Id == id);
-    //        if (question != null)
-    //        {
-    //            question.Label = label;
-    //            question.IsMandatory = isMandatory;
-    //            await _questionBusiness.UpdateAsync(question);
-
-    //            QuestionViewModel questionViewModel = _questionMapper.ToQuestionViewModel(question);
-    //            return Ok(questionViewModel);
-    //        }
-    //        return NotFound();
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        return BadRequest(e.Message);
-    //    }
-    //}
-
     [HttpPost]
     public async Task<IActionResult> UpdateLabel(int id, string label)
     {
