@@ -42,6 +42,11 @@ public class InputTypeRepository : IInputTypeRepository
         InputType inputType = await _context.InputTypes.FirstOrDefaultAsync(i => i.Id == id) ?? throw new InputTypeNotFoundException();
         return inputType;
     }
+    public async Task<InputType> GetByMarkupAsync(string inputTypeMarkup)
+    {
+        InputType inputType = await _context.InputTypes.FirstOrDefaultAsync(i => EF.Functions.Like(i.Markup, $"%{inputTypeMarkup}%")) ?? throw new InputTypeNotFoundException();
+        return inputType;
+    }
 
     public async Task<InputType> UpdateAsync(InputType inputType)
     {
