@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuikForm.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,4 +13,6 @@ public interface IQuestionBusiness
     /// </summary>
     /// <returns>Id of new question.</returns>
     Task<int> CreateAsync();
+
+    Task<Question> GetByIdAsync(int id);
 }

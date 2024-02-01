@@ -39,7 +39,7 @@ public class QuestionRepository : IQuestionRepository
 
     public async Task<Question> GetByIdAsync(int id)
     {
-        Question question = await _context.Questions.FirstOrDefaultAsync(q => q.Id == id) ?? throw new QuestionNotFoundException();
+        Question question = await _context.Questions.Include(q => q.InputType).FirstOrDefaultAsync(q => q.Id == id) ?? throw new QuestionNotFoundException();
         return question;
     }
 
