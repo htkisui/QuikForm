@@ -21,10 +21,19 @@
 <body>
     <header>
         <nav class="container">
-            <a class="quikform" asp-area="" asp-controller="Home" asp-action="Index">QuikForm</a>
-            <ul class="navbar-nav flex-grow-1">
+            <div class="home-logo">
+                <a class="quikform" asp-area="" asp-controller="Home" asp-action="Index" style="display: flex;
+                                        justify-items: center;
+                                        align-content: center;
+                                        gap: .5rem;
+                                        color: #EEF4F6">
+                    <img src="/images/file-logo.svg" class="logo-file" />
+                    <span class="quikform-home-link">QuikForm</span>
+                </a>
+            </div>
+            <ul>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-controller="Admin" asp-action="Index">Tableau de bord</a>
+                    <a class="nav-link text-dark" asp-controller="Admin" asp-action="Index" style="color: #EEF4F6; line-height:1;">Tableau de bord</a>
                 </li>
                 <partial name="_LoginPartial" />
             </ul>
@@ -34,7 +43,14 @@
         @RenderBody()
     </main>
     <footer>
-        <img src="/images/logo-round.svg"/>
+        <div class="container center-content">
+            <div class="footer-center">
+                <img class="logo-footer" src="/images/logo-round.svg" />
+                <div>
+                    Sarah LÉON / Elsa THIÉVET / Daniel VU
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
