@@ -16,8 +16,8 @@ public class Question
     [MaxLength(255)]
     public string? Label { get; set; }
 
-    //[Required]
-    public bool? IsMandatory { get; set; }
+    [Required]
+    public bool IsMandatory { get; set; }
 
 
     //[Required]

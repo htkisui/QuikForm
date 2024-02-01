@@ -26,18 +26,27 @@
         });
     });
 
-    //// Question : Update
-    //$(document).on("focusout", ".question-label", function (e) {
-    //    const question = $(this).data("target-question");
-    //    const label = $(this).val()
-    //    const isMandatory = $(this).closest('.question-form-vc').find("input[type ='checkbox']".is(':checked');
+    // Question : UpdateLabel
+    $(document).on("focusout", ".question-label", function (e) {
+        const question = $(this).data("target-question");
+        const label = $(this).val();
 
-    //    const questionIdArray = question.split('-');
-    //    const questionIdPart = questionIdArray.slice(-1);
+        const questionIdArray = question.split('-');
+        const questionIdPart = questionIdArray.slice(-1);
 
-    //    $.post("/Question/Update", { id: questionIdPart, label: label, isMandatory: isMandatory }, () => { });
-    //})
+        $.post("/Question/UpdateLabel", { id: questionIdPart, label: label }, () => { });
+    })
 
+    // Question : UpdateIsMandatory
+    $(document).on("change", ".question-IsMandatory", function (e) {
+        const question = $(this).data("target-question");
+        const isMandatory = $(this).is(':checked');
+
+        const questionIdArray = question.split('-');
+        const questionIdPart = questionIdArray.slice(-1);
+
+        $.post("/Question/UpdateIsMandatory", { id: questionIdPart, isMandatory: isMandatory }, () => { });
+    })
 
     // Field : Create 
     $(document).on("click", ".create-field-button", function (e) {

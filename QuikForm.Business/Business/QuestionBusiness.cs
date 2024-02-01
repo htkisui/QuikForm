@@ -19,7 +19,7 @@ public class QuestionBusiness : IQuestionBusiness
 
     public async Task<Question> CreateAsync(int formId)
     {
-        Question question = new Question { FormId = formId, InputTypeId = 1 };
+        Question question = new Question { FormId = formId, InputTypeId = 1, IsMandatory = false };
         Question questionWithInputType = await _questionRepository.CreateAsync(question);
         return questionWithInputType;
     }
@@ -29,10 +29,19 @@ public class QuestionBusiness : IQuestionBusiness
         await _questionRepository.DeleteAsync(id);
     }
 
-    //public async Task<Question> UpdateAsync(int id, string label, bool isMandatory)
-    //{
-    //    Question question = new Question {  Id = id, Label = label, IsMandatory = isMandatory };
-    //    await _questionRepository.UpdateAsync(question);
-    //    return question;
-    //}
+    public async Task<Question> UpdateLabelAsync(int id, string label)
+    {
+        Question question = await _questionRepository.GetByIdAsync(id);
+        question.Label = label;
+        await _questionRepository.UpdateAsync(question);
+        return question;
+    }
+
+    public async Task<Question> UpdateIsMandatoryAsync(int id, bool isMandatory)
+    {
+        Question question = await _questionRepository.GetByIdAsync(id);
+        question.IsMandatory = isMandatory;
+        await _questionRepository.UpdateAsync(question);
+        return question;
+    }
 }

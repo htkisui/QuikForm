@@ -72,19 +72,31 @@ public class QuestionController : Controller
     //}
 
     [HttpPost]
-    public async Task<IActionResult> Update(int id, string label, bool isMandatory)
+    public async Task<IActionResult> UpdateLabel(int id, string label)
     {
         try
         {
-            await _questionBusiness.UpdateAsync(id, label, isMandatory);
+            await _questionBusiness.UpdateLabelAsync(id, label);
             return NoContent();
         }
         catch (Exception e)
         {
             return BadRequest(e.Message);
         }
+    }
 
-
+    [HttpPost]
+    public async Task<IActionResult> UpdateIsMandatory(int id, bool isMandatory)
+    {
+        try
+        {
+            await _questionBusiness.UpdateIsMandatoryAsync(id, isMandatory);
+            return NoContent();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 
 }
