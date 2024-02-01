@@ -1,4 +1,6 @@
 ﻿@model List<FormViewModel>
 
-<form asp-controller="Form" asp-action="Create" role="button">Nouveau formulaire</form>
+<form asp-controller="Form" asp-action="Create">
+    <button role="button">Nouveau formulaire</button>
+</form>
 <vc:form-table form-view-models="Model" />
