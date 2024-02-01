@@ -21,6 +21,8 @@ public interface IQuestionBusiness
     /// <param name="id"></param>
     Task DeleteAsync(int id);
 
+    Task<Question> GetByIdAsync(int id);
+
     Task<Question> UpdateLabelAsync(int id, string label);
 
     Task<Question> UpdateIsMandatoryAsync(int id, bool isMandatory);
