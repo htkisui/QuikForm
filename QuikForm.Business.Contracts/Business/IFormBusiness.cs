@@ -15,6 +15,13 @@ public interface IFormBusiness
     Task<Form> CreateAsync();
 
     /// <summary>
+    /// Delete form and its children and its children's children (questions and fields)
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    Task DeleteAsync(int id);
+
+    /// <summary>
     /// Get all forms.
     /// </summary>
     /// <returns>List of forms.</returns>
