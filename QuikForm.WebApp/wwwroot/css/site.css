@@ -29,4 +29,13 @@ body {
     html {
         background-color: #0F2E38;
     }
+
+    header, footer {
+        background-color: #003D53;
+    }
+
+    footer img {
+        width: 15%;
+        border: solid, red, 30px;
+    }
 }

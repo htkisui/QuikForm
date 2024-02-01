@@ -878,11 +878,11 @@ audio:not([controls]) {
   border-style: none;
 }
 
-img {
+/*img {
   max-width: 100%;
   height: auto;
   border-style: none;
-}
+}*/
 
 :where(svg:not([fill])) {
   fill: currentColor;

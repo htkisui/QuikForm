@@ -1,8 +1,19 @@
-﻿﻿.grid-container {
+﻿/*form table﻿*/
+.grid-container {
     display: grid;
-    grid-template-columns: 6fr 2fr 2fr 2fr;
+    grid-template-columns: 6fr 2.5fr 2fr 2fr;
     gap: 5px;
     align-items: center;
+}
+
+    .grid-container div {
+        font-size: 1.4rem;
+        padding: 1rem 0;
+    }
+
+/*dark*/
+.form-table-vc :first-child {
+    background-color: #003D53;
 }
 
 .title-col {

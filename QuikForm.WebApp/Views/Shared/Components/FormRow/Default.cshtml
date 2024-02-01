@@ -1,31 +1,42 @@
 ﻿@model FormViewModel
 
-<tr class="form-row-vc">
-    <th class="title-col"><p>@Model.Title</p></th>
-    <th class="date-col">
+<div class="form-row-vc">
+    <div class="title-content">@Model.Title</div>
+    <div class="date-content">
         @if (@Model.UpdatedAt == null)
         {
-            @Model.UpdatedAt
+            @Model.UpdatedAt.ToString("dd/MM/yy")
         }
-        @Model.CreatedAt
-    </th>
-    <th class="status-col">
-        @if (Model.PublishedAt == null & Model.ClosedAt == null)
-        {
-            <p>Brouillon</p>
-        }
-        @if (Model.PublishedAt != null & Model.ClosedAt == null)
-        {
-            <p>Publié</p>
-        }
-        @if (Model.ClosedAt != null)
-        {
-            <p>Clôturé</p>
-        }
-    </th>
-    <th class="actions-col">
-        <a href="#" role="button">Voir</a>
-        <a asp-controller="Form" asp-action="Edit" asp-route-id="@Model.Id" role="button">Editer</a>
-        <a href="#" role="button">Dupliquer</a>
-    </th>
-</tr>
+        @Model.CreatedAt.ToString("dd/MM/yy")
+    </div>
+
+    @if (Model.PublishedAt == null & Model.ClosedAt == null)
+    {
+        <div class="status-content">Brouillon</div>
+    }
+    @if (Model.PublishedAt != null & Model.ClosedAt == null)
+    {
+        <div class="status-content">Publié</div>
+    }
+    @if (Model.ClosedAt != null)
+    {
+        <div class="status-content">Clôturé</div>
+    }
+    <div class="actions">
+        <span class="icon">
+            <a href="#">
+                <img src="~/images/read-icon.svg" title="Voir" class="icon" />
+            </a>
+        </span>
+        <span class="icon">
+            <a asp-controller="Form" asp-action="Edit" asp-route-id="@Model.Id">
+                <img src="~/images/edit-icon.svg" title="Éditer" class="icon" />
+            </a>
+        </span>
+        <span class="icon">
+            <a href="#">
+                <img src="~/images/duplicate-icon.svg" title="Dupliquer" class="icon" />
+            </a>
+        </span>
+    </div>
+</div>

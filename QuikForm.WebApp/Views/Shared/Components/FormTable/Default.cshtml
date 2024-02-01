@@ -1,17 +1,14 @@
 ﻿@model List<FormViewModel>
 
-<table class="form-table-vc">
-    <tr class="grid-container">
-        <th class="title-col">Titre</th>
-        <th class="date-col">Date de Dernière Modification</th>
-        <th class="status-col">Statut</th>
-        <th class="actions-col">Actions</th>
-
-    </tr>
-    <tbody>
-        @foreach (FormViewModel form in Model)
-        {
-            <vc:form-row form-view-model="form" />
-        }
-    </tbody>
-</table>
+<section class="form-table-vc">
+    <div class="grid-container">
+        <div class="title-col">Titre</div>
+        <div class="date-col">Dernière modification</div>
+        <div class="status-col">Statut</div>
+        <div class="actions-col">Actions</div>
+    </div>
+    @foreach (FormViewModel form in Model)
+    {
+        <vc:form-row form-view-model="form" class="form-row-vc"/>
+    }
+</section>

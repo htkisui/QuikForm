@@ -1,20 +1,27 @@
 ﻿﻿.form-row-vc {
     display: grid;
-    grid-template-columns: 6fr 2fr 2fr 2fr;
+    grid-template-columns: 6fr 2.5fr 2fr 2fr;
     gap: 5px;
     align-items: center;
 }
 
-.title-col {
+.title-content {
     text-align: start;
 }
 
-.date-col status-col actions-col {
-    text-align: center;
+.date-content, .status-content {
+    text-align: start;
 }
 
-.actions-col {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 5px;
+span.icon {
+    background-color: #EEF4F6;
+    margin-left: .5rem;
+    border-radius: 30%;
+    text-align: end;
+    padding: .2rem;
+}
+
+span > img {
+    max-width: none;
+    box-sizing: border-box;
 }

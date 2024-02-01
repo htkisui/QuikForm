@@ -24,8 +24,4 @@
     <ProjectReference Include="..\QuikForm.Repositories\QuikForm.Repositories.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
 </Project>
