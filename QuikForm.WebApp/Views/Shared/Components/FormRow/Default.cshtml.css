@@ -1,8 +1,10 @@
 ﻿﻿.form-row-vc {
     display: grid;
-    grid-template-columns: 6fr 2.5fr 2fr 2fr;
+    grid-template-columns: 6fr 2.5fr 1.5fr 1.5fr;
     gap: 5px;
     align-items: center;
+    border-bottom: solid .5px rgba(231, 249, 255, 0.26);
+    padding: 1rem 0;
 }
 
 .title-content {
@@ -16,9 +18,9 @@
 span.icon {
     background-color: #EEF4F6;
     margin-left: .5rem;
-    border-radius: 30%;
+    border-radius: 20%;
     text-align: end;
-    padding: .2rem;
+    padding: .2rem 0 .3rem 0;
 }
 
 span > img {

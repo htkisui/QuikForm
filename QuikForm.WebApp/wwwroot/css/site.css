@@ -1,29 +1,64 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+/*header*/
+
+header {
+    padding: 0;
+    margin-bottom: 3rem;
 }
 
 .quikform {
-    font-family: 'Rubik Mono One', monospace; 
+    font-family: 'Rubik Mono One', monospace;
 }
+
+.home-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-file {
+    height: 2.5rem;
+}
+
+.quikform-home-link {
+    font-size: 2rem;
+}
+
+header, footer {
+    padding: 3rem 0;
+    margin: 0;
+}
+
+/*main*/
+main {
+    margin: 3rem 0;
+}
+
+/*footer*/
+footer img {
+    margin-bottom: 2rem;
+}
+
+footer div.footer-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 @media (prefers-color-scheme: dark) {
     html {
@@ -34,8 +69,7 @@ body {
         background-color: #003D53;
     }
 
-    footer img {
-        width: 15%;
-        border: solid, red, 30px;
-    }
+        footer img {
+            width: 20%;
+        }
 }
