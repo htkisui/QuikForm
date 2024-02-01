@@ -10,6 +10,6 @@
             <textarea asp-for="Description" placeholder="Entrez votre description" id="description-content" data-target-form="form-id-@Model.Id"></textarea>
         </label>
         <hr/>
-        <vc:question-form-list question-view-models="Model.QuestionViewModels"/>
+        <vc:question-form-list question-view-models="Model.QuestionViewModels" form-id="Model.Id"/>
     </form>
 </section>

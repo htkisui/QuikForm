@@ -12,7 +12,8 @@ public interface IQuestionRepository
     /// Create a new question.
     /// </summary>
     /// <param name="question"></param>
-    Task CreateAsync(Question question);
+    /// <returns>The question with its InputType</returns>
+    Task<Question> CreateAsync(Question question);
 
     /// <summary>
     /// Delete a question and its fields.

@@ -60,10 +60,10 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
     private List<InputType> CreateInputTypes()
     {
         return new List<InputType>() {
-            new InputType { Id = 1, Label = "Champs texte", Markup ="text" },
-            new InputType { Id = 2, Label = "Champs paragraphe", Markup ="textarea" },
-            new InputType { Id = 3, Label = "Choix multiples", Markup = "checkbox" },
-            new InputType { Id = 4, Label = "Choix unique", Markup = "radio" },
+            new InputType { Id = 1, Label = "Choix unique", Markup = "radio" },
+            new InputType { Id = 2, Label = "Choix multiples", Markup = "checkbox" },
+            new InputType { Id = 3, Label = "Champs texte", Markup ="text" },
+            new InputType { Id = 4, Label = "Champs paragraphe", Markup ="textarea" },
        };
     }
 

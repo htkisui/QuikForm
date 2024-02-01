@@ -19,10 +19,11 @@ public class QuestionRepository : IQuestionRepository
         _context = context;
     }
 
-    public async Task CreateAsync(Question question)
+    public async Task<Question> CreateAsync(Question question)
     {
         await _context.Questions.AddAsync(question);
         await _context.SaveChangesAsync();
+        return await _context.Questions.Include(q => q.InputType).FirstOrDefaultAsync(q => q.Id == question.Id) ?? throw new QuestionNotFoundException();
     }
 
     public async Task DeleteAsync(int id)

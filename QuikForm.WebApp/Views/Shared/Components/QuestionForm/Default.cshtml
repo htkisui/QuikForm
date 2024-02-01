@@ -1,32 +1,37 @@
 ﻿@model QuestionViewModel
 
-<div class="question-form-vc">
-    <form>
-        <div class="question-label">
-            <input asp-for="Label" type="text" placeholder="Entrez votre question" />
-            <select name="question-type" id="question-type-select">
-                @foreach (InputTypeViewModel inputTypeViewModel in ViewBag.InputTypes)
+<div class="question-form-vc" id="question-id-@Model.Id">
+    <div class="question-label">
+        <input asp-for="Label" class="question-label" type="text" data-target-question="question-id-@Model.Id" placeholder="Entrez votre question" />
+        <select name="question-type" id="question-type-select">
+            @foreach (InputTypeViewModel inputTypeViewModel in ViewBag.InputTypes)
+            {
+                @if (Model.InputTypeViewModel.Id == inputTypeViewModel.Id)
                 {
-                    @if (Model.InputTypeViewModel.Id == inputTypeViewModel.Id)
-                    {
-                        <option value="@inputTypeViewModel.Markup" selected>@inputTypeViewModel.Label</option>
-                    }
-                    else
-                    {
-                        <option value="@inputTypeViewModel.Markup">@inputTypeViewModel.Label</option>
-                    }
+                    <option value="@inputTypeViewModel.Markup" selected>@inputTypeViewModel.Label</option>
                 }
-            </select>
-            <vc:field-form-list field-view-models="Model.FieldViewModels" question-id="Model.Id" input-type-view-model="Model.InputTypeViewModel"/>
+                else
+                {
+                    <option value="@inputTypeViewModel.Markup">@inputTypeViewModel.Label</option>
+                }
+            }
+        </select>
+        <vc:field-form-list field-view-models="Model.FieldViewModels" question-id="Model.Id" input-type-view-model="Model.InputTypeViewModel" />
+    </div>
+    <div class="mandatory-trash">
+        <div type="text">
+            <label>
+                Obligatoire
+                @if (Model.IsMandatory)
+                {
+                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" type="checkbox" role="switch" checked />
+                }
+                else
+                {
+                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" type="checkbox" role="switch" />
+                }
+            </label>
         </div>
-        <div class="mandatory-trash">
-            <div>
-                <label for="switch">
-                    Obligatoire
-                    <input type="checkbox" id="switch" name="switch" role="switch" />
-                </label>
-            </div>
-            <div class="trash"><i class="fa-regular fa-trash-can"></i></div>
-        </div>
-    </form>
+        <div class="trash delete-question-button" data-target-question="question-id-@Model.Id"><i class="fa-regular fa-trash-can"></i></div>
+    </div>
 </div>
