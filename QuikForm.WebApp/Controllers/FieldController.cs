@@ -2,18 +2,24 @@
 using QuikForm.Business.Contracts.Business;
 using QuikForm.Entities;
 using QuikForm.WebApp.Mappers.Fields;
+using QuikForm.WebApp.Mappers.Questions;
 using QuikForm.WebApp.Models.Fields;
+using QuikForm.WebApp.Models.Questions;
 
 namespace QuikForm.WebApp.Controllers;
 public class FieldController : Controller
 {
     private readonly IFieldBusiness _fieldBusiness;
+    private readonly IQuestionBusiness _questionBusiness;
     private readonly IFieldMapper _fieldMapper;
+    private readonly IQuestionMapper _questionMapper;
 
-    public FieldController(IFieldBusiness fieldBusiness, IFieldMapper fieldMapper)
+    public FieldController(IFieldBusiness fieldBusiness, IQuestionBusiness questionBusiness, IFieldMapper fieldMapper, IQuestionMapper questionMapper)
     {
         _fieldBusiness = fieldBusiness;
+        _questionBusiness = questionBusiness;
         _fieldMapper = fieldMapper;
+        _questionMapper = questionMapper;
     }
 
     [HttpPost]
@@ -24,7 +30,10 @@ public class FieldController : Controller
             Field field = await _fieldBusiness.CreateAsync(questionId);
             FieldViewModel fieldViewModel = _fieldMapper.ToFieldViewModel(field);
 
-            return ViewComponent("FieldForm", new { fieldViewModel = fieldViewModel });
+            Question question = await _questionBusiness.GetByIdAsync(questionId);
+            QuestionViewModel questionViewModel = _questionMapper.ToQuestionViewModel(question);
+
+            return ViewComponent("FieldForm", new { fieldViewModel = fieldViewModel, inputTypeViewModel = questionViewModel.InputTypeViewModel });
         }
         catch (Exception e)
         {

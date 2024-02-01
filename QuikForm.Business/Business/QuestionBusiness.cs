@@ -44,4 +44,9 @@ public class QuestionBusiness : IQuestionBusiness
         await _questionRepository.UpdateAsync(question);
         return question;
     }
+
+    public async Task<Question> GetByIdAsync(int id)
+    {
+        return await _questionRepository.GetByIdAsync(id);
+    }
 }
