@@ -56,6 +56,22 @@
         $.post("/Question/UpdateLabel", { id: questionIdPart, label: label }, () => { });
     })
 
+    // Question : UpdateInputType
+    $(document).on("change", ".question-type-select", function (e) {
+        const question = $(this).data("target-question");
+        const inputTypeMarkup = $(this).val();
+
+
+        const questionIdArray = question.split('-');
+        const questionIdPart = questionIdArray.slice(-1);
+
+        const fieldFormList = $("#field-form-list-" + questionIdPart);
+
+        $.post("/Question/UpdateInputType", { id: questionIdPart, inputTypeMarkup: inputTypeMarkup }, () => { });
+        $.post("/Question/DeleteFields", { id: questionIdPart }, (data) => { fieldFormList.remove() });
+    })
+
+
     // Question : UpdateIsMandatory
     $(document).on("change", ".question-IsMandatory", function (e) {
         const question = $(this).data("target-question");
