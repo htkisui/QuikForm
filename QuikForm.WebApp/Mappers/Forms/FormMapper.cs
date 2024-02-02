@@ -11,6 +11,7 @@ public partial class FormMapper : IFormMapper
     public partial Form ToForm(FormViewModel formViewModel);
 
     private partial FormViewModel ToFormViewModelPartial(Form form);
+
     public FormViewModel ToFormViewModel(Form form)
     {
         var questionMapper = new QuestionMapper();

@@ -29,6 +29,11 @@ public class FieldBusiness : IFieldBusiness
         await _fieldRepository.DeleteAsync(id);
     }
 
+    public async Task<Field> GetByIdAsync(int id)
+    {
+        return await _fieldRepository.GetByIdAsync(id);
+    }
+
     public async Task<Field> UpdateAsync(int id, string label)
     {
         Field field = new Field() { Id = id, Label = label };

@@ -4,7 +4,7 @@ using QuikForm.WebApp.Models.InputTypes;
 
 namespace QuikForm.WebApp.Views.Shared.Components.FieldList;
 
-public class FieldListViewComponent: ViewComponent
+public class FieldFullListViewComponent: ViewComponent
 {
     public IViewComponentResult Invoke(List<FieldViewModel> fieldViewModels)
     {

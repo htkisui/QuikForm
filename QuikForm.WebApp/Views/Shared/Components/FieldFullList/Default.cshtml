@@ -1,0 +1,8 @@
+﻿@model List<FieldViewModel>
+
+<div class="field-list-vc">
+    @foreach (FieldViewModel fieldViewModel in Model)
+    {
+        <vc:field-full field-view-model="fieldViewModel" input-type-view-model="ViewBag.InputType"/>
+    }
+</div>

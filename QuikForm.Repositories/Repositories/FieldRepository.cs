@@ -39,7 +39,7 @@ public class FieldRepository : IFieldRepository
 
     public async Task<Field> GetByIdAsync(int id)
     {
-        Field field = await _context.Fields.FirstOrDefaultAsync(f => f.Id == id) ?? throw new FieldNotFoundException();
+        Field field = await _context.Fields.Include(f => f.Question).ThenInclude(q => q.InputType).FirstOrDefaultAsync(f => f.Id == id) ?? throw new FieldNotFoundException();
         return field;
     }
 
