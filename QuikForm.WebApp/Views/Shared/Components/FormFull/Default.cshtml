@@ -1,36 +1,33 @@
 ﻿@model FormViewModel;
 <div class="form-full-vc">
     <section class="form-title">
-        <h2>Titre</h2>
-        <p>@Model.Title</p>
+        <h4>Titre</h4>
+        <h2>@Model.Title</h2>
     </section>
 
     <section class="dates">
-        <p><u>Auteur</u> : </p>
-        <p><u>Date de publication</u> : @Model.CreatedAt</p>
-        <p><u>Date de clôture de l'enquête</u> : @Model.ClosedAt</p>
-
+        <p>Créé le @Model.CreatedAt.ToString("dd/MM/yy")</p>
+        @if (Model.PublishedAt != null)
+        {
+            <p>Publié le @Model.PublishedAt?.ToString("dd/MM/yy")</p>
+        }
+        @if (Model.ClosedAt != null)
+        {
+            <p>Clôturé le @Model.ClosedAt?.ToString("dd/MM/yy")</p>
+        }
     </section>
 
     <section class="form-description">
-        <h2>Description</h2>
+        <h4>Description</h4>
         <p>@Model.Description</p>
     </section>
 
-    <section class="question-list">
-        <h2>Liste des questions</h2>
-    </section>
+    @* Question list *@
+    <vc:question-full-list question-view-models="Model.QuestionViewModels" />
 
-    <section class="question-list">
-        @if (ViewBag.Role == "User")
-        {
-            <div class="action">
-                <a href="#" role="button" class="primary">Envoyer</a>
-            </div>
-        }
+    <section class="user-validation">
+        <div class="action">
+            <a href="#" role="button" class="primary">Envoyer</a>
+        </div>
     </section>
 </div>
-
-
-
-

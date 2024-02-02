@@ -1,17 +1,17 @@
 ﻿@model FieldViewModel;
-<p class="field-vc">
+<p class="field-full-vc">
     @*Display input type*@
-    @if (ViewBag.MockInputType == "textarea")
+    @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "textarea")
     {
         <textarea id="option-@Model.Id"></textarea>
     }
     else
     {
-        <input id="option-@Model.Id" type="@ViewBag.MockInputType" />
+        <input id="option-@Model.Id" type="@ViewBag.QuestionViewModel.InputTypeViewModel.Markup" name="question-@ViewBag.QuestionViewModel.Id" />
     }
 
     @*Display label if exist*@
-    @if (ViewBag.MockInputType != "text" || ViewBag.MockInputType != "textarea")
+    @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "text" || ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "textarea")
     {
         <label for="option-@Model.Id">@Model.Label</label>
     }
