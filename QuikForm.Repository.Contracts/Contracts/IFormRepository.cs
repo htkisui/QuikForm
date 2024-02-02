@@ -28,6 +28,12 @@ public interface IFormRepository
     Task<List<Form>> GetAllAsync();
 
     /// <summary>
+    /// Get all forms sorted by descending publication date.
+    /// </summary>
+    /// <returns>List of formssorted by descending publication date. </returns>
+    Task<List<Form>> GetAllByPublishedAtDescAsync();
+
+    /// <summary>
     /// Get one form by id and its questions and fields .
     /// </summary>
     /// <param name="id"></param>

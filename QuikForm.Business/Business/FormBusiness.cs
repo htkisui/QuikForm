@@ -1,4 +1,5 @@
-﻿using QuikForm.Business.Contracts.Business;
+﻿using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using QuikForm.Business.Contracts.Business;
 using QuikForm.Entities;
 using QuikForm.Repository.Contracts.Contracts;
 using System;
@@ -32,6 +33,12 @@ public class FormBusiness : IFormBusiness
     public async Task<List<Form>> GetAllAsync()
     {
         return await _formRepository.GetAllAsync();
+    }
+
+    public async Task<List<Form>> GetAllByPublishedAtDescAsync()
+        {
+        List<Form> forms = await _formRepository.GetAllByPublishedAtDescAsync();
+        return forms;
     }
 
     public async Task<Form> GetByIdAsync(int id)

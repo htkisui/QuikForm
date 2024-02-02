@@ -22,7 +22,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
 
     private const int FIELD_NUMBER = 50;
     private const int QUESTION_NUMBER = 20;
-    private const int FORM_NUMBER = 5;
+    private const int FORM_NUMBER = 10;
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
@@ -88,7 +88,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
             .RuleFor(fo => fo.Title, fa => fa.Lorem.Sentence(5))
             .RuleFor(fo => fo.Description, fa => fa.Lorem.Paragraph())
             .RuleFor(fo => fo.CreatedAt, fa => fa.Date.Between(DateTime.Parse("2024/01/01"), DateTime.Parse("2024/01/05")))
-            .RuleFor(fo => fo.UpdatedAt, fa => fa.Date.Between(DateTime.Parse("2024/01/10"), DateTime.Now));
+            .RuleFor(fo => fo.UpdatedAt, fa => fa.Date.Between(DateTime.Parse("2024/01/10"), DateTime.Now))
+            .RuleFor(fo => fo.PublishedAt, fa => fa.Date.Between(DateTime.Now, DateTime.Parse("2024/02/10")))
+            .RuleFor(fo => fo.ClosedAt, fa => fa.Date.Between(DateTime.Parse("2024/02/10"), DateTime.Parse("2024/02/20")).OrNull(fa,0.5f));
         //.RuleFor(fo => fo.ApplicationUserId, fa => 1);
 
         return formFaker.Generate(FORM_NUMBER);

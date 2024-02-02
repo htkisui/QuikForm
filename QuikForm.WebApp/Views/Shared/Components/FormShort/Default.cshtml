@@ -4,7 +4,7 @@
     <header>
         <h2>@Model.Title</h2>
         <p><strong>Auteur </strong>: </p>
-        @*<p><strong>Date de publication </strong>: @Model.CreatedAt</p> *@
+        <p><strong>Date de publication </strong>: @Model.PublishedAt?.ToString("dd/MM/yyyy")</p>
     </header>
     <section>
         <p><strong>Description </strong>: @Model.Description </p>
