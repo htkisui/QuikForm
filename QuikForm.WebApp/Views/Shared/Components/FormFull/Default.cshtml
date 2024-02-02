@@ -6,7 +6,7 @@
     </section>
 
     <section class="dates">
-        <p><u>Créé le </u> : @Model.CreatedAt.ToString("dd/MM/yy")</p>
+        <p>Créé le @Model.CreatedAt.ToString("dd/MM/yy")</p>
         @if (Model.PublishedAt != null)
         {
             <p>Publié le @Model.PublishedAt?.ToString("dd/MM/yy")</p>
@@ -23,18 +23,11 @@
     </section>
 
     @* Question list *@
-    <vc:question-full-list question-view-models="quesionViewModels" />
+    <vc:question-full-list question-view-models="Model.QuestionViewModels" />
 
-    <section class="question-list">
-        @if (ViewBag.Role == "User")
-        {
-            <div class="action">
-                <a href="#" role="button" class="primary">Envoyer</a>
-            </div>
-        }
+    <section class="user-validation">
+        <div class="action">
+            <a href="#" role="button" class="primary">Envoyer</a>
+        </div>
     </section>
 </div>
-
-
-
-

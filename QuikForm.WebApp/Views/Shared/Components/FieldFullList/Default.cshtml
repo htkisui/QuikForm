@@ -1,8 +1,8 @@
 ﻿@model List<FieldViewModel>
 
-<div class="field-list-vc">
+<div class="field-full-list-vc">
     @foreach (FieldViewModel fieldViewModel in Model)
     {
-        <vc:field-full field-view-model="fieldViewModel" input-type-view-model="ViewBag.InputType"/>
+        <vc:field-full field-view-model="fieldViewModel" question-view-model="ViewBag.QuestionViewModel"/>
     }
 </div>

@@ -2,12 +2,5 @@
 
 <div class="question-full-vc">
     <div class="question-label">@Model.Label</div>
-
-    @foreach(FieldViewModel field in Model.FieldViewModels)
-    {
-        <vc:field-full-list />
-    }
-
-
-
+    <vc:field-full-list field-view-models="Model.FieldViewModels" question-view-model="Model"/>
 </div>
