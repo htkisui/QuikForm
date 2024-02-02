@@ -21,12 +21,19 @@ public class HomeController : Controller
         _formMapper = formMapper;
     }
 
-    //ICI
     public async Task<IActionResult> Index()
     {
-        List<Form> forms = await _formBusiness.GetAllByPublishedAtDescAsync();
-        List<FormViewModel> formsViewModel = forms.Select(form => _formMapper.ToFormViewModel(form)).ToList();
-        return View(formsViewModel);
+        FormListsViewModel formListsViewModel = new FormListsViewModel();
+        
+        List<Form> formsPublishedAt = await _formBusiness.GetAllByPublishedAtDescAsync();
+        List<FormViewModel> formsPublishedAtViewModel = formsPublishedAt.Select(f => _formMapper.ToFormViewModel(f)).ToList();
+        formListsViewModel.FormsPublishedAtViewModel = formsPublishedAtViewModel;
+
+        List<Form> formsClosedAt = await _formBusiness.GetAllByClosedAtDescAsync();
+        List<FormViewModel> formsClosedAtViewModel = formsClosedAt.Select(f => _formMapper.ToFormViewModel(f)).ToList() ;
+        formListsViewModel.FormsClosedAtViewModel = formsClosedAtViewModel;
+
+        return View(formListsViewModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

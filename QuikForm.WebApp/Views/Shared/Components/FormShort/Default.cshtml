@@ -10,17 +10,13 @@
         <p><strong>Description </strong>: @Model.Description </p>
     </section>
     <footer>
-        @if (@Model.PublishedAt <= DateTime.Now & @Model.ClosedAt == null)
+        @if (@Model.PublishedAt <= DateTime.Now && @Model.ClosedAt == null)
         {
             <a href="#" role="button" class="primary">Répondre</a>
         }
-        @if (@Model.ClosedAt <= DateTime.Now & @Model.ClosedAt != null)
+        @if (@Model.ClosedAt <= DateTime.Now && @Model.ClosedAt != null)
         {
             <a href="#" role="button" class="primary">Voir les résultats</a>
         }
-        @*  @if (@Model.PublishedAt == null)
-        {
-        <a href="#" role="button" class="primary">Modifier</a>
-        } *@
     </footer>
 </article>
