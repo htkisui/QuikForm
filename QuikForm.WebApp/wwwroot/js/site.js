@@ -54,23 +54,37 @@
         const questionIdPart = questionIdArray.slice(-1);
 
         $.post("/Question/UpdateLabel", { id: questionIdPart, label: label }, () => { });
-    })
+    });
 
     // Question : UpdateInputType
-    $(document).on("change", ".question-type-select", function (e) {
+    $(document).on("change", "#question-type", async function (e) {
         const question = $(this).data("target-question");
         const inputTypeMarkup = $(this).val();
 
-
         const questionIdArray = question.split('-');
         const questionIdPart = questionIdArray.slice(-1);
-
         const fieldFormList = $("#field-form-list-" + questionIdPart);
 
-        $.post("/Question/UpdateInputType", { id: questionIdPart, inputTypeMarkup: inputTypeMarkup }, () => { });
-        $.post("/Question/DeleteFields", { id: questionIdPart }, (data) => { fieldFormList.remove() });
-    })
-
+        await $.post("/Question/DeleteFields", { id: questionIdPart }, () => {
+            fieldFormList.empty();
+        });
+        await $.post("/Question/UpdateInputType", { id: questionIdPart, inputTypeMarkup: inputTypeMarkup }, (data) => {
+            const fieldFormListVC = $("#field-form-list-vc-" + questionIdPart);
+            const fieldAddButtonVC = $("#field-add-button-vc-" + questionIdPart);
+            if (data === "text" || data === "textarea") {
+                $.post("/Field/Create", { questionId: questionIdPart }, (data) => {
+                    fieldFormList.append(data);
+                    fieldAddButtonVC.remove();
+                });
+            } else {
+                if (fieldFormList.children().length == 0 && fieldFormListVC.children().length < 2) {
+                    $.post("/Field/GetAddButton", { id: questionIdPart }, (data) => {
+                        fieldFormList.append(data);
+                    });
+                }
+            }
+        });
+    });
 
     // Question : UpdateIsMandatory
     $(document).on("change", ".question-IsMandatory", function (e) {
@@ -84,7 +98,7 @@
     })
 
     // Field : Create 
-    $(document).on("click", ".create-field-button", function (e) {
+    $(document).on("click", ".field-add-button-vc", function (e) {
         const fieldContainer = $(this).data("target-list");
         const targetList = $("#" + fieldContainer);
 
