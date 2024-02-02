@@ -24,7 +24,7 @@ public class FormController : Controller
     public async Task<IActionResult> Create()
     {
         Form form = await _formBusiness.CreateAsync();
-        return RedirectToAction("Edit", form.Id);
+        return RedirectToAction("Edit", new { id = form.Id });
     }
 
     public async Task<IActionResult> Edit(int id)
