@@ -22,6 +22,12 @@ public interface IQuestionRepository
     Task DeleteAsync(int id);
 
     /// <summary>
+    /// Delete all question's fields.
+    /// </summary>
+    /// <param name="id"></param>
+    Task DeleteFieldsAsync(int id);
+
+    /// <summary>
     /// Get all questions of a form with their fields.
     /// </summary>
     /// <returns>List of questions.</returns>

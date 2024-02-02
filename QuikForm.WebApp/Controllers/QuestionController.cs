@@ -82,8 +82,8 @@ public class QuestionController : Controller
     {
         try
         {
-            await _questionBusiness.UpdateInputTypeAsync(id, inputTypeMarkup);
-            return NoContent();
+            Question question = await _questionBusiness.UpdateInputTypeAsync(id, inputTypeMarkup);
+            return Ok(question.InputType.Markup);
         }
         catch (Exception e)
         {

@@ -33,6 +33,14 @@ public class QuestionRepository : IQuestionRepository
         await _context.SaveChangesAsync();
     }
 
+    public async Task DeleteFieldsAsync(int id)
+    {
+        Question question = await _context.Questions.Include(q => q.Fields)
+                                                    .FirstOrDefaultAsync(q => q.Id == id) ?? throw new QuestionNotFoundException();
+        question.Fields.ForEach(f => _context.Fields.Remove(f));
+        await _context.SaveChangesAsync();
+    }
+
     public async Task<List<Question>> GetAllAsync()
     {
         return await _context.Questions.ToListAsync();
@@ -40,7 +48,9 @@ public class QuestionRepository : IQuestionRepository
 
     public async Task<Question> GetByIdAsync(int id)
     {
-        Question question = await _context.Questions.Include(q => q.InputType).FirstOrDefaultAsync(q => q.Id == id) ?? throw new QuestionNotFoundException();
+        Question question = await _context.Questions.Include(q => q.Fields)
+                                                    .Include(q => q.InputType)
+                                                    .FirstOrDefaultAsync(q => q.Id == id) ?? throw new QuestionNotFoundException();
         return question;
     }
 

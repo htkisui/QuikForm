@@ -3,7 +3,7 @@
     margin: 1rem 0;
 }
 
-div.question-label {
+div.question-body {
     display: grid;
     grid-template-columns: 2.5fr 1fr;
     gap: 1.5rem;

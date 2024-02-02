@@ -56,6 +56,13 @@ public class FieldController : Controller
     }
 
     [HttpPost]
+    public IActionResult GetAddButton(int questionId)
+    {
+        return ViewComponent("FieldAddButton", new { questionId = questionId });
+    }
+
+
+    [HttpPost]
     public async Task<IActionResult> Update(int id, string label)
     {
         try
@@ -67,7 +74,5 @@ public class FieldController : Controller
         {
             return BadRequest(e.Message);
         }
-
-
     }
 }

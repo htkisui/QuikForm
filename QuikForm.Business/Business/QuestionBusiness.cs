@@ -35,8 +35,7 @@ public class QuestionBusiness : IQuestionBusiness
 
     public async Task DeleteFieldsAsync(int id)
     {
-        Question question = await _questionRepository.GetByIdAsync(id);
-        question.Fields.ForEach(async f => await _fieldRepository.DeleteAsync(f.Id));
+        await _questionRepository.DeleteFieldsAsync(id);
     }
 
 
