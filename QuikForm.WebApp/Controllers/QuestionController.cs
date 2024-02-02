@@ -49,6 +49,20 @@ public class QuestionController : Controller
     }
 
     [HttpPost]
+    public async Task<IActionResult> DeleteFields(int id)
+    {
+        try
+        {
+            await _questionBusiness.DeleteFieldsAsync(id);
+            return NoContent();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpPost]
     public async Task<IActionResult> UpdateLabel(int id, string label)
     {
         try
@@ -60,6 +74,22 @@ public class QuestionController : Controller
         {
             return BadRequest(e.Message);
         }
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateInputType(int id, string inputTypeMarkup)
+    {
+        try
+        {
+            Question question = await _questionBusiness.UpdateInputTypeAsync(id, inputTypeMarkup);
+            return Ok(question.InputType.Markup);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+
     }
 
     [HttpPost]

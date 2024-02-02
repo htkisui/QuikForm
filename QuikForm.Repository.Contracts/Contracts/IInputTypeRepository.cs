@@ -35,6 +35,13 @@ public interface IInputTypeRepository
     Task<InputType> GetByIdAsync(int id);
 
     /// <summary>
+    /// Get one Markup by id.
+    /// </summary>
+    /// <param name="inputTypeMarkup"></param>
+    /// <returns>The input.</returns>
+    Task<InputType> GetByMarkupAsync(string inputTypeMarkup);
+
+    /// <summary>
     /// Update a inputType by id.
     /// </summary>
     /// <param name="inputType"></param>

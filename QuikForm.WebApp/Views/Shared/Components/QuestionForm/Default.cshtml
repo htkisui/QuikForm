@@ -1,9 +1,9 @@
 ﻿@model QuestionViewModel
 
 <div class="question-form-vc" id="question-id-@Model.Id">
-    <div class="question-label">
+    <div class="question-body">
         <input asp-for="Label" class="question-label" type="text" data-target-question="question-id-@Model.Id" placeholder="Entrez votre question" />
-        <select name="question-type" id="question-type-select">
+        <select name="question-type" id="question-type" data-target-question="question-id-@Model.Id">
             @foreach (InputTypeViewModel inputTypeViewModel in ViewBag.InputTypes)
             {
                 @if (Model.InputTypeViewModel.Id == inputTypeViewModel.Id)
@@ -24,11 +24,11 @@
                 Obligatoire
                 @if (Model.IsMandatory)
                 {
-                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" type="checkbox" role="switch" checked />
+                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" type="checkbox" checked />
                 }
                 else
                 {
-                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" type="checkbox" role="switch" />
+                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" type="checkbox" />
                 }
             </label>
         </div>

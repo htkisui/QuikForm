@@ -1,13 +1,10 @@
 ﻿@model List<FieldViewModel>
-<div class="field-form-list-vc">
+<div class="field-form-list-vc" id="field-form-list-vc-@ViewBag.QuestionId">
     <div id="field-form-list-@ViewBag.QuestionId">
         @foreach (FieldViewModel fieldViewModel in Model)
         {
             <vc:field-form field-view-model="fieldViewModel" input-type-view-model="ViewBag.InputTypeViewModel" />
         }
     </div>
-    <p class="create-field-button" data-target-list="field-form-list-@ViewBag.QuestionId">
-        <i class="fa-solid fa-plus"></i>
-        Ajouter une réponse
-    </p>
+    <vc:field-add-button question-id="@ViewBag.QuestionId" />
 </div>
