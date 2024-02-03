@@ -6,5 +6,8 @@
             <vc:field-form field-view-model="fieldViewModel" input-type-view-model="ViewBag.InputTypeViewModel" />
         }
     </div>
-    <vc:field-add-button question-id="@ViewBag.QuestionId" />
+    @if (ViewBag.InputTypeViewModel.Markup != "text" && ViewBag.InputTypeViewModel.Markup != "textarea")
+    {
+        <vc:field-add-button question-id="@ViewBag.QuestionId" />
+    }
 </div>

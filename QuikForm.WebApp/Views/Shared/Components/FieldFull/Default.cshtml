@@ -3,11 +3,18 @@
     @*Display input type*@
     @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "textarea")
     {
-        <textarea id="option-@Model.Id"></textarea>
+        <textarea id="option-@Model.Id" name="records[@ViewBag.QuestionViewModel.InputTypeViewModel.Markup-@Model.Id]"></textarea>
     }
     else
     {
-        <input id="option-@Model.Id" type="@ViewBag.QuestionViewModel.InputTypeViewModel.Markup" name="question-@ViewBag.QuestionViewModel.Id" />
+        @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "radio")
+        {
+            <input id="option-@Model.Id" type="@ViewBag.QuestionViewModel.InputTypeViewModel.Markup" name="records[@ViewBag.QuestionViewModel.InputTypeViewModel.Markup-@ViewBag.QuestionViewModel.Id]" value="@Model.Label"/>
+        }
+        else
+        {
+            <input id="option-@Model.Id" type="@ViewBag.QuestionViewModel.InputTypeViewModel.Markup" name="records[@ViewBag.QuestionViewModel.InputTypeViewModel.Markup-@Model.Id]" value="@Model.Label"/>
+        }
     }
 
     @*Display label if exist*@

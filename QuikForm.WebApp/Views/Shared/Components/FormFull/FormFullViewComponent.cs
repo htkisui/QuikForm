@@ -6,9 +6,8 @@ namespace QuikForm.WebApp.Views.Shared.Components.FormFull;
 
 public class FormFullViewComponent : ViewComponent
 {
-    public IViewComponentResult Invoke(FormViewModel formViewModel, string role)
+    public IViewComponentResult Invoke(FormViewModel formViewModel)
     {
-        ViewBag.Role = role;
         return View(formViewModel);
     }
 }

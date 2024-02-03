@@ -78,8 +78,8 @@
                 });
             } else {
                 if (fieldFormList.children().length == 0 && fieldFormListVC.children().length < 2) {
-                    $.post("/Field/GetAddButton", { id: questionIdPart }, (data) => {
-                        fieldFormList.append(data);
+                    $.post("/Field/GetAddButton", { questionId: questionIdPart }, (data) => {
+                        fieldFormListVC.append(data);
                     });
                 }
             }

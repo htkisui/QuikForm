@@ -17,7 +17,7 @@
     @*Display label if needed*@
     @if (ViewBag.InputTypeViewModel.Markup != "text" && ViewBag.InputTypeViewModel.Markup != "textarea")
     {
-        <input class="field-label" data-target-field="field-id-@Model.Id" type="text" placeholder="@Model.Label" >
+        <input class="field-label" data-target-field="field-id-@Model.Id" type="text" placeholder="@Model.Label">
+        <i class="fa-solid fa-xmark delete-field-button" data-target-field="field-id-@Model.Id" title="Supprimer la réponse"></i>
     }
-    <i class="fa-solid fa-xmark delete-field-button" data-target-field="field-id-@Model.Id" title="Supprimer la réponse"></i>
 </p>

@@ -27,6 +27,7 @@ builder.Services.AddControllersWithViews();
 
 // Add Repositories
 builder.Services.AddTransient<IFieldRepository, FieldRepository>();
+builder.Services.AddTransient<IFieldRecordRepository, FieldRecordRepository>();
 builder.Services.AddTransient<IFormRepository, FormRepository>();
 builder.Services.AddTransient<IInputTypeRepository, InputTypeRepository>();
 builder.Services.AddTransient<IQuestionRepository, QuestionRepository>();
@@ -37,6 +38,7 @@ builder.Services.AddTransient<IFieldBusiness, FieldBusiness>();
 builder.Services.AddTransient<IFormBusiness, FormBusiness>();
 builder.Services.AddTransient<IInputTypeBusiness, InputTypeBusiness>();
 builder.Services.AddTransient<IQuestionBusiness, QuestionBusiness>();
+builder.Services.AddTransient<IRecordBusiness, RecordBusiness>();
 
 // Add Mappers
 builder.Services.AddScoped<IFormMapper, FormMapper>();
