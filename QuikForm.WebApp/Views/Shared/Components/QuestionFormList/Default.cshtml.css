@@ -1,0 +1,22 @@
+﻿/*question form list*/
+.create-question-button {
+    /*    display: flex;*/
+}
+
+.create-question-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #00688D;
+    padding: 1rem 0;
+    font-size: 8rem;
+    color: #00688D;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .create-question-button {
+        background-color: #0F2E38;
+    }
+}

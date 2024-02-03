@@ -9,6 +9,17 @@
     </div>
     @foreach (FormViewModel form in Model)
     {
-        <vc:form-row form-view-model="form" class="form-row-vc"/>
+        @* change color of row if even/odd  *@
+        int key = Model.IndexOf(form);
+        @if (key % 2 != 0)
+        {
+            <div style="background-color:#0C495D;">
+                <vc:form-row form-view-model="form" class="form-row-vc" />
+            </div>
+        }
+        else
+        {
+            <vc:form-row form-view-model="form" class="form-row-vc" />
+        }
     }
 </section>

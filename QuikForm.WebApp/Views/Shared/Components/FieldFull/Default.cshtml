@@ -6,22 +6,34 @@
         @*Display input type*@
         @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "textarea")
         {
-            <textarea id="option-@Model.Id"></textarea>
+            <textarea id="option-@Model.Id" style="background-color: #0F2E38"></textarea>
         }
         else
         {
-            <input id="option-@Model.Id" type="@ViewBag.QuestionViewModel.InputTypeViewModel.Markup" name="question-@ViewBag.QuestionViewModel.Id" />
+            <input id="option-@Model.Id" type="@ViewBag.QuestionViewModel.InputTypeViewModel.Markup" name="question-@ViewBag.QuestionViewModel.Id" style="background-color: #0F2E38" />
         }
     }
 
     @*Display label if exist*@
+    @*mention count + percent if wanted by business*@
     @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "text" || ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "textarea")
     {
         <label for="option-@Model.Id">@Model.Label</label>
-
         @if (Model.Count > -1)
         {
-        <span> - @Model.Count réponse(s), @Model.Percent%</span>
+            <span> - @Model.Count réponse(s), @Model.Percent%</span>
         }
+    }
+
+    @if ((ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "text" || ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "textarea") && Model.Count > -1)
+    {
+        <span>@Model.Count réponse(s)</span>
+        <details>
+            <summary>Voir les réponses</summary>
+@*             @foreach()
+            {
+                <p>Réponse personnalisée d'un user</p>
+            } *@
+        </details>
     }
 </p>

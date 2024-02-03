@@ -2,17 +2,17 @@
 
 <div class="question-form-vc" id="question-id-@Model.Id">
     <div class="question-body">
-        <input asp-for="Label" class="question-label" type="text" data-target-question="question-id-@Model.Id" placeholder="Entrez votre question" />
-        <select name="question-type" id="question-type" data-target-question="question-id-@Model.Id">
+        <input asp-for="Label" class="question-label" type="text" data-target-question="question-id-@Model.Id" placeholder="Entrez votre question" style="background-color: #0F2E38;" />
+        <select name="question-type" id="question-type" data-target-question="question-id-@Model.Id" style="background-color: #0F2E38">
             @foreach (InputTypeViewModel inputTypeViewModel in ViewBag.InputTypes)
             {
                 @if (Model.InputTypeViewModel.Id == inputTypeViewModel.Id)
                 {
-                    <option value="@inputTypeViewModel.Markup" selected>@inputTypeViewModel.Label</option>
+                    <option value="@inputTypeViewModel.Markup" selected style="background-color: #0F2E38" >@inputTypeViewModel.Label</option>
                 }
                 else
                 {
-                    <option value="@inputTypeViewModel.Markup">@inputTypeViewModel.Label</option>
+                    <option value="@inputTypeViewModel.Markup" style="background-color: #0F2E38">@inputTypeViewModel.Label</option>
                 }
             }
         </select>
@@ -24,11 +24,11 @@
                 Obligatoire
                 @if (Model.IsMandatory)
                 {
-                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" type="checkbox" checked />
+                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" type="checkbox" role="switch" checked />
                 }
                 else
                 {
-                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" type="checkbox" />
+                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" role="switch" type="checkbox" />
                 }
             </label>
         </div>

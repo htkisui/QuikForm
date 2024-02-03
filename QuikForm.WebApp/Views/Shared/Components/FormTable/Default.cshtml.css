@@ -4,6 +4,7 @@
     grid-template-columns: 6fr 2.5fr 1.5fr 1.5fr;
     gap: 5px;
     align-items: center;
+    font-weight: bold;
 }
 
     .grid-container div {
@@ -18,10 +19,14 @@
 
 .title-col {
     text-align: start;
+    padding-left: 1rem!important;
+}
+
+.status-col {
+    padding-left: 1rem!important;
 }
 
 .actions-col {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 5px;
+    padding-right: 1rem!important;
+    margin-left: auto;
 }
