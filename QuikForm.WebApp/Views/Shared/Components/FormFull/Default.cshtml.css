@@ -1,2 +1,8 @@
-﻿body {
+﻿
+
+@media(prefers-color-scheme: dark) {
+    .form-full-vc {
+        background-color: var(--background-section-dark);
+        padding: 2rem;
+    }
 }

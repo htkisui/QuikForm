@@ -3,7 +3,7 @@
 <div class="form-row-vc">
     <div class="title-content">@Model.Title</div>
     <div class="date-content">
-        @Model.UpdatedAt.ToString("dd/MM/yy")
+        @Model.UpdatedAt.ToString("dd/MM/yyyy")
     </div>
 
     @if (Model.PublishedAt == null & Model.ClosedAt == null)
@@ -21,17 +21,17 @@
     <div class="actions">
         <span class="icon">
             <a asp-controller="Form" asp-action="Show" asp-route-id="@Model.Id">
-                <img src="/images/read-icon.svg" title="Voir" class="icon" />
+                <img src="/images/read-icon.svg" title="Voir" />
             </a>
         </span>
         <span class="icon">
             <a asp-controller="Form" asp-action="Edit" asp-route-id="@Model.Id">
-                <img src="/images/edit-icon.svg" title="Éditer" class="icon" />
+                <img src="/images/edit-icon.svg" title="Éditer" />
             </a>
         </span>
         <span class="icon">
             <a href="#">
-                <img src="/images/duplicate-icon.svg" title="Dupliquer" class="icon" />
+                <img src="/images/duplicate-icon.svg" title="Dupliquer" />
             </a>
         </span>
     </div>

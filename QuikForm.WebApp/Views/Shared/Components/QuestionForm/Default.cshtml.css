@@ -1,5 +1,5 @@
 ﻿.question-form-vc {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     margin: 1rem 0;
 }
 
@@ -19,9 +19,27 @@ div.question-label select option {
     justify-content: flex-end;
 }
 
-.trash:hover {
-    color: red;
-    cursor: pointer;
+    .mandatory-trash.text label {
+    
+        box-sizing: border-box;
+    }
+
+    .trash {
+        --half-distance-left-element: 1.2rem;
+        border-left: 1px solid rgba(231, 249, 255, 0.53);
+        padding-left: var(--half-distance-left-element);
+        margin-left: var(--half-distance-left-element);
+        line-height: 100%;
+    }
+
+        .trash:hover {
+            color: rgb(255, 76, 76);
+            cursor: pointer;
+        }
+
+label, .question-IsMandatory {
+    margin: 0;
+    letter-spacing: .1rem;
 }
 
 @media (prefers-color-scheme: dark) {
