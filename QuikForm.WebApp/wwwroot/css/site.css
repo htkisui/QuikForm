@@ -77,17 +77,24 @@ footer img {
 }
 
 /*Carousel*/
-.carousel-slide {
-    margin-right: 20px; /* Espacement entre les slides */
+.carousel-slider {
+    margin-right: 10px;
+    margin-left:10px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 320px) {
+    :root {
+        --slides-visible: 1;
+    }
+}
+
+@media (min-width: 993px) {
     :root {
         --slides-visible: 2;
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
     :root {
         --slides-visible: 3;
     }

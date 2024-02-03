@@ -1,20 +1,20 @@
 ﻿@model FormViewModel;
 
-<article class="form-short-vc">
-    <header>
-        <h2>@Model.Title</h2>
+<article class="form-short-vc" style="height:auto">
+    <header style="height:auto">
+        <h2 style ="height:50px">@Model.Title</h2>
         <p><strong>Auteur </strong>: </p>
         <p><strong>Date de publication </strong>: @Model.PublishedAt?.ToString("dd/MM/yyyy")</p>
     </header>
-    <section>
+    <section style ="height:50px">
         <p><strong>Description </strong>: @Model.ShortDescription </p>
     </section>
-    <footer>
-        @if (@Model.PublishedAt <= DateTime.Now && @Model.ClosedAt == null)
+    <footer style="height:auto">
+        @if (@Model.PublishedAt != null && @Model.ClosedAt == null)
         {
             <a href="#" role="button" class="primary">Répondre</a>
         }
-        @if (@Model.ClosedAt <= DateTime.Now && @Model.ClosedAt != null)
+        @if (@Model.ClosedAt != null)
         {
             <a href="#" role="button" class="primary">Voir les résultats</a>
         }
