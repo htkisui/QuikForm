@@ -8,4 +8,8 @@ public class FieldViewModel
     public string Label { get; set; } = null!;
 
     public QuestionViewModel QuestionViewModel { get; set; }
+
+    public int Count { get; set; } = -1;
+
+    public float Percent { get; set; }
 }
