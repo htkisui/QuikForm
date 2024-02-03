@@ -1,0 +1,29 @@
+﻿/*.form-short-list-vc {
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+}
+
+.carousel-slides {
+    display: flex;
+    overflow: hidden;
+    height: 100%;
+    flex-wrap: nowrap;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    max-width: 100%;*/
+    /*transition: .5s ease-in-out;*/
+/*}
+
+.carousel-controls {
+    position: absolute;
+    z-index: 5;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    justify-content: space-between;*/

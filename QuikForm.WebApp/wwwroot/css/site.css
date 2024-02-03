@@ -1,5 +1,6 @@
 :root {
-    --accent-color: #00688D;
+    --accent-color-dark: #00688D;
+    --accent-color-light: #003D53;
 }
 
 html {
@@ -71,6 +72,27 @@ footer div.footer-center {
     align-items: center;
 }
 
+footer img {
+    width: 20%;
+}
+
+/*Carousel*/
+.carousel-slide {
+    margin-right: 20px; /* Espacement entre les slides */
+}
+
+@media (min-width: 768px) {
+    :root {
+        --slides-visible: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --slides-visible: 3;
+    }
+}
+
 /*dark mode*/
 @media (prefers-color-scheme: dark) {
     html {
@@ -80,8 +102,16 @@ footer div.footer-center {
     header, footer {
         background-color: #003D53;
     }
+}
 
-        footer img {
-            width: 20%;
-        }
+/*light mode*/
+@media (prefers-color-scheme: light) {
+    html {
+        background-color: #FFFFFF;
+    }
+
+    header, footer {
+        background-color: #92B8C5;
+
+    }
 }

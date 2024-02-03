@@ -7,7 +7,7 @@
         <p><strong>Date de publication </strong>: @Model.PublishedAt?.ToString("dd/MM/yyyy")</p>
     </header>
     <section>
-        <p><strong>Description </strong>: @Model.Description </p>
+        <p><strong>Description </strong>: @Model.ShortDescription </p>
     </section>
     <footer>
         @if (@Model.PublishedAt <= DateTime.Now && @Model.ClosedAt == null)
