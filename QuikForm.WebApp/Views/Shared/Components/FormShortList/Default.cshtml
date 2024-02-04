@@ -2,7 +2,7 @@
 
 <div class="form-short-list-vc" style="overflow: hidden;">
     <div class="carousel" id="formCarousel" style="position: relative;padding:20px">
-        <div class="carousel-slides" style="display: flex; overflow: hidden;gap:10px; flex-wrap: nowrap; align-items:stretch;">
+        <div class="carousel-slides" style="display: flex; gap:10px; flex-wrap: nowrap; align-items:stretch;">
             @foreach (var form in Model)
             {
                 <div class="carousel-slide" style="flex: 0 0 auto; width: calc(100% / var(--slides-visible));">
@@ -11,8 +11,8 @@
             }
         </div>
         <div class="carousel-controls" style="position: absolute; z-index: 5; left: 10px; right: 10px; top: 10px; display: flex; justify-content: space-between; align-items: stretch;">
-            <button id="prevBtn">Précédent</button>
-            <button id="nextBtn">Suivant</button>
+            <button class="prevBtn">Précédent</button>
+            <button class="nextBtn">Suivant</button>
         </div>
         <div class="carousel-dots"></div>
     </div>

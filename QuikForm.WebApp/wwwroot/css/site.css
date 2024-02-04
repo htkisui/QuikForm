@@ -1,7 +1,7 @@
 :root {
     --accent-color-dark: #00688D;
     --accent-color-light: #003D53;
-    --slides-visible: 3;
+    --slides-visible: 4;
     --delete-color: rgb(255, 76, 76);
     --background-section-dark: #003d53;
 }
