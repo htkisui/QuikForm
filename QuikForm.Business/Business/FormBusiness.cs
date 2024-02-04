@@ -12,10 +12,31 @@ namespace QuikForm.Business.Business;
 public class FormBusiness : IFormBusiness
 {
     private readonly IFormRepository _formRepository;
+    private readonly IQuestionRepository _questionRepository;
+    private readonly IFieldRepository _fieldRepository;
 
-    public FormBusiness(IFormRepository formRepository)
+    public FormBusiness(IFormRepository formRepository, IQuestionRepository questionRepository, IFieldRepository fieldRepository)
     {
         _formRepository = formRepository;
+        _questionRepository = questionRepository;
+        _fieldRepository = fieldRepository;
+    }
+
+    public async Task CloneAsync(int id)
+    {
+        Form form = await _formRepository.GetByIdAsync(id);
+        Form formToClone = new Form() { Title = form.Title, Description = form.Description };
+        await _formRepository.CreateAsync(formToClone);
+        foreach (Question question in form.Questions)
+        {
+            Question questionToClone = new Question() { Label = question.Label, FormId = formToClone.Id, InputTypeId = question.InputTypeId };
+            await _questionRepository.CreateAsync(questionToClone);
+            foreach (Field field in question.Fields)
+            {
+                Field fieldToClone = new Field() { Label = field.Label, QuestionId = questionToClone.Id };
+                await _fieldRepository.CreateAsync(fieldToClone);
+            }
+        }
     }
 
     public async Task<Form> CreateAsync()
@@ -42,7 +63,7 @@ public class FormBusiness : IFormBusiness
     }
 
     public async Task<List<Form>> GetAllByPublishedAtDescAsync()
-        {
+    {
         List<Form> formsPublishedAt = await _formRepository.GetAllByPublishedAtDescAsync();
         return formsPublishedAt;
     }

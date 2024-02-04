@@ -9,6 +9,12 @@ namespace QuikForm.Business.Contracts.Business;
 public interface IFormBusiness
 {
     /// <summary>
+    /// Clone a new form from an existing one.
+    /// </summary>
+    /// <param name="id"></param>
+    Task CloneAsync(int id);
+
+    /// <summary>
     /// Create a new form.
     /// </summary>
     /// <returns>New form.</returns>
@@ -30,13 +36,13 @@ public interface IFormBusiness
     /// <summary>
     /// Get all forms sorted by descending closed date.
     /// </summary>
-    /// <returns>List of formssorted by descending closed date. </returns>
+    /// <returns>List of formssorted by descending closed date.</returns>
     Task<List<Form>> GetAllByClosedAtDescAsync();
 
     /// <summary>
     /// Get all forms sorted by descending publication date.
     /// </summary>
-    /// <returns>List of formssorted by descending publication date. </returns>
+    /// <returns>List of formssorted by descending publication date.</returns>
     Task<List<Form>> GetAllByPublishedAtDescAsync();
 
     /// <summary>
