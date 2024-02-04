@@ -26,12 +26,17 @@ public interface IFormRepository
     /// </summary>
     /// <returns>List of all forms.</returns>
     Task<List<Form>> GetAllAsync();
+
+    /// <summary>
+    /// Get all forms sorted by descending closed date.
+    /// </summary>
+    /// <returns>List of formssorted by descending closed date.</returns>
     Task<List<Form>> GetAllByClosedAtDescAsync();
 
     /// <summary>
     /// Get all forms sorted by descending publication date.
     /// </summary>
-    /// <returns>List of formssorted by descending publication date. </returns>
+    /// <returns>List of formssorted by descending publication date.</returns>
     Task<List<Form>> GetAllByPublishedAtDescAsync();
 
     /// <summary>

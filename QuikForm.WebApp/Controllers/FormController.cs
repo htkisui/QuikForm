@@ -26,6 +26,12 @@ public class FormController : Controller
         return View();
     }
 
+    public async Task<IActionResult> Clone(int id)
+    {
+        await _formBusiness.CloneAsync(id);
+        return RedirectToAction("Index", "Admin");
+    }
+
     public async Task<IActionResult> Create()
     {
         Form form = await _formBusiness.CreateAsync();
