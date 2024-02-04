@@ -1,9 +1,6 @@
 ﻿@model FormViewModel;
 <div class="form-full-vc">
-    <section class="form-title">
-        <h4>Titre</h4>
-        <h2>@Model.Title</h2>
-    </section>
+    <h2>@Model.Title</h2>
 
     <section class="dates">
         <p>Créé le @Model.CreatedAt.ToString("dd/MM/yy")</p>
@@ -17,11 +14,17 @@
         }
     </section>
 
-    <section class="form-description">
-        <h4>Description</h4>
-        <p>@Model.Description</p>
-    </section>
+    <div class="description">@Model.Description</div>
 
     @* Question list *@
     <vc:question-full-list question-view-models="Model.QuestionViewModels" />
+
+    @if (Model.ClosedAt == null && Model.PublishedAt != null)
+    {
+        <section class="user-validation">
+            <div class="action">
+                <a href="#" role="button" class="primary">Envoyer</a>
+            </div>
+        </section>
+    }
 </div>
