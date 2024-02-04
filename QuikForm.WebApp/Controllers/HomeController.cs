@@ -22,9 +22,19 @@ public class HomeController : Controller
         _formMapper = formMapper;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        FormListsViewModel formListsViewModel = new FormListsViewModel();
+        
+        List<Form> formsPublishedAt = await _formBusiness.GetAllByPublishedAtDescAsync();
+        List<FormViewModel> formsPublishedAtViewModel = formsPublishedAt.Select(f => _formMapper.ToFormViewModel(f)).ToList();
+        formListsViewModel.FormsPublishedAtViewModel = formsPublishedAtViewModel;
+
+        List<Form> formsClosedAt = await _formBusiness.GetAllByClosedAtDescAsync();
+        List<FormViewModel> formsClosedAtViewModel = formsClosedAt.Select(f => _formMapper.ToFormViewModel(f)).ToList() ;
+        formListsViewModel.FormsClosedAtViewModel = formsClosedAtViewModel;
+
+        return View(formListsViewModel);
     }
 
     [HttpGet]
@@ -47,4 +57,6 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+
 }

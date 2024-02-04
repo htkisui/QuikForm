@@ -1,5 +1,8 @@
 :root {
-    --accent-color: #00688D;
+    --accent-color-dark: #00688D;
+    --accent-color-light: #003D53;
+    --slides-visible: 3;
+
     --delete-color: rgb(255, 76, 76);
     --background-section-dark: #003D53;
 }
@@ -93,6 +96,34 @@ footer div.footer-center {
     align-items: center;
 }
 
+footer img {
+    width: 20%;
+}
+
+/*Carousel*/
+.carousel-slider {
+    margin-right: 10px;
+    margin-left:10px;
+}
+
+@media (min-width: 320px) {
+    :root {
+        --slides-visible: 1;
+    }
+}
+
+@media (min-width: 993px) {
+    :root {
+        --slides-visible: 2;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --slides-visible: 3;
+    }
+}
+
 /*dark mode*/
 @media (prefers-color-scheme: dark) {
     html {
@@ -102,8 +133,16 @@ footer div.footer-center {
     header, footer {
         background-color: #003D53;
     }
+}
 
-        footer img {
-            width: 20%;
-        }
+/*light mode*/
+@media (prefers-color-scheme: light) {
+    html {
+        background-color: #FFFFFF;
+    }
+
+    header, footer {
+        background-color: #92B8C5;
+
+    }
 }

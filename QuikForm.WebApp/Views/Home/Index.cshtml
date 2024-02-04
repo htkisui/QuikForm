@@ -1,14 +1,24 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model FormListsViewModel
+
+
 <section class="grid">
-<div class="text-center">
-    <h2 class="">Bienvenue sur</h2>
-    <p class="quikform">
-        <img src="/images/file-logo.svg" class="logo-file" />
-        <span class="quikform-home-link">QuikForm</span>
-    </p>
-    <p>Votre formulaire à portée de main </p>
-</div>
-<div></div>
+    <div class="text-center">
+        <h2 class="">Bienvenue sur</h2>
+        <p class="quikform">
+            <img src="/images/file-logo.svg" class="logo-file" />
+            <span class="quikform-home-link">QuikForm</span>
+        </p>
+        <p>Votre formulaire à portée de main </p>
+    </div>
+    <div></div>
+</section>
+<section>
+    <h2>Répondez à nos sondage !</h2>
+    <vc:form-short-list form-view-models="Model.FormsPublishedAtViewModel" />
+
+</section>
+
+<section>
+    <h2>Découvrez les derniers résultats</h2>
+    <vc:form-short-list form-view-models="Model.FormsClosedAtViewModel" />
 </section>

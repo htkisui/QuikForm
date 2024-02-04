@@ -39,6 +39,20 @@ public class FormRepository : IFormRepository
         return await _context.Forms.ToListAsync();
     }
 
+    public async Task<List<Form>> GetAllByClosedAtDescAsync()
+    {
+        List<Form> forms = await _context.Forms.ToListAsync();
+        List<Form> sortedFormsByClosedAtDesc = forms.OrderByDescending(f => f.ClosedAt).ToList();
+        return sortedFormsByClosedAtDesc;
+    }
+
+    public async Task<List<Form>> GetAllByPublishedAtDescAsync()
+    {
+        List<Form> forms = await _context.Forms.ToListAsync();
+        List<Form> sortedFormsByPublishedAtDesc = forms.OrderByDescending(f => f.PublishedAt).ToList();
+        return sortedFormsByPublishedAtDesc;
+    }
+
     public async Task<Form> GetByIdAsync(int id)
     {
         Form form = await _context.Forms.Include(f => f.Questions).ThenInclude(q => q.InputType)
