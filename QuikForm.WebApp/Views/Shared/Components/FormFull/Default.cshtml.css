@@ -1,4 +1,8 @@
 ﻿/*form full*/
+
+.description {
+    font-size: 1.2rem;
+}
 @media(prefers-color-scheme: dark) {
     .form-full-vc {
         background-color: var(--background-section-dark);
