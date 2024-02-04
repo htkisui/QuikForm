@@ -6,7 +6,7 @@ namespace QuikForm.WebApp.Views.Shared.Components.FieldForm;
 
 public class FieldFormViewComponent : ViewComponent
 {
-    public async Task<IViewComponentResult> InvokeAsync(FieldViewModel fieldViewModel, InputTypeViewModel inputTypeViewModel)
+    public IViewComponentResult Invoke(FieldViewModel fieldViewModel, InputTypeViewModel inputTypeViewModel)
     {
         ViewBag.InputTypeViewModel = inputTypeViewModel;
         return View(fieldViewModel);

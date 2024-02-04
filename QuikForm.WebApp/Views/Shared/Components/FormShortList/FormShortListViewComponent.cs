@@ -7,7 +7,7 @@ namespace QuikForm.WebApp.Views.Shared.Components.FormShortList;
 
 public class FormShortListViewComponent : ViewComponent
 {
-    public async Task<IViewComponentResult> InvokeAsync(List<FormViewModel> formViewModels)
+    public IViewComponentResult Invoke(List<FormViewModel> formViewModels)
     {
         return View(formViewModels);
     }

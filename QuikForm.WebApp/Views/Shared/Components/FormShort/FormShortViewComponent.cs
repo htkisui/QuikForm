@@ -5,7 +5,7 @@ namespace QuikForm.WebApp.Views.Shared.Components.FormShort;
 
 public class FormShortViewComponent : ViewComponent
 {
-    public async Task<IViewComponentResult> InvokeAsync(FormViewModel formViewModel)
+    public IViewComponentResult Invoke(FormViewModel formViewModel)
     {
         return View(formViewModel);
     }
