@@ -1,18 +1,21 @@
 ﻿@model FormViewModel;
 <div class="form-full-vc">
-    <h2>@Model.Title</h2>
-
     <section class="dates">
-        <p>Créé le @Model.CreatedAt.ToString("dd/MM/yy")</p>
-        @if (Model.PublishedAt != null)
-        {
-            <p>Publié le @Model.PublishedAt?.ToString("dd/MM/yy")</p>
-        }
-        @if (Model.ClosedAt != null)
-        {
-            <p>Clôturé le @Model.ClosedAt?.ToString("dd/MM/yy")</p>
-        }
+        <p style="font-size: 1rem; color: rgba(96, 149, 167, 1); margin-bottom: .5rem;">
+            CRÉÉ LE @Model.CreatedAt.ToString("dd/MM/yyyy")
+            @if (Model.PublishedAt != null)
+            {
+                <span>- PUBLIÉ LE @Model.PublishedAt?.ToString("dd/MM/yyyy")</span>
+            }
+            @if (Model.ClosedAt != null)
+            {
+                <span>- CLÔTURÉ LE @Model.ClosedAt?.ToString("dd/MM/yyyy")</span>
+            }
+        </p>
+        <h2>@Model.Title</h2>
     </section>
+
+
 
     <div class="description">@Model.Description</div>
 
@@ -22,9 +25,7 @@
     @if (Model.ClosedAt == null && Model.PublishedAt != null)
     {
         <section class="user-validation">
-            <div class="action">
-                <a href="#" role="button" class="primary">Envoyer</a>
-            </div>
+            <input type="submit" class="primary" value="Envoyer vos réponses" />
         </section>
     }
 </div>
