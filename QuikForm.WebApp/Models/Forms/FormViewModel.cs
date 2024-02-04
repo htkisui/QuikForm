@@ -15,12 +15,12 @@ public class FormViewModel
     {
         get
         {
-            int lenght = 50;
-            if (string.IsNullOrEmpty(Description) || Description.Length <= lenght)
+            int length = 50;
+            if (string.IsNullOrEmpty(Description) || Description.Length <= length)
             {
                 return Description;
             }
-            return Description.Substring(0, lenght) + "...";
+            return Description.Substring(0, length) + "...";
         }
     }
 
