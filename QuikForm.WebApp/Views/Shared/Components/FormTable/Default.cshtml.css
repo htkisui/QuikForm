@@ -12,9 +12,14 @@
         padding: 1rem 0;
     }
 
-/*dark*/
 .form-table-vc :first-child {
     background-color: #003D53;
+}
+
+@media(prefers-color-scheme: light) {
+    .form-table-vc :first-child {
+        color: #E7F9FF;
+    }
 }
 
 .title-col {

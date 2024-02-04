@@ -11,6 +11,19 @@ public class FormViewModel
 
     public string Description { get; set; } = null!;
 
+    public string ShortDescription
+    {
+        get
+        {
+            int lenght = 50;
+            if (string.IsNullOrEmpty(Description) || Description.Length <= lenght)
+            {
+                return Description;
+            }
+            return Description.Substring(0, lenght) + "...";
+        }
+    }
+
     public DateTime CreatedAt { get; set; }
 
     public DateTime UpdatedAt { get; set; }
