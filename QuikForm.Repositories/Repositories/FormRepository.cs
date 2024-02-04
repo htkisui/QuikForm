@@ -41,16 +41,12 @@ public class FormRepository : IFormRepository
 
     public async Task<List<Form>> GetAllByClosedAtDescAsync()
     {
-        List<Form> forms = await _context.Forms.ToListAsync();
-        List<Form> sortedFormsByClosedAtDesc = forms.OrderByDescending(f => f.ClosedAt).ToList();
-        return sortedFormsByClosedAtDesc;
+        return await _context.Forms.OrderByDescending(f => f.ClosedAt).ToListAsync();
     }
 
     public async Task<List<Form>> GetAllByPublishedAtDescAsync()
     {
-        List<Form> forms = await _context.Forms.ToListAsync();
-        List<Form> sortedFormsByPublishedAtDesc = forms.OrderByDescending(f => f.PublishedAt).ToList();
-        return sortedFormsByPublishedAtDesc;
+        return await _context.Forms.OrderByDescending(f => f.PublishedAt).ToListAsync();
     }
 
     public async Task<Form> GetByIdAsync(int id)

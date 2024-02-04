@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QuikForm.Business.Business;
 using QuikForm.Business.Contracts.Business;
 using QuikForm.Entities;
 using QuikForm.WebApp.Mappers.Fields;
@@ -10,16 +11,14 @@ namespace QuikForm.WebApp.Controllers;
 public class FormController : Controller
 {
     private readonly IFormBusiness _formBusiness;
-    private readonly IFieldBusiness _fieldBusiness;
     private readonly IFormMapper _formMapper;
-    private readonly IFieldMapper _fieldMapper;
+    private readonly IRecordBusiness _recordBusiness;
 
-    public FormController(IFormBusiness formBusiness, IFormMapper formMapper, IFieldBusiness fieldBusiness, IFieldMapper fieldMapper)
+    public FormController(IFormBusiness formBusiness, IFormMapper formMapper, IRecordBusiness recordBusiness)
     {
         _formBusiness = formBusiness;
         _formMapper = formMapper;
-        _fieldBusiness = fieldBusiness;
-        _fieldMapper = fieldMapper;
+        _recordBusiness = recordBusiness;
     }
 
     public IActionResult Index()
@@ -45,6 +44,21 @@ public class FormController : Controller
         Form form = await _formBusiness.GetByIdAsync(id);
         FormViewModel formViewmodel = _formMapper.ToFormViewModel(form);
         return View(formViewmodel);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Submit(int id)
+    {
+        Form form = await _formBusiness.GetByIdAsync(id);
+        FormViewModel formViewModel = _formMapper.ToFormViewModel(form);
+        return View(formViewModel);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Submit(Dictionary<string, string> records)
+    {
+        await _recordBusiness.CreateAsync(records);
+        return RedirectToAction("Index", "Home");
     }
 
     [HttpPost]

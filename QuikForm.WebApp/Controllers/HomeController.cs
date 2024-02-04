@@ -11,14 +11,12 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly IFormBusiness _formBusiness;
-    private readonly IRecordBusiness _recordBusiness;
     private readonly IFormMapper _formMapper;
 
-    public HomeController(ILogger<HomeController> logger, IFormBusiness formBusiness, IRecordBusiness recordBusiness, IFormMapper formMapper)
+    public HomeController(ILogger<HomeController> logger, IFormBusiness formBusiness, IFormMapper formMapper)
     {
         _logger = logger;
         _formBusiness = formBusiness;
-        _recordBusiness = recordBusiness;
         _formMapper = formMapper;
     }
 
@@ -37,20 +35,6 @@ public class HomeController : Controller
         return View(formListsViewModel);
     }
 
-    [HttpGet]
-    public async Task<IActionResult> Submit(int id)
-    {
-        Form form = await _formBusiness.GetByIdAsync(id);
-        FormViewModel formViewModel = _formMapper.ToFormViewModel(form);
-        return View(formViewModel);
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Submit(Dictionary<string, string> records)
-    {
-        await _recordBusiness.CreateAsync(records);
-        return RedirectToAction("Index");
-    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
