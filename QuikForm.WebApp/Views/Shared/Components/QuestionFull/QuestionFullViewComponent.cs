@@ -5,7 +5,7 @@ namespace QuikForm.WebApp.Views.Shared.Components.QuestionFull;
 
 public class QuestionFullViewComponent : ViewComponent
 {
-    public async Task<IViewComponentResult> InvokeAsync(QuestionViewModel questionViewModel)
+    public IViewComponentResult Invoke(QuestionViewModel questionViewModel)
     {
         return View(questionViewModel);
     }

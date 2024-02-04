@@ -7,7 +7,7 @@ namespace QuikForm.WebApp.Views.Shared.Components.FieldFormList;
 
 public class FieldFormListViewComponent : ViewComponent
 {
-    public async Task<IViewComponentResult> InvokeAsync(List<FieldViewModel> fieldViewModels, int questionId, InputTypeViewModel inputTypeViewModel)
+    public IViewComponentResult Invoke(List<FieldViewModel> fieldViewModels, int questionId, InputTypeViewModel inputTypeViewModel)
     {
         ViewBag.QuestionId = questionId;
         ViewBag.InputTypeViewModel = inputTypeViewModel;
