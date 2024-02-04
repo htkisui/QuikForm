@@ -2,9 +2,8 @@
     --accent-color-dark: #00688D;
     --accent-color-light: #003D53;
     --slides-visible: 3;
-
     --delete-color: rgb(255, 76, 76);
-    --background-section-dark: #0f2e38;
+    --background-section-dark: #003d53;
 }
 
 html {
@@ -39,7 +38,7 @@ input[type=text] {
 }
 
 option:hover {
-    background-color: var(--accent-color);
+    background-color: var(--accent-color-dark);
 }
 
 /*header*/
@@ -81,7 +80,7 @@ button {
 }
 
 input[type="text"], textarea, select {
-    border: solid 2px var(--accent-color);
+    border: solid 2px var(--accent-color-dark);
 }
 
 /*footer*/
