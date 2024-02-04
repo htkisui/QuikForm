@@ -28,6 +28,18 @@ public interface IFormBusiness
     Task<List<Form>> GetAllAsync();
 
     /// <summary>
+    /// Get all forms sorted by descending closed date.
+    /// </summary>
+    /// <returns>List of formssorted by descending closed date. </returns>
+    Task<List<Form>> GetAllByClosedAtDescAsync();
+
+    /// <summary>
+    /// Get all forms sorted by descending publication date.
+    /// </summary>
+    /// <returns>List of formssorted by descending publication date. </returns>
+    Task<List<Form>> GetAllByPublishedAtDescAsync();
+
+    /// <summary>
     /// Get a form by its id.
     /// </summary>
     /// <param name="id"></param>
