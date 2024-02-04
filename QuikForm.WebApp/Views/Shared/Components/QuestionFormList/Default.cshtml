@@ -1,11 +1,11 @@
 ﻿@model List<QuestionViewModel>
 
-<div class="question-list-vc">
+<div class="question-form-list-vc">
     <div id="question-form-list-@ViewBag.FormId">
         @foreach (QuestionViewModel questionForm in Model)
         {
             <vc:question-form question-view-model="@questionForm" />
         }
     </div>
-    <div class="create-question-button" data-target-list="question-form-list-@ViewBag.FormId"><i class="fa-solid fa-plus"></i></div>
+    <div class="create-question-button" data-target-list="question-form-list-@ViewBag.FormId">+</div>
 </div>

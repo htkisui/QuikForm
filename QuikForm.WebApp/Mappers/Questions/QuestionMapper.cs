@@ -26,7 +26,6 @@ public partial class QuestionMapper : IQuestionMapper
         {
             dto.InputTypeViewModel = inputTypeMapper.ToInputTypeViewModel(question.InputType);
         }
-
         return dto;
     }
 }

@@ -1,18 +1,39 @@
 ﻿@model FieldViewModel;
-<p class="field-vc">
-    @*Display input type*@
-    @if (ViewBag.MockInputType == "textarea")
+<p class="field-full-vc">
+    @* checks if business has given a different count than the one by default set to -1 to display result view mode *@
+    @if (Model.Count < 0)
     {
-        <textarea id="option-@Model.Id"></textarea>
-    }
-    else
-    {
-        <input id="option-@Model.Id" type="@ViewBag.MockInputType" />
+        @*Display input type*@
+        @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "textarea")
+        {
+            <textarea id="option-@Model.Id" style="background-color: #0F2E38"></textarea>
+        }
+        else
+        {
+            <input id="option-@Model.Id" type="@ViewBag.QuestionViewModel.InputTypeViewModel.Markup" name="question-@ViewBag.QuestionViewModel.Id" style="background-color: #0F2E38" />
+        }
     }
 
     @*Display label if exist*@
-    @if (ViewBag.MockInputType != "text" || ViewBag.MockInputType != "textarea")
+    @*mention count + percent if wanted by business*@
+    @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "text" || ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "textarea")
     {
         <label for="option-@Model.Id">@Model.Label</label>
+        @if (Model.Count > -1)
+        {
+            <span> - @Model.Count réponse(s), @Model.Percent%</span>
+        }
+    }
+
+    @if ((ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "text" || ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "textarea") && Model.Count > -1)
+    {
+        <span>@Model.Count réponse(s)</span>
+        <details>
+            <summary>Voir les réponses</summary>
+@*             @foreach()
+            {
+                <p>Réponse personnalisée d'un user</p>
+            } *@
+        </details>
     }
 </p>

@@ -11,10 +11,14 @@ namespace QuikForm.Business.Business;
 public class QuestionBusiness : IQuestionBusiness
 {
     private readonly IQuestionRepository _questionRepository;
+    private readonly IInputTypeRepository _inputTypeRepository;
+    private readonly IFieldRepository _fieldRepository;
 
-    public QuestionBusiness(IQuestionRepository questionRepository)
+    public QuestionBusiness(IQuestionRepository questionRepository, IInputTypeRepository inputTypeRepository, IFieldRepository fieldRepository)
     {
         _questionRepository = questionRepository;
+        _inputTypeRepository = inputTypeRepository;
+        _fieldRepository = fieldRepository;
     }
 
     public async Task<Question> CreateAsync(int formId)
@@ -29,10 +33,30 @@ public class QuestionBusiness : IQuestionBusiness
         await _questionRepository.DeleteAsync(id);
     }
 
+    public async Task DeleteFieldsAsync(int id)
+    {
+        await _questionRepository.DeleteFieldsAsync(id);
+    }
+
+
+    public async Task<Question> GetByIdAsync(int id)
+    {
+        return await _questionRepository.GetByIdAsync(id);
+    }
+
     public async Task<Question> UpdateLabelAsync(int id, string label)
     {
         Question question = await _questionRepository.GetByIdAsync(id);
         question.Label = label;
+        await _questionRepository.UpdateAsync(question);
+        return question;
+    }
+
+    public async Task<Question> UpdateInputTypeAsync(int id, string inputTypeMarkup)
+    {
+        Question question = await _questionRepository.GetByIdAsync(id);
+        InputType inputType = await _inputTypeRepository.GetByMarkupAsync(inputTypeMarkup);
+        question.InputType = inputType;
         await _questionRepository.UpdateAsync(question);
         return question;
     }
@@ -43,10 +67,5 @@ public class QuestionBusiness : IQuestionBusiness
         question.IsMandatory = isMandatory;
         await _questionRepository.UpdateAsync(question);
         return question;
-    }
-
-    public async Task<Question> GetByIdAsync(int id)
-    {
-        return await _questionRepository.GetByIdAsync(id);
     }
 }

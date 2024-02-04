@@ -2,6 +2,9 @@
     --accent-color-dark: #00688D;
     --accent-color-light: #003D53;
     --slides-visible: 3;
+
+    --delete-color: rgb(255, 76, 76);
+    --background-section-dark: #003D53;
 }
 
 html {
@@ -17,6 +20,26 @@ html {
 html {
     position: relative;
     min-height: 100%;
+}
+
+h1 {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 7rem;
+}
+
+h1.form-view {
+    margin-bottom: 1rem;
+}
+
+
+input[type=text] {
+    background-color: #003D53;
+}
+
+option:hover {
+    background-color: var(--accent-color);
 }
 
 /*header*/

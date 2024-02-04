@@ -2,6 +2,7 @@
 using QuikForm.Business.Contracts.Business;
 using QuikForm.Entities;
 using QuikForm.WebApp.Mappers.InputTypes;
+using QuikForm.WebApp.Models.Fields;
 using QuikForm.WebApp.Models.InputTypes;
 using QuikForm.WebApp.Models.Questions;
 using QuikForm.WebApp.Services;
