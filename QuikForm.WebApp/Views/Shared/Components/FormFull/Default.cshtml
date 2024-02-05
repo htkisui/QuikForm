@@ -21,11 +21,7 @@
 
     @* Question list *@
     <vc:question-full-list question-view-models="Model.QuestionViewModels" />
-
-    @if (Model.ClosedAt == null && Model.PublishedAt != null)
-    {
-        <section class="user-validation">
-            <input type="submit" class="primary" value="Envoyer vos réponses" />
-        </section>
-    }
+    <div class="user-validation">
+        <input type="submit" class="primary" value="Envoyer vos réponses" />
+    </div>
 </div>
