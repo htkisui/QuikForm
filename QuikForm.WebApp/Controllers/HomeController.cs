@@ -23,13 +23,13 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         FormListsViewModel formListsViewModel = new FormListsViewModel();
-        
-        List<Form> formsPublishedAt = await _formBusiness.GetAllByPublishedAtDescAsync();
+
+        List<Form> formsPublishedAt = await _formBusiness.GetAllPublishedAndNotClosedByPublishedAtDescAsync();
         List<FormViewModel> formsPublishedAtViewModel = formsPublishedAt.Select(f => _formMapper.ToFormViewModel(f)).ToList();
         formListsViewModel.FormsPublishedAtViewModel = formsPublishedAtViewModel;
 
-        List<Form> formsClosedAt = await _formBusiness.GetAllByClosedAtDescAsync();
-        List<FormViewModel> formsClosedAtViewModel = formsClosedAt.Select(f => _formMapper.ToFormViewModel(f)).ToList() ;
+        List<Form> formsClosedAt = await _formBusiness.GetAllClosedByClosedAtDescAsync();
+        List<FormViewModel> formsClosedAtViewModel = formsClosedAt.Select(f => _formMapper.ToFormViewModel(f)).ToList();
         formListsViewModel.FormsClosedAtViewModel = formsClosedAtViewModel;
 
         return View(formListsViewModel);

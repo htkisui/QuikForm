@@ -1,8 +1,7 @@
 :root {
     --accent-color-dark: #00688D;
     --accent-color-light: #003D53;
-    --slides-visible: 3;
-
+    --slides-visible: 4;
     --delete-color: rgb(255, 76, 76);
     --background-section-dark: #003D53;
 }
@@ -29,9 +28,9 @@ h1 {
     margin-bottom: 7rem;
 }
 
-h1.form-view {
-    margin-bottom: 1rem;
-}
+    h1.form-view {
+        margin-bottom: 1rem;
+    }
 
 
 input[type=text] {
@@ -103,7 +102,7 @@ footer img {
 /*Carousel*/
 .carousel-slider {
     margin-right: 10px;
-    margin-left:10px;
+    margin-left: 10px;
 }
 
 @media (min-width: 320px) {
@@ -143,6 +142,5 @@ footer img {
 
     header, footer {
         background-color: #92B8C5;
-
     }
 }

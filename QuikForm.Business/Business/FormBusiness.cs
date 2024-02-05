@@ -56,15 +56,15 @@ public class FormBusiness : IFormBusiness
         return await _formRepository.GetAllAsync();
     }
 
-    public async Task<List<Form>> GetAllByClosedAtDescAsync()
+    public async Task<List<Form>> GetAllClosedByClosedAtDescAsync()
     {
-        List<Form> formsClosedAt = await _formRepository.GetAllByClosedAtDescAsync();
+        List<Form> formsClosedAt = await _formRepository.GetAllClosedByClosedAtDescAsync();
         return formsClosedAt;
     }
 
-    public async Task<List<Form>> GetAllByPublishedAtDescAsync()
+    public async Task<List<Form>> GetAllPublishedAndNotClosedByPublishedAtDescAsync()
     {
-        List<Form> formsPublishedAt = await _formRepository.GetAllByPublishedAtDescAsync();
+        List<Form> formsPublishedAt = await _formRepository.GetAllPublishedAndNotClosedByPublishedAtDescAsync();
         return formsPublishedAt;
     }
 
