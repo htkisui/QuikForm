@@ -1,4 +1,19 @@
-﻿
+﻿/*form full*/
+h2 {
+    margin-top: .5rem;
+}
+
+.dates {
+    font-size: 10rem;
+    color: rgba(80, 122, 137, 1);
+    margin: 0;
+}
+
+.description {
+    margin: 2.5rem 0;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
 
 @media(prefers-color-scheme: dark) {
     .form-full-vc {

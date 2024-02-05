@@ -8,6 +8,7 @@ public class FormFullViewComponent : ViewComponent
 {
     public IViewComponentResult Invoke(FormViewModel formViewModel)
     {
+        //ViewBag.Url = Url.ToString();
         return View(formViewModel);
     }
 }

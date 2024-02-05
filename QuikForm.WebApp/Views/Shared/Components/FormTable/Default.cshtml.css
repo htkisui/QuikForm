@@ -1,10 +1,11 @@
 ﻿/*form table﻿*/
 .grid-container {
     display: grid;
-    grid-template-columns: 6fr 2.5fr 1.5fr 1.5fr;
+    grid-template-columns: 5.5fr 2.5fr 1.5fr 1.5fr;
     gap: 5px;
     align-items: center;
     font-weight: bold;
+    padding: .7rem 0;
 }
 
     .grid-container div {

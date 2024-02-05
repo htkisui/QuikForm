@@ -1,6 +1,13 @@
 ﻿@model List<FormViewModel>
 <h1>TABLEAU DE BORD</h1>
-<form asp-controller="Form" asp-action="Create">
-    <button role="button">Nouveau formulaire</button>
-</form>
+<div class="dashboard-header">
+    <form asp-controller="Form" asp-action="Search" class="search">
+        <input placeholder="Recherchez vos formulaires"/>
+        <button role="button">Rechercher</button>
+    </form>
+    <form asp-controller="Form" asp-action="Create" class="create">
+        <input type="submit" value="Nouveau formulaire" />
+    </form>
+</div>
+
 <vc:form-table form-view-models="Model" />
