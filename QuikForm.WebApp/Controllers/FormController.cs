@@ -27,7 +27,7 @@ public class FormController : Controller
         return View();
     }
 
-    public async Task<IActionResult> Clone(int id)
+    public async Task<IActionResult> Duplicate(int id)
     {
         await _formBusiness.DuplicateAsync(id);
         return RedirectToAction("Index", "Admin");
@@ -48,7 +48,7 @@ public class FormController : Controller
 
     public async Task<IActionResult> Show(int id)
     {
-        FormResponse formResponse = await _formBusiness.GetByIdAsync(id);
+        FormResponse formResponse = await _formBusiness.GetResultAsync(id);
         FormViewModel formViewmodel = _formMapper.ToFormViewModel(formResponse);
         return View(formViewmodel);
     }

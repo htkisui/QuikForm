@@ -1,7 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using QuikForm.Business.Contracts.Business;
+using QuikForm.Business.Contracts.Mappers.Fields;
 using QuikForm.Business.Contracts.Mappers.Forms;
+using QuikForm.Business.Contracts.Mappers.Questions;
+using QuikForm.Business.Contracts.Responses.Fields;
 using QuikForm.Business.Contracts.Responses.Forms;
+using QuikForm.Business.Contracts.Responses.Questions;
 using QuikForm.Entities;
 using QuikForm.Repository.Contracts.Contracts;
 using System;
@@ -17,13 +21,19 @@ public class FormBusiness : IFormBusiness
     private readonly IQuestionRepository _questionRepository;
     private readonly IFieldRepository _fieldRepository;
     private readonly IFormMapper _formMapper;
+    private readonly IFieldRecordRepository _fieldRecordRepository;
+    private readonly IFieldMapper _fieldMapper;
+    private readonly IQuestionMapper _questionMapper;
 
-    public FormBusiness(IFormRepository formRepository, IQuestionRepository questionRepository, IFieldRepository fieldRepository, IFormMapper formMapper)
+    public FormBusiness(IFormRepository formRepository, IQuestionRepository questionRepository, IFieldRepository fieldRepository, IFormMapper formMapper, IFieldRecordRepository fieldRecordRepository, IFieldMapper fieldMapper, IQuestionMapper questionMapper)
     {
         _formRepository = formRepository;
         _questionRepository = questionRepository;
         _fieldRepository = fieldRepository;
         _formMapper = formMapper;
+        _fieldRecordRepository = fieldRecordRepository;
+        _fieldMapper = fieldMapper;
+        _questionMapper = questionMapper;
     }
 
     public async Task DuplicateAsync(int id)
@@ -81,6 +91,35 @@ public class FormBusiness : IFormBusiness
     {
         Form form = await _formRepository.GetByIdAsync(id);
         FormResponse formResponse = _formMapper.ToFormResponse(form);
+        return formResponse;
+    }
+
+    public async Task<FormResponse> GetResultAsync(int id)
+    {
+        Form form = await _formRepository.GetByIdAsync(id);
+        FormResponse formResponse = _formMapper.ToFormResponse(form);
+        foreach(Question question in form.Questions)
+        {   
+            QuestionResponse questionResponse = _questionMapper.ToQuestionResponse(question);
+            formResponse.QuestionResponses.Add(questionResponse);
+            int totalCount = 0;
+            List<FieldResponse> fieldResponses = [];
+            foreach(Field field in question.Fields)
+            {
+                FieldResponse fieldResponse = _fieldMapper.ToFieldResponse(field);
+                int count = await _fieldRecordRepository.CountAsync(field.Id);
+                totalCount += count;
+                fieldResponse.Count = count;
+                fieldResponses.Add(fieldResponse);
+                questionResponse.FieldResponses.Add(fieldResponse);
+            }
+
+            foreach(FieldResponse fieldResponse in fieldResponses)
+            {
+                if (totalCount == 0) fieldResponse.Percent = 0;
+                else fieldResponse.Percent = ((float) fieldResponse.Count) / totalCount * 100;
+            }
+        }
         return formResponse;
     }
 

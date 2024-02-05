@@ -9,6 +9,13 @@ namespace QuikForm.Repository.Contracts.Contracts;
 public interface IFieldRecordRepository
 {
     /// <summary>
+    /// Total count of fieldRecords for the field.
+    /// </summary>
+    /// <param name="fieldId"></param>
+    /// <returns>The count.</returns>
+    Task<int> CountAsync(int fieldId);
+
+    /// <summary>
     /// Create a new FieldRecord.
     /// </summary>
     /// <param name="fieldRecord"></param>
