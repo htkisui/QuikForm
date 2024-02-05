@@ -1,4 +1,5 @@
-﻿using QuikForm.Entities;
+﻿using QuikForm.Business.Contracts.Responses.InputTypes;
+using QuikForm.Entities;
 using QuikForm.WebApp.Mappers.Forms;
 using QuikForm.WebApp.Mappers.Questions;
 using QuikForm.WebApp.Models.Forms;
@@ -10,7 +11,7 @@ namespace QuikForm.WebApp.Mappers.InputTypes;
 [Mapper(RequiredMappingStrategy = RequiredMappingStrategy.Target)]
 public partial class InputTypeMapper : IInputTypeMapper
 {
-    public partial InputType ToInputType(InputTypeViewModel inputTypeViewModel);
+    public partial InputTypeResponse ToInputTypeResponse(InputTypeViewModel inputTypeViewModel);
 
-    public partial InputTypeViewModel ToInputTypeViewModel(InputType inputType);
+    public partial InputTypeViewModel ToInputTypeViewModel(InputTypeResponse inputType);
 }

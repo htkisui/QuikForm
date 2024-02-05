@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using QuikForm.Business.Contracts.Business;
+using QuikForm.Business.Contracts.Responses.Forms;
 using QuikForm.Entities;
 using QuikForm.WebApp.Mappers.Forms;
 using QuikForm.WebApp.Models;
@@ -24,11 +25,11 @@ public class HomeController : Controller
     {
         FormListsViewModel formListsViewModel = new FormListsViewModel();
 
-        List<Form> formsPublishedAt = await _formBusiness.GetAllPublishedAndNotClosedByPublishedAtDescAsync();
-        List<FormViewModel> formsPublishedAtViewModel = formsPublishedAt.Select(f => _formMapper.ToFormViewModel(f)).ToList();
+        List<FormResponse> formResponsePublishedAts = await _formBusiness.GetAllPublishedAndNotClosedByPublishedAtDescAsync();
+        List<FormViewModel> formsPublishedAtViewModel = formResponsePublishedAts.Select(f => _formMapper.ToFormViewModel(f)).ToList();
         formListsViewModel.FormsPublishedAtViewModel = formsPublishedAtViewModel;
 
-        List<Form> formsClosedAt = await _formBusiness.GetAllClosedByClosedAtDescAsync();
+        List<FormResponse> formsClosedAt = await _formBusiness.GetAllClosedByClosedAtDescAsync();
         List<FormViewModel> formsClosedAtViewModel = formsClosedAt.Select(f => _formMapper.ToFormViewModel(f)).ToList();
         formListsViewModel.FormsClosedAtViewModel = formsClosedAtViewModel;
 
@@ -41,6 +42,4 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
-
-
 }

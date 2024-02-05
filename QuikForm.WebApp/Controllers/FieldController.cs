@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuikForm.Business.Contracts.Business;
+using QuikForm.Business.Contracts.Responses.Fields;
+using QuikForm.Business.Contracts.Responses.Questions;
 using QuikForm.Entities;
 using QuikForm.WebApp.Mappers.Fields;
 using QuikForm.WebApp.Mappers.Questions;
@@ -27,11 +29,11 @@ public class FieldController : Controller
     {
         try
         {
-            Field field = await _fieldBusiness.CreateAsync(questionId);
-            FieldViewModel fieldViewModel = _fieldMapper.ToFieldViewModel(field);
+            FieldResponse fieldResponse = await _fieldBusiness.CreateAsync(questionId);
+            FieldViewModel fieldViewModel = _fieldMapper.ToFieldViewModel(fieldResponse);
 
-            Question question = await _questionBusiness.GetByIdAsync(questionId);
-            QuestionViewModel questionViewModel = _questionMapper.ToQuestionViewModel(question);
+            QuestionResponse questionResponse = await _questionBusiness.GetByIdAsync(questionId);
+            QuestionViewModel questionViewModel = _questionMapper.ToQuestionViewModel(questionResponse);
 
             return ViewComponent("FieldForm", new { fieldViewModel = fieldViewModel, inputTypeViewModel = questionViewModel.InputTypeViewModel });
         }

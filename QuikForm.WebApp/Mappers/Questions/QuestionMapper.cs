@@ -1,4 +1,4 @@
-﻿using QuikForm.Entities;
+﻿using QuikForm.Business.Contracts.Responses.Questions;
 using QuikForm.WebApp.Mappers.Fields;
 using QuikForm.WebApp.Mappers.InputTypes;
 using QuikForm.WebApp.Models.Questions;
@@ -9,22 +9,22 @@ namespace QuikForm.WebApp.Mappers.Questions;
 [Mapper(RequiredMappingStrategy = RequiredMappingStrategy.Target)]
 public partial class QuestionMapper : IQuestionMapper
 {
-    public partial Question ToQuestion(QuestionViewModel questionViewModel);
+    public partial QuestionResponse ToQuestionResponse(QuestionViewModel questionViewModel);
 
-    private partial QuestionViewModel ToQuestionViewModelPartial(Question question);
+    private partial QuestionViewModel ToQuestionViewModelPartial(QuestionResponse questionResponse);
 
-    public QuestionViewModel ToQuestionViewModel(Question question)
+    public QuestionViewModel ToQuestionViewModel(QuestionResponse questionResponse)
     {
         var fieldMapper = new FieldMapper();
         var inputTypeMapper = new InputTypeMapper();
-        var dto = ToQuestionViewModelPartial(question);
-        if (question.Fields != null)
+        var dto = ToQuestionViewModelPartial(questionResponse);
+        if (questionResponse.FieldResponses != null)
         {
-            dto.FieldViewModels = question.Fields.Select(q => fieldMapper.ToFieldViewModel(q)).ToList();
+            dto.FieldViewModels = questionResponse.FieldResponses.Select(q => fieldMapper.ToFieldViewModel(q)).ToList();
         }
-        if (question.InputType != null)
+        if (questionResponse.InputTypeResponse != null)
         {
-            dto.InputTypeViewModel = inputTypeMapper.ToInputTypeViewModel(question.InputType);
+            dto.InputTypeViewModel = inputTypeMapper.ToInputTypeViewModel(questionResponse.InputTypeResponse);
         }
         return dto;
     }

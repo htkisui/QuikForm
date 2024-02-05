@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuikForm.Business.Contracts.Business;
-using QuikForm.Entities;
+using QuikForm.Business.Contracts.Responses.Forms;
 using QuikForm.WebApp.Mappers.Forms;
 using QuikForm.WebApp.Models.Forms;
 
@@ -19,10 +19,8 @@ public class AdminController : Controller
 
     public async Task<IActionResult> Index()
     {
-        List<Form> forms = await _formBusiness.GetAllAsync();
-        List<FormViewModel> formViewModels = forms.Select(f => _formMapper.ToFormViewModel(f)).ToList();
+        List<FormResponse> formResponses = await _formBusiness.GetAllAsync();
+        List<FormViewModel> formViewModels = formResponses.Select(f => _formMapper.ToFormViewModel(f)).ToList();
         return View(formViewModels);
     }
-
-
 }

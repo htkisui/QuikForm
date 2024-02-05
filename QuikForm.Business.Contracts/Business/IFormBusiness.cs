@@ -1,4 +1,5 @@
-﻿using QuikForm.Entities;
+﻿using QuikForm.Business.Contracts.Responses.Forms;
+using QuikForm.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,13 @@ public interface IFormBusiness
     /// Clone a new form from an existing one.
     /// </summary>
     /// <param name="id"></param>
-    Task CloneAsync(int id);
+    Task DuplicateAsync(int id);
 
     /// <summary>
     /// Create a new form.
     /// </summary>
-    /// <returns>New form.</returns>
-    Task<Form> CreateAsync();
+    /// <returns>New FormResponse.</returns>
+    Task<FormResponse> CreateAsync();
 
     /// <summary>
     /// Delete form and its children and its children's children (questions and fields).
@@ -30,27 +31,27 @@ public interface IFormBusiness
     /// <summary>
     /// Get all forms.
     /// </summary>
-    /// <returns>List of forms.</returns>
-    Task<List<Form>> GetAllAsync();
+    /// <returns>List of FormResponses.</returns>
+    Task<List<FormResponse>> GetAllAsync();
 
     /// <summary>
     /// Get all forms closed sorted by descending closed date.
     /// </summary>
     /// <returns>List of formsclosed sorted by descending closed date.</returns>
-    Task<List<Form>> GetAllClosedByClosedAtDescAsync();
+    Task<List<FormResponse>> GetAllClosedByClosedAtDescAsync();
 
     /// <summary>
     /// Get all forms published but not closed sorted by descending publication date.
     /// </summary>
-    /// <returns>List of forms published but not closed sorted by descending publication date.</returns>
-    Task<List<Form>> GetAllPublishedAndNotClosedByPublishedAtDescAsync();
+    /// <returns>List of FormResponses published but not closed sorted by descending publication date.</returns>
+    Task<List<FormResponse>> GetAllPublishedAndNotClosedByPublishedAtDescAsync();
 
     /// <summary>
     /// Get a form by its id.
     /// </summary>
     /// <param name="id"></param>
-    /// <returns>The form.</returns>
-    Task<Form> GetByIdAsync(int id);
+    /// <returns>FormResponse.</returns>
+    Task<FormResponse> GetByIdAsync(int id);
 
     /// <summary>
     /// Sets Form ClosedAt property to DateTime.Now.
@@ -81,6 +82,4 @@ public interface IFormBusiness
     /// <param name="title"></param>
     /// <returns></returns>
     Task UpdateTitleAsync(int id, string title);
-
-
 }

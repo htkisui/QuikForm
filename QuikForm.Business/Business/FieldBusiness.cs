@@ -1,4 +1,6 @@
 ﻿using QuikForm.Business.Contracts.Business;
+using QuikForm.Business.Contracts.Mappers.Fields;
+using QuikForm.Business.Contracts.Responses.Fields;
 using QuikForm.Entities;
 using QuikForm.Repository.Contracts.Contracts;
 using System;
@@ -12,16 +14,20 @@ public class FieldBusiness : IFieldBusiness
 {
     private readonly IFieldRepository _fieldRepository;
 
-    public FieldBusiness(IFieldRepository fieldRepository)
+    private readonly IFieldMapper _fieldMapper;
+
+    public FieldBusiness(IFieldRepository fieldRepository, IFieldMapper fieldMapper)
     {
         _fieldRepository = fieldRepository;
+        _fieldMapper = fieldMapper;
     }
 
-    public async Task<Field> CreateAsync(int questionId)
+    public async Task<FieldResponse> CreateAsync(int questionResponseId)
     {
-        Field field = new Field { QuestionId = questionId};
+        Field field = new Field { QuestionId = questionResponseId};
         await _fieldRepository.CreateAsync(field);
-        return field;
+        FieldResponse fieldResponse = _fieldMapper.ToFieldResponse(field);
+        return fieldResponse;
     }
 
     public async Task DeleteAsync(int id)
@@ -29,15 +35,23 @@ public class FieldBusiness : IFieldBusiness
         await _fieldRepository.DeleteAsync(id);
     }
 
-    public async Task<Field> GetByIdAsync(int id)
+    public async Task<FieldResponse> GetByIdAsync(int id)
     {
-        return await _fieldRepository.GetByIdAsync(id);
+        Field field = await _fieldRepository.GetByIdAsync(id);
+        FieldResponse fieldResponse = _fieldMapper.ToFieldResponse(field);
+        return fieldResponse;
     }
 
-    public async Task<Field> UpdateAsync(int id, string label)
+    public Task<FieldResponse> GetResultAsync(int questionId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<FieldResponse> UpdateAsync(int id, string label)
     {
         Field field = new Field() { Id = id, Label = label };
         await _fieldRepository.UpdateAsync(field);
-        return field;
+        FieldResponse fieldResponse = _fieldMapper.ToFieldResponse(field);
+        return fieldResponse;
     }
 }

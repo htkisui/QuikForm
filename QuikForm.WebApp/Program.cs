@@ -5,13 +5,9 @@ using QuikForm.Entities;
 using QuikForm.Repositories.Contexts;
 using QuikForm.Repositories.Repositories;
 using QuikForm.Repository.Contracts.Contracts;
-using QuikForm.WebApp.Mappers.Fields;
-using QuikForm.WebApp.Mappers.Forms;
-using QuikForm.WebApp.Mappers.InputTypes;
-using QuikForm.WebApp.Mappers.Questions;
 using QuikForm.WebApp.Services;
-using QuikForm.WebApp.Views.Shared.Components.QuestionForm;
-
+using BusinessMappers = QuikForm.Business.Contracts.Mappers;
+using WebAppMappers = QuikForm.WebApp.Mappers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,11 +37,15 @@ builder.Services.AddTransient<IQuestionBusiness, QuestionBusiness>();
 builder.Services.AddTransient<IRecordBusiness, RecordBusiness>();
 
 // Add Mappers
-builder.Services.AddScoped<IFormMapper, FormMapper>();
-builder.Services.AddScoped<IQuestionMapper, QuestionMapper>();
-builder.Services.AddScoped<IFieldMapper, FieldMapper>();
-builder.Services.AddScoped<IInputTypeMapper, InputTypeMapper>();
+builder.Services.AddScoped<BusinessMappers.Forms.IFormMapper, BusinessMappers.Forms.FormMapper>();
+builder.Services.AddScoped<BusinessMappers.Questions.IQuestionMapper, BusinessMappers.Questions.QuestionMapper>();
+builder.Services.AddScoped<BusinessMappers.Fields.IFieldMapper, BusinessMappers.Fields.FieldMapper>();
+builder.Services.AddScoped<BusinessMappers.InputTypes.IInputTypeMapper, BusinessMappers.InputTypes.InputTypeMapper>();
 
+builder.Services.AddScoped<WebAppMappers.Forms.IFormMapper, WebAppMappers.Forms.FormMapper>();
+builder.Services.AddScoped<WebAppMappers.Questions.IQuestionMapper, WebAppMappers.Questions.QuestionMapper>();
+builder.Services.AddScoped<WebAppMappers.Fields.IFieldMapper, WebAppMappers.Fields.FieldMapper>();
+builder.Services.AddScoped<WebAppMappers.InputTypes.IInputTypeMapper, WebAppMappers.InputTypes.InputTypeMapper>();
 
 // Add Services
 builder.Services.AddScoped<InputTypeService>();
