@@ -19,9 +19,4 @@
     <ProjectReference Include="..\QuikForm.Repository.Contracts\QuikForm.Repository.Contracts.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Mappers\" />
-    <Folder Include="Requests\" />
-  </ItemGroup>
-
 </Project>
