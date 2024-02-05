@@ -1,4 +1,6 @@
 ﻿using QuikForm.Business.Contracts.Business;
+using QuikForm.Business.Contracts.Mappers.InputTypes;
+using QuikForm.Business.Contracts.Responses.InputTypes;
 using QuikForm.Entities;
 using QuikForm.Repository.Contracts.Contracts;
 using System;
@@ -11,14 +13,18 @@ namespace QuikForm.Business.Business;
 public class InputTypeBusiness : IInputTypeBusiness
 {
     private readonly IInputTypeRepository _inputTypeRepository;
+    private readonly IInputTypeMapper _inputTypeMapper;
 
-    public InputTypeBusiness(IInputTypeRepository inputTypeRepository)
+    public InputTypeBusiness(IInputTypeRepository inputTypeRepository, IInputTypeMapper inputTypeMapper)
     {
         _inputTypeRepository = inputTypeRepository;
+        _inputTypeMapper = inputTypeMapper;
     }
 
-    public async Task<List<InputType>> GetAllAsync()
+    public async Task<List<InputTypeResponse>> GetAllAsync()
     {
-        return await _inputTypeRepository.GetAllAsync();
-    } 
+        List<InputType> inputTypes = await _inputTypeRepository.GetAllAsync();
+        List<InputTypeResponse> inputTypeResponses = inputTypes.Select(i => _inputTypeMapper.ToInputTypeResponse(i)).ToList();
+        return inputTypeResponses;
+    }
 }

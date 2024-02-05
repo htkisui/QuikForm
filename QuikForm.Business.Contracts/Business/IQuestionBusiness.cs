@@ -1,4 +1,4 @@
-﻿using QuikForm.Entities;
+﻿using QuikForm.Business.Contracts.Responses.Questions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ public interface IQuestionBusiness
     /// </summary>
     /// <param name="fromId"></param>
     /// <returns>The question with its InputType.</returns>
-    Task<Question> CreateAsync(int formId);
+    Task<QuestionResponse> CreateAsync(int formId);
 
     /// <summary>
     /// Deleted a question ans its fields.
@@ -32,7 +32,7 @@ public interface IQuestionBusiness
     /// </summary>
     /// <param name="id"></param>
     /// <returns>The question with its InputType.</returns>
-    Task<Question> GetByIdAsync(int id);
+    Task<QuestionResponse> GetByIdAsync(int id);
 
     /// <summary>
     /// Update the Label of the question selected by.
@@ -40,7 +40,7 @@ public interface IQuestionBusiness
     /// <param name="id"></param>
     /// <param name="label"></param>
     /// <returns>Question updated.</returns>
-    Task<Question> UpdateLabelAsync(int id, string label);
+    Task<QuestionResponse> UpdateLabelAsync(int id, string label);
 
     /// <summary>
     /// Update the inputType of the question selected by.
@@ -48,7 +48,7 @@ public interface IQuestionBusiness
     /// <param name="id"></param>
     /// <param name="inputType"></param>
     /// <returns>Question updated.</returns>
-    Task<Question> UpdateInputTypeAsync(int id, string inputTypeMarkup);
+    Task<QuestionResponse> UpdateInputTypeAsync(int id, string inputTypeMarkup);
 
     /// <summary>
     /// Update the isMandatory of the question selected by.
@@ -56,8 +56,6 @@ public interface IQuestionBusiness
     /// <param name="id"></param>
     /// <param name="isMandatory"></param>
     /// <returns>Question updated.</returns>
-    Task<Question> UpdateIsMandatoryAsync(int id, bool isMandatory);
-
-
+    Task<QuestionResponse> UpdateIsMandatoryAsync(int id, bool isMandatory);
 }
 

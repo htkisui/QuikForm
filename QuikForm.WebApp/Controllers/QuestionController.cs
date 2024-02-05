@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuikForm.Business.Business;
 using QuikForm.Business.Contracts.Business;
+using QuikForm.Business.Contracts.Responses.Questions;
 using QuikForm.Entities;
 using QuikForm.WebApp.Mappers.Questions;
 using QuikForm.WebApp.Models.Questions;
@@ -22,9 +23,8 @@ public class QuestionController : Controller
     {
         try
         {
-            Question question = await _questionBusiness.CreateAsync(formId);
-            QuestionViewModel questionViewModel = _questionMapper.ToQuestionViewModel(question);
-
+            QuestionResponse questionResponse = await _questionBusiness.CreateAsync(formId);
+            QuestionViewModel questionViewModel = _questionMapper.ToQuestionViewModel(questionResponse);
             return ViewComponent("QuestionForm", new { questionViewModel = questionViewModel });
         }
         catch (Exception e)
@@ -82,8 +82,8 @@ public class QuestionController : Controller
     {
         try
         {
-            Question question = await _questionBusiness.UpdateInputTypeAsync(id, inputTypeMarkup);
-            return Ok(question.InputType.Markup);
+            QuestionResponse questionResponse = await _questionBusiness.UpdateInputTypeAsync(id, inputTypeMarkup);
+            return Ok(questionResponse.InputTypeResponse.Markup);
         }
         catch (Exception e)
         {
@@ -105,5 +105,4 @@ public class QuestionController : Controller
             return BadRequest(e.Message);
         }
     }
-
 }

@@ -1,4 +1,5 @@
 ﻿using QuikForm.Business.Contracts.Business;
+using QuikForm.Business.Contracts.Responses.InputTypes;
 using QuikForm.Entities;
 using QuikForm.WebApp.Mappers.InputTypes;
 using QuikForm.WebApp.Models.InputTypes;
@@ -18,8 +19,8 @@ public class InputTypeService
 
     public async Task<List<InputTypeViewModel>> GetAllAsync()
     {
-        List<InputType> inputTypes = await _inputTypeBusiness.GetAllAsync();
-        List<InputTypeViewModel> inputTypeViewModels = inputTypes.Select(i => _inputTypeMapper.ToInputTypeViewModel(i)).ToList();
+        List<InputTypeResponse> inputTypeResponses = await _inputTypeBusiness.GetAllAsync();
+        List<InputTypeViewModel> inputTypeViewModels = inputTypeResponses.Select(i => _inputTypeMapper.ToInputTypeViewModel(i)).ToList();
         return inputTypeViewModels;
     }
 }

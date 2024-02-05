@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using QuikForm.Business.Contracts.Business;
+using QuikForm.Business.Contracts.Mappers.Forms;
+using QuikForm.Business.Contracts.Responses.Forms;
 using QuikForm.Entities;
 using QuikForm.Repository.Contracts.Contracts;
 using System;
@@ -14,15 +16,17 @@ public class FormBusiness : IFormBusiness
     private readonly IFormRepository _formRepository;
     private readonly IQuestionRepository _questionRepository;
     private readonly IFieldRepository _fieldRepository;
+    private readonly IFormMapper _formMapper;
 
-    public FormBusiness(IFormRepository formRepository, IQuestionRepository questionRepository, IFieldRepository fieldRepository)
+    public FormBusiness(IFormRepository formRepository, IQuestionRepository questionRepository, IFieldRepository fieldRepository, IFormMapper formMapper)
     {
         _formRepository = formRepository;
         _questionRepository = questionRepository;
         _fieldRepository = fieldRepository;
+        _formMapper = formMapper;
     }
 
-    public async Task CloneAsync(int id)
+    public async Task DuplicateAsync(int id)
     {
         Form form = await _formRepository.GetByIdAsync(id);
         Form formToClone = new Form() { Title = form.Title, Description = form.Description };
@@ -39,11 +43,12 @@ public class FormBusiness : IFormBusiness
         }
     }
 
-    public async Task<Form> CreateAsync()
+    public async Task<FormResponse> CreateAsync()
     {
         Form form = new Form { };
         await _formRepository.CreateAsync(form);
-        return form;
+        FormResponse formResponse = _formMapper.ToFormResponse(form);
+        return formResponse;
     }
 
     public async Task DeleteAsync(int id)
@@ -51,26 +56,32 @@ public class FormBusiness : IFormBusiness
         await _formRepository.DeleteAsync(id);
     }
 
-    public async Task<List<Form>> GetAllAsync()
+    public async Task<List<FormResponse>> GetAllAsync()
     {
-        return await _formRepository.GetAllAsync();
+        List<Form> forms = await _formRepository.GetAllAsync();
+        List<FormResponse> formResponses = forms.Select(f => _formMapper.ToFormResponse(f)).ToList();
+        return formResponses;
     }
 
-    public async Task<List<Form>> GetAllClosedByClosedAtDescAsync()
+    public async Task<List<FormResponse>> GetAllClosedByClosedAtDescAsync()
     {
-        List<Form> formsClosedAt = await _formRepository.GetAllClosedByClosedAtDescAsync();
-        return formsClosedAt;
+        List<Form> forms = await _formRepository.GetAllClosedByClosedAtDescAsync();
+        List<FormResponse> formResponses = forms.Select(f => _formMapper.ToFormResponse(f)).ToList();
+        return formResponses;
     }
 
-    public async Task<List<Form>> GetAllPublishedAndNotClosedByPublishedAtDescAsync()
+    public async Task<List<FormResponse>> GetAllPublishedAndNotClosedByPublishedAtDescAsync()
     {
-        List<Form> formsPublishedAt = await _formRepository.GetAllPublishedAndNotClosedByPublishedAtDescAsync();
-        return formsPublishedAt;
+        List<Form> forms = await _formRepository.GetAllPublishedAndNotClosedByPublishedAtDescAsync();
+        List<FormResponse> formResponses = forms.Select(f => _formMapper.ToFormResponse(f)).ToList();
+        return formResponses;
     }
 
-    public async Task<Form> GetByIdAsync(int id)
+    public async Task<FormResponse> GetByIdAsync(int id)
     {
-        return await _formRepository.GetByIdAsync(id);
+        Form form = await _formRepository.GetByIdAsync(id);
+        FormResponse formResponse = _formMapper.ToFormResponse(form);
+        return formResponse;
     }
 
     public async Task UpdateClosedAt(int id)

@@ -1,9 +1,9 @@
-﻿using QuikForm.Entities;
+﻿using QuikForm.Business.Contracts.Responses.InputTypes;
 using QuikForm.WebApp.Models.InputTypes;
 
 namespace QuikForm.WebApp.Mappers.InputTypes;
 public interface IInputTypeMapper
 {
-    InputType ToInputType(InputTypeViewModel inputTypeViewModel);
-    InputTypeViewModel ToInputTypeViewModel(InputType inputType);
+    InputTypeResponse ToInputTypeResponse(InputTypeViewModel inputTypeViewModel);
+    InputTypeViewModel ToInputTypeViewModel(InputTypeResponse inputType);
 }

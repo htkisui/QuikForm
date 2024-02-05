@@ -1,9 +1,9 @@
-﻿using QuikForm.Entities;
+﻿using QuikForm.Business.Contracts.Responses.Fields;
 using QuikForm.WebApp.Models.Fields;
 
 namespace QuikForm.WebApp.Mappers.Fields;
 public interface IFieldMapper
 {
-    Field ToField(FieldViewModel fieldViewModel);
-    FieldViewModel ToFieldViewModel(Field field);
+    FieldResponse ToFieldResponse(FieldViewModel fieldViewModel);
+    FieldViewModel ToFieldViewModel(FieldResponse fieldResponse);
 }

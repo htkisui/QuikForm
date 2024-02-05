@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuikForm.Business.Business;
 using QuikForm.Business.Contracts.Business;
+using QuikForm.Business.Contracts.Responses.Forms;
 using QuikForm.Entities;
 using QuikForm.WebApp.Mappers.Fields;
 using QuikForm.WebApp.Mappers.Forms;
@@ -28,35 +29,35 @@ public class FormController : Controller
 
     public async Task<IActionResult> Clone(int id)
     {
-        await _formBusiness.CloneAsync(id);
+        await _formBusiness.DuplicateAsync(id);
         return RedirectToAction("Index", "Admin");
     }
 
     public async Task<IActionResult> Create()
     {
-        Form form = await _formBusiness.CreateAsync();
-        return RedirectToAction("Edit", new { id = form.Id });
+        FormResponse formResponse = await _formBusiness.CreateAsync();
+        return RedirectToAction("Edit", new { id = formResponse.Id });
     }
 
     public async Task<IActionResult> Edit(int id)
     {
-        Form form = await _formBusiness.GetByIdAsync(id);
-        FormViewModel formViewmodel = _formMapper.ToFormViewModel(form);
+        FormResponse formResponse = await _formBusiness.GetByIdAsync(id);
+        FormViewModel formViewmodel = _formMapper.ToFormViewModel(formResponse);
         return View(formViewmodel);
     }
 
     public async Task<IActionResult> Show(int id)
     {
-        Form form = await _formBusiness.GetByIdAsync(id);
-        FormViewModel formViewmodel = _formMapper.ToFormViewModel(form);
+        FormResponse formResponse = await _formBusiness.GetByIdAsync(id);
+        FormViewModel formViewmodel = _formMapper.ToFormViewModel(formResponse);
         return View(formViewmodel);
     }
 
     [HttpGet]
     public async Task<IActionResult> Submit(int id)
     {
-        Form form = await _formBusiness.GetByIdAsync(id);
-        FormViewModel formViewModel = _formMapper.ToFormViewModel(form);
+        FormResponse formResponse = await _formBusiness.GetByIdAsync(id);
+        FormViewModel formViewModel = _formMapper.ToFormViewModel(formResponse);
         return View(formViewModel);
     }
 
