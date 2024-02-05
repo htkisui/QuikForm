@@ -13,5 +13,5 @@ public partial class InputTypeMapper : IInputTypeMapper
 {
     public partial InputTypeResponse ToInputTypeResponse(InputTypeViewModel inputTypeViewModel);
 
-    public partial InputTypeViewModel ToInputTypeViewModel(InputTypeResponse inputType);
+    public partial InputTypeViewModel ToInputTypeViewModel(InputTypeResponse inputTypeResponse);
 }

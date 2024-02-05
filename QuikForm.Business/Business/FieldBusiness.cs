@@ -42,10 +42,11 @@ public class FieldBusiness : IFieldBusiness
         return fieldResponse;
     }
 
-    public Task<FieldResponse> GetResultAsync(int questionId)
-    {
-        throw new NotImplementedException();
-    }
+    //public Task<FieldResponse> GetResultAsync(int questionId)
+    //{
+
+    //    return fieldResponse;
+    //}
 
     public async Task<FieldResponse> UpdateAsync(int id, string label)
     {

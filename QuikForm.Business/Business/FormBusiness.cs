@@ -29,16 +29,16 @@ public class FormBusiness : IFormBusiness
     public async Task DuplicateAsync(int id)
     {
         Form form = await _formRepository.GetByIdAsync(id);
-        Form formToClone = new Form() { Title = form.Title, Description = form.Description };
-        await _formRepository.CreateAsync(formToClone);
+        Form formToDuplicate = new Form() { Title = form.Title, Description = form.Description };
+        await _formRepository.CreateAsync(formToDuplicate);
         foreach (Question question in form.Questions)
         {
-            Question questionToClone = new Question() { Label = question.Label, FormId = formToClone.Id, InputTypeId = question.InputTypeId };
-            await _questionRepository.CreateAsync(questionToClone);
+            Question questionToDuplicate = new Question() { Label = question.Label, FormId = formToDuplicate.Id, InputTypeId = question.InputTypeId };
+            await _questionRepository.CreateAsync(questionToDuplicate);
             foreach (Field field in question.Fields)
             {
-                Field fieldToClone = new Field() { Label = field.Label, QuestionId = questionToClone.Id };
-                await _fieldRepository.CreateAsync(fieldToClone);
+                Field fieldToDuplicate = new Field() { Label = field.Label, QuestionId = questionToDuplicate.Id };
+                await _fieldRepository.CreateAsync(fieldToDuplicate);
             }
         }
     }
