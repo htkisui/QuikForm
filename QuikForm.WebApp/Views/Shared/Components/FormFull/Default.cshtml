@@ -15,13 +15,15 @@
         <h2>@Model.Title</h2>
     </section>
 
-
-
     <div class="description">@Model.Description</div>
 
     @* Question list *@
     <vc:question-full-list question-view-models="Model.QuestionViewModels" />
-    <div class="user-validation">
-        <input type="submit" class="primary" value="Envoyer vos réponses" />
-    </div>
+
+    @if (Model.PublishedAt != null && Model.ClosedAt == null)
+    {
+        <div class="user-validation">
+            <input type="submit" class="primary" value="Envoyer vos réponses" />
+        </div>
+    }
 </div>
