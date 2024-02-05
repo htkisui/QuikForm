@@ -42,12 +42,6 @@ public class FieldBusiness : IFieldBusiness
         return fieldResponse;
     }
 
-    //public Task<FieldResponse> GetResultAsync(int questionId)
-    //{
-
-    //    return fieldResponse;
-    //}
-
     public async Task<FieldResponse> UpdateAsync(int id, string label)
     {
         Field field = new Field() { Id = id, Label = label };

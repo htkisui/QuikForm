@@ -19,6 +19,11 @@ public class FieldRecordRepository : IFieldRecordRepository
         _context = context;
     }
 
+    public async Task<int> CountAsync(int fieldId)
+    {
+        return await _context.FieldRecords.Where(f => f.FieldId == fieldId).CountAsync();
+    }
+
     public async Task CreateAsync(FieldRecord fieldRecord)
     {
         await _context.FieldRecords.AddAsync(fieldRecord);

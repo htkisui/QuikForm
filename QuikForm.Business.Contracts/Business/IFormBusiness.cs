@@ -54,6 +54,13 @@ public interface IFormBusiness
     Task<FormResponse> GetByIdAsync(int id);
 
     /// <summary>
+    /// Get a form with its questions, fields including field count and field percent.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns>FormResponse</returns>
+    Task<FormResponse> GetResultAsync(int id);
+
+    /// <summary>
     /// Sets Form ClosedAt property to DateTime.Now.
     /// </summary>
     /// <param name="id">Form Id</param>
