@@ -5,5 +5,5 @@ namespace QuikForm.WebApp.Mappers.InputTypes;
 public interface IInputTypeMapper
 {
     InputTypeResponse ToInputTypeResponse(InputTypeViewModel inputTypeViewModel);
-    InputTypeViewModel ToInputTypeViewModel(InputTypeResponse inputType);
+    InputTypeViewModel ToInputTypeViewModel(InputTypeResponse inputTypeResponse);
 }

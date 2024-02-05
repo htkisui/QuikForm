@@ -14,22 +14,22 @@ namespace QuikForm.Business.Contracts.Mappers.Questions;
 [Mapper(RequiredMappingStrategy = RequiredMappingStrategy.Target)]
 public partial class QuestionMapper : IQuestionMapper
 {
-    public partial QuestionResponse ToQuestionResponse(Question question);
+    private partial QuestionResponse ToQuestionResponsePartial(Question question);
 
-    private partial Question ToQuestionPartial(QuestionResponse questionResponse);
+    public partial Question ToQuestion(QuestionResponse questionResponse);
 
-    public Question ToQuestion(QuestionResponse questionResponse)
+    public QuestionResponse ToQuestionResponse(Question question)
     {
-        var fieldMapper = new FieldMapper();
-        var inputTypeMapper = new InputTypeMapper();
-        var dto = ToQuestionPartial(questionResponse);
-        if (questionResponse.FieldResponses != null)
+        FieldMapper fieldMapper = new FieldMapper();
+        InputTypeMapper inputTypeMapper = new InputTypeMapper();
+        QuestionResponse dto = ToQuestionResponsePartial(question);
+        if (question.Fields != null)
         {
-            dto.Fields = questionResponse.FieldResponses.Select(q => fieldMapper.ToField(q)).ToList();
+            dto.FieldResponses = question.Fields.Select(q => fieldMapper.ToFieldResponse(q)).ToList();
         }
-        if (questionResponse.InputTypeResponse != null)
+        if (question.InputType != null)
         {
-            dto.InputType = inputTypeMapper.ToInputType(questionResponse.InputTypeResponse);
+            dto.InputTypeResponse = inputTypeMapper.ToInputTypeResponse(question.InputType);
         }
         return dto;
     }

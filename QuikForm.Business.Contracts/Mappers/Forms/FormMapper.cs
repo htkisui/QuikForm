@@ -13,17 +13,17 @@ namespace QuikForm.Business.Contracts.Mappers.Forms;
 [Mapper(RequiredMappingStrategy = RequiredMappingStrategy.Target)]
 public partial class FormMapper : IFormMapper
 {
-    public partial FormResponse ToFormResponse(Form form);
+    public partial Form ToForm(FormResponse formResponse);
 
-    private partial Form ToFormPartial(FormResponse formResponse);
+    private partial FormResponse ToFormResponsePartial(Form form);
 
-    public Form ToForm(FormResponse formResponse)
+    public FormResponse ToFormResponse(Form form)
     {
         var questionMapper = new QuestionMapper();
-        var dto = ToFormPartial(formResponse);
-        if (formResponse.QuestionResponses != null)
+        var dto = ToFormResponsePartial(form);
+        if (form.Questions != null)
         {
-            dto.Questions = formResponse.QuestionResponses.Select(f => questionMapper.ToQuestion(f)).ToList();
+            dto.QuestionResponses = form.Questions.Select(f => questionMapper.ToQuestionResponse(f)).ToList();
         }
 
         return dto;

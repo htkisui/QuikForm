@@ -12,5 +12,5 @@ public interface IFieldBusiness
     Task DeleteAsync(int id);
     Task<FieldResponse> GetByIdAsync(int id);
     Task<FieldResponse> UpdateAsync(int id, string label);
-    Task<FieldResponse> GetResultAsync(int questionId);
+    //Task<FieldResponse> GetResultAsync(int questionId);
 }
