@@ -21,6 +21,7 @@ public class HomeController : Controller
         _formMapper = formMapper;
     }
 
+    [HttpGet]
     public async Task<IActionResult> Index()
     {
         FormListsViewModel formListsViewModel = new FormListsViewModel();

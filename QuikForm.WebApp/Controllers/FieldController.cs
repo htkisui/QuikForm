@@ -28,6 +28,7 @@ public class FieldController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(int questionId)
     {
         try
@@ -47,6 +48,7 @@ public class FieldController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Delete(int id)
     {
         try
@@ -68,6 +70,7 @@ public class FieldController : Controller
 
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Update(int id, string label)
     {
         try

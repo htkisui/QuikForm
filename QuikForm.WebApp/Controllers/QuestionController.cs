@@ -22,6 +22,7 @@ public class QuestionController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(int formId)
     {
         try
@@ -38,6 +39,7 @@ public class QuestionController : Controller
 
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Delete(int id)
     {
         try
@@ -52,6 +54,7 @@ public class QuestionController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteFields(int id)
     {
         try
@@ -66,6 +69,7 @@ public class QuestionController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> UpdateLabel(int id, string label)
     {
         try
@@ -81,6 +85,7 @@ public class QuestionController : Controller
 
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> UpdateInputType(int id, string inputTypeMarkup)
     {
         try
@@ -96,6 +101,7 @@ public class QuestionController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> UpdateIsMandatory(int id, bool isMandatory)
     {
         try

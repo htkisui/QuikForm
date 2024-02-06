@@ -19,6 +19,7 @@ public class AdminController : Controller
         _formMapper = formMapper;
     }
 
+    [HttpGet]
     public async Task<IActionResult> Index()
     {
         List<FormResponse> formResponses = await _formBusiness.GetAllAsync();
@@ -27,6 +28,7 @@ public class AdminController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Search(string title)
     {
         List<FormResponse> formResponses = await _formBusiness.GetAllByTitleAsync(title);
@@ -35,6 +37,7 @@ public class AdminController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> SearchJS(string title)
     {
         List<FormResponse> formResponses = await _formBusiness.GetAllByTitleAsync(title);
