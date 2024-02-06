@@ -4,10 +4,7 @@
     @Html.AntiForgeryToken()
 </div>
 <div class="dashboard-header">
-    <form asp-controller="Admin" asp-action="Search" class="search">
-        <input id="dashboard-search" placeholder="Recherchez vos formulaires" name="title"/>
-        <button role="button">Rechercher</button>
-    </form>
+    <input id="dashboard-search" placeholder="Recherchez vos formulaires" />
     <form asp-controller="Form" asp-action="Create" class="create">
         <input type="submit" value="Nouveau formulaire" />
     </form>

@@ -33,15 +33,6 @@ public class AdminController : Controller
     {
         List<FormResponse> formResponses = await _formBusiness.GetAllByTitleAsync(title);
         List<FormViewModel> formViewmodels = formResponses.Select(f => _formMapper.ToFormViewModel(f)).ToList();
-        return View("Index", formViewmodels);
-    }
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> SearchJS(string title)
-    {
-        List<FormResponse> formResponses = await _formBusiness.GetAllByTitleAsync(title);
-        List<FormViewModel> formViewmodels = formResponses.Select(f => _formMapper.ToFormViewModel(f)).ToList();
         return ViewComponent("FormTable", formViewmodels);
     }
 }

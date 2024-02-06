@@ -133,9 +133,6 @@ footer img {
 
     .dashboard-header > .search {
         --half-distance-next-element: 3rem;
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: .7rem;
         margin-right: var(--half-distance-next-element);
         padding-right: var(--half-distance-next-element);
         border-right: solid 1px var(--accent-color-light);
