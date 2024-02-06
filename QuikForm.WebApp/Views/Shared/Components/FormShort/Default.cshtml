@@ -1,0 +1,21 @@
+﻿@model FormViewModel;
+
+<article class="form-short-vc" style="height: auto">
+    <header style="height: auto; padding-bottom: 0;" >
+        <h2 style ="height:50px">@Model.Title</h2>
+        <p>Publié le @Model.PublishedAt?.ToString("dd/MM/yyyy")</p>
+    </header>
+    <section style ="height:50px">
+        <p>@Model.ShortDescription </p>
+    </section>
+    <footer style="height: auto">
+        @if (@Model.PublishedAt != null && @Model.ClosedAt == null)
+        {
+            <a asp-controller="Record" asp-action="Index" asp-route-id="@Model.Id" role="button">Répondre</a>
+        }
+        @if (@Model.ClosedAt != null)
+        {
+            <a asp-controller="Form" asp-action="Show" asp-route-id="@Model.Id" role="button">Résultats</a>
+        }
+    </footer>
+</article>

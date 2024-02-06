@@ -1,0 +1,29 @@
+﻿@model FormViewModel;
+<div class="form-full-vc">
+    <section class="dates">
+        <p style="font-size: 1rem; color: rgba(96, 149, 167, 1); margin-bottom: .5rem;">
+            CRÉÉ LE @Model.CreatedAt.ToString("dd/MM/yyyy")
+            @if (Model.PublishedAt != null)
+            {
+                <span>- PUBLIÉ LE @Model.PublishedAt?.ToString("dd/MM/yyyy")</span>
+            }
+            @if (Model.ClosedAt != null)
+            {
+                <span>- CLÔTURÉ LE @Model.ClosedAt?.ToString("dd/MM/yyyy")</span>
+            }
+        </p>
+        <h2>@Model.Title</h2>
+    </section>
+
+    <div class="description">@Model.Description</div>
+
+    @* Question list *@
+    <vc:question-full-list question-view-models="Model.QuestionViewModels" />
+
+    @if (Model.PublishedAt != null && Model.ClosedAt == null)
+    {
+        <div class="user-validation">
+            <input type="submit" class="primary" value="Envoyer vos réponses" />
+        </div>
+    }
+</div>

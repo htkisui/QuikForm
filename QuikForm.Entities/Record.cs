@@ -11,8 +11,14 @@ public class Record
     [Key]
     public int Id { get; set; }
 
+    //[Required]
+    public DateTime CreateAt { get; set; }
+
+    //[Required]
+    public DateTime UpdateAt { get; set; }
+
     public List<FieldRecord> FieldRecords { get; } = [];
 
-    public int? UserId { get; set; }
-    public User? User { get; set; }
+    public int? ApplicationUserId { get; set; }
+    public ApplicationUser? ApplicationUser { get; set; }
 }

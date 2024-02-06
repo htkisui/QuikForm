@@ -1,0 +1,38 @@
+﻿@model FormViewModel
+
+<div class="form-row-vc">
+    <div class="title-content">@Model.Title</div>
+    <div class="date-content">
+        @Model.UpdatedAt.ToString("dd/MM/yyyy")
+    </div>
+
+    @if (Model.PublishedAt == null & Model.ClosedAt == null)
+    {
+        <div class="status-content">Brouillon</div>
+    }
+    @if (Model.PublishedAt != null & Model.ClosedAt == null)
+    {
+        <div class="status-content">Publié</div>
+    }
+    @if (Model.ClosedAt != null)
+    {
+        <div class="status-content">Clôturé</div>
+    }
+    <div class="actions">
+        <span class="icon">
+            <a asp-controller="Form" asp-action="Show" asp-route-id="@Model.Id">
+                <img src="/images/read-icon.svg" title="Voir" />
+            </a>
+        </span>
+        <span class="icon">
+            <a asp-controller="Form" asp-action="Edit" asp-route-id="@Model.Id">
+                <img src="/images/edit-icon.svg" title="Éditer" />
+            </a>
+        </span>
+        <span class="icon">
+            <a asp-controller="Form" asp-action="Duplicate" asp-route-id="@Model.Id">
+                <img src="/images/duplicate-icon.svg" title="Dupliquer" />
+            </a>
+        </span>
+    </div>
+</div>

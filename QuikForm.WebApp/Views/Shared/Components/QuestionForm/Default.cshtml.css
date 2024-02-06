@@ -1,0 +1,49 @@
+﻿.question-form-vc {
+    padding: 2rem 1.5rem;
+    margin: 1rem 0;
+}
+
+div.question-body {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 1.5rem;
+}
+
+div.question-label select option {
+    font-family: "Raleway";
+}
+
+.mandatory-trash {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+    .mandatory-trash.text label {
+    
+        box-sizing: border-box;
+    }
+
+    .trash {
+        --half-distance-left-element: 1.2rem;
+        border-left: 1px solid rgba(231, 249, 255, 0.53);
+        padding-left: var(--half-distance-left-element);
+        margin-left: var(--half-distance-left-element);
+        line-height: 100%;
+    }
+
+        .trash:hover {
+            color: rgb(255, 76, 76);
+            cursor: pointer;
+        }
+
+label, .question-IsMandatory {
+    margin: 0;
+    letter-spacing: .1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .question-form-vc {
+        background-color: #0F2E38;
+    }
+}

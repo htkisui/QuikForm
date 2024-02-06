@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QuikForm.Business.Contracts\QuikForm.Business.Contracts.csproj" />
+    <ProjectReference Include="..\QuikForm.Entities\QuikForm.Entities.csproj" />
+    <ProjectReference Include="..\QuikForm.Repository.Contracts\QuikForm.Repository.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

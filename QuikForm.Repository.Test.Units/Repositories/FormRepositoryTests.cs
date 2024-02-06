@@ -174,7 +174,7 @@ public class FormRepositoryTests
         ApplicationDbContext context = new ApplicationDbContext(builder.Options);
         context.Database.EnsureDeleted();
         FormRepository formRepository = new FormRepository(context);
-        Form form = new Form() { Id = 1};
+        Form form = new Form() { Id = 1 };
 
         // Act
         Form formResult = await formRepository.UpdateAsync(form);

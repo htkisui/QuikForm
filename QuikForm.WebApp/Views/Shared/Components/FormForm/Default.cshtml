@@ -1,0 +1,27 @@
+﻿@model FormViewModel
+<section class="form-form-vc form-id-@Model.Id">
+    <label>
+        <span class="form-info">Titre</span>
+        <input asp-for="Title" placeholder="Entrez votre titre" id="title-content" data-target-form="form-id-@Model.Id" style="background-color: #0F2E38" />
+    </label>
+    <label>
+        <span class="form-info">Description</span>
+        <textarea asp-for="Description" placeholder="Entrez votre description" id="description-content" data-target-form="form-id-@Model.Id" style="background-color: #0F2E38"></textarea>
+    </label>
+    <vc:question-form-list question-view-models="Model.QuestionViewModels" form-id="@Model.Id" />
+    <div class="submits">
+        <form asp-controller="Form" asp-action="Publish">
+            <input type="hidden" asp-for="Id" />
+            <button role="button">Publier</button>
+        </form>
+        <form asp-controller="Form" asp-action="Close">
+            <input type="hidden" asp-for="Id" />
+            <button role="button">Clôturer</button>
+        </form>
+        <form asp-controller="Form" asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button role="button" class="delete">Supprimer</button>
+        </form>
+    </div>
+    <p class="autosave">* L'enregistrement de votre formulaire est automatique</p>
+</section>

@@ -1,0 +1,23 @@
+﻿@model FieldViewModel;
+<p class="field-form-vc" id="field-id-@Model.Id">
+    @*Display input type*@
+    @if (ViewBag.InputTypeViewModel.Markup == "textarea")
+    {
+        <textarea disabled></textarea>
+    }
+    else if (ViewBag.InputTypeViewModel.Markup == "select")
+    {
+        <input type="radio" disabled />
+    }
+    else
+    {
+        <input id="option-@Model.Id" type="@ViewBag.InputTypeViewModel.Markup" disabled />
+    }
+
+    @*Display label if needed*@
+    @if (ViewBag.InputTypeViewModel.Markup != "text" && ViewBag.InputTypeViewModel.Markup != "textarea")
+    {
+        <input class="field-label" data-target-field="field-id-@Model.Id" type="text" placeholder="@Model.Label">
+        <i class="fa-solid fa-xmark delete-field-button" data-target-field="field-id-@Model.Id" title="Supprimer la réponse"></i>
+    }
+</p>

@@ -39,9 +39,41 @@ public class FormRepository : IFormRepository
         return await _context.Forms.ToListAsync();
     }
 
+    public async Task<List<Form>> GetAllByTitleAsync(string title)
+    {
+        return await _context.Forms.Where(f => EF.Functions.Like(f.Title, $"%{title}%")).ToListAsync();
+    }
+
+    public async Task<List<Form>> GetAllClosedByClosedAtDescAsync()
+    {
+        return await _context.Forms
+            .Where(f => f.ClosedAt != null && f.ClosedAt >= DateTime.Now)
+            .OrderByDescending(f => f.ClosedAt)
+            .ToListAsync();
+    }
+
+    public async Task<List<Form>> GetAllByClosedAtDescAsync()
+    {
+        return await _context.Forms.OrderByDescending(f => f.ClosedAt).ToListAsync();
+    }
+
+    public async Task<List<Form>> GetAllPublishedAndNotClosedByPublishedAtDescAsync()
+    {
+        return await _context.Forms
+            .Where(f => f.PublishedAt != null && (f.ClosedAt == null || f.ClosedAt < DateTime.Now))
+            .OrderByDescending(f => f.PublishedAt)
+            .ToListAsync();
+    }
+    public async Task<List<Form>> GetAllByPublishedAtDescAsync()
+    {
+        return await _context.Forms.OrderByDescending(f => f.PublishedAt).ToListAsync();
+    }
+
     public async Task<Form> GetByIdAsync(int id)
     {
-        Form form = await _context.Forms.FirstOrDefaultAsync(f => f.Id == id) ?? throw new FormNotFoundException();
+        Form form = await _context.Forms.Include(f => f.Questions).ThenInclude(q => q.InputType)
+                                        .Include(f => f.Questions).ThenInclude(q => q.Fields)
+                                        .FirstOrDefaultAsync(f => f.Id == id) ?? throw new FormNotFoundException();
         return form;
     }
 

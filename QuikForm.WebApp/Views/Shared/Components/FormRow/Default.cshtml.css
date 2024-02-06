@@ -1,0 +1,40 @@
+﻿﻿.form-row-vc {
+    display: grid;
+    grid-template-columns: 5.5fr 2.5fr 1.5fr 1.5fr;
+    gap: 5px;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.title-content {
+    text-align: start;
+    padding-left: 1rem !important;
+}
+
+.date-content, .status-content {
+    text-align: start;
+}
+
+.status-content {
+    padding-left: 1rem;
+}
+
+.actions {
+    margin-left: auto;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span.icon {
+    background-color: rgba(162, 232, 255, 1);
+    margin-left: .5rem;
+    border-radius: 15%;
+    padding: .2rem 0 .1rem 0;
+}
+
+    span.icon:hover {
+        background-color: #EEF4F6;
+        transition:all .4s ease;
+    }

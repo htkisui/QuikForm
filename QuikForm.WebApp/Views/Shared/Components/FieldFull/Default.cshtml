@@ -1,0 +1,48 @@
+﻿@model FieldViewModel;
+<p class="field-full-vc">
+    @* checks if business has given a different count than the one by default set to -1 to display result view mode *@
+    @if (Model.Count < 0)
+    {
+        @*Display input type*@
+        @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "textarea")
+        {
+            <textarea id="option-@Model.Id" name="records[@ViewBag.QuestionViewModel.InputTypeViewModel.Markup-@Model.Id]"></textarea>
+        }
+        else
+        {
+            @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "radio")
+            {
+                <input id="option-@Model.Id" type="@ViewBag.QuestionViewModel.InputTypeViewModel.Markup" name="records[@ViewBag.QuestionViewModel.InputTypeViewModel.Markup-@ViewBag.QuestionViewModel.Id]" value="@Model.Label" />
+            }
+            else
+            {
+                <input id="option-@Model.Id" type="@ViewBag.QuestionViewModel.InputTypeViewModel.Markup" name="records[@ViewBag.QuestionViewModel.InputTypeViewModel.Markup-@Model.Id]" value="@Model.Label" />
+            }
+        }
+    }
+    @*Display label if exist*@
+    @*mention count + percent if wanted by business*@
+    @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "text" && ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "textarea")
+    {
+        <label for="option-@Model.Id">
+            @Model.Label
+            @if (Model.Count > -1)
+            {
+                <span>- @Model.Count réponse(s), @Model.Percent%</span>
+            }
+        </label>
+    }
+    @if ((ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "text" || ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "textarea") && Model.Count > -1)
+    {
+        <span>@Model.Count réponse(s)</span>
+        <!--
+        <details>
+            <summary>Voir les réponses</summary>
+            @*             @foreach()
+        {
+        <p>Réponse personnalisée d'un user</p>
+        } *@
+        </details>
+        -->
+    }
+</p>

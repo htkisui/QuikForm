@@ -1,0 +1,37 @@
+﻿@model QuestionViewModel
+
+<div class="question-form-vc" id="question-id-@Model.Id">
+    <div class="question-body">
+        <input asp-for="Label" class="question-label" type="text" data-target-question="question-id-@Model.Id" placeholder="Entrez votre question" style="background-color: #0F2E38;" />
+        <select name="question-type" id="question-type" data-target-question="question-id-@Model.Id" style="background-color: #0F2E38">
+            @foreach (InputTypeViewModel inputTypeViewModel in ViewBag.InputTypes)
+            {
+                @if (Model.InputTypeViewModel.Id == inputTypeViewModel.Id)
+                {
+                    <option value="@inputTypeViewModel.Markup" selected style="background-color: #0F2E38" >@inputTypeViewModel.Label</option>
+                }
+                else
+                {
+                    <option value="@inputTypeViewModel.Markup" style="background-color: #0F2E38">@inputTypeViewModel.Label</option>
+                }
+            }
+        </select>
+        <vc:field-form-list field-view-models="Model.FieldViewModels" question-id="Model.Id" input-type-view-model="Model.InputTypeViewModel" />
+    </div>
+    <div class="mandatory-trash">
+        <div type="text">
+            <label>
+                Obligatoire
+                @if (Model.IsMandatory)
+                {
+                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" type="checkbox" role="switch" checked />
+                }
+                else
+                {
+                    <input name="IsMandatory" class="question-IsMandatory" data-target-question="question-id-@Model.Id" role="switch" type="checkbox" />
+                }
+            </label>
+        </div>
+        <div class="trash delete-question-button" data-target-question="question-id-@Model.Id"><i class="fa-regular fa-trash-can"></i></div>
+    </div>
+</div>

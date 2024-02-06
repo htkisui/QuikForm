@@ -1,0 +1,13 @@
+﻿@model List<FormViewModel>
+<h1>TABLEAU DE BORD</h1>
+<div id="token">
+    @Html.AntiForgeryToken()
+</div>
+<div class="dashboard-header">
+    <input id="dashboard-search" placeholder="Recherchez vos formulaires" />
+    <form asp-controller="Form" asp-action="Create" class="create">
+        <input type="submit" value="Nouveau formulaire" />
+    </form>
+</div>
+
+<vc:form-table form-view-models="Model" />

@@ -1,0 +1,42 @@
+﻿.form-form-vc {
+    padding: 2.5rem;
+}
+
+    .form-form-vc > label {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+    }
+
+.form-info {
+    font-size: 1.4rem;
+}
+
+.submits {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+
+button.delete {
+    background-color: var(--delete-color);
+    border: 1px solid var(--delete-color);
+}
+
+    button.delete:hover {
+        border: 1px solid var(--delete-color);
+    }
+
+.autosave {
+    text-align: end;
+    font-size: 1rem;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .form-form-vc {
+        background-color: var(--background-section-dark);
+    }
+}

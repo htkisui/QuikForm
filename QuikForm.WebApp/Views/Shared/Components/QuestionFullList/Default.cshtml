@@ -1,0 +1,8 @@
+﻿@model List<QuestionViewModel>
+
+<section class="question-full-list-vc">
+    @foreach(QuestionViewModel questionViewModel in Model)
+    {
+        <vc:question-full question-view-model="questionViewModel" />
+    }
+</section>

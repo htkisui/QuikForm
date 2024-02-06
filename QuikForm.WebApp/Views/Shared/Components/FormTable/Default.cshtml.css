@@ -1,0 +1,38 @@
+﻿/*form table﻿*/
+.grid-container {
+    display: grid;
+    grid-template-columns: 5.5fr 2.5fr 1.5fr 1.5fr;
+    gap: 5px;
+    align-items: center;
+    font-weight: bold;
+    padding: .7rem 0;
+}
+
+    .grid-container div {
+        font-size: 1.4rem;
+        padding: 1rem 0;
+    }
+
+.form-table-vc :first-child {
+    background-color: #003D53;
+}
+
+@media(prefers-color-scheme: light) {
+    .form-table-vc :first-child {
+        color: #E7F9FF;
+    }
+}
+
+.title-col {
+    text-align: start;
+    padding-left: 1rem!important;
+}
+
+.status-col {
+    padding-left: 1rem!important;
+}
+
+.actions-col {
+    padding-right: 1rem!important;
+    margin-left: auto;
+}
