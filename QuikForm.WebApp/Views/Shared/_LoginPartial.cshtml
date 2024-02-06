@@ -6,15 +6,15 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <li>
-        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button type="submit" style="color: #EEF4F6">Déconnexion</button>
+    <li class="nav-link-identity">
+        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" style="margin: 0; background-color: none;">
+            <input type="submit" class="logout-btn" value="Déconnexion" style="margin: 0; background-color: transparent; padding: 0; border: none; font-size: inherit;" />
         </form>
     </li>
 }
 else
 {
-    <li><a asp-area="Identity" asp-page="/Account/Register" style="color: #EEF4F6">Inscription</a></li>
-    <li><a asp-area="Identity" asp-page="/Account/Login" style="color: #EEF4F6" style="color: #EEF4F6">Connexion</a></li>
+    <li class="nav-link-identity"><a asp-area="Identity" asp-page="/Account/Register" style="color: #EEF4F6">Inscription</a></li>
+    <li class="nav-link-identity"><a asp-area="Identity" asp-page="/Account/Login" style="color: #EEF4F6" style="color: #EEF4F6">Connexion</a></li>
 }
 
