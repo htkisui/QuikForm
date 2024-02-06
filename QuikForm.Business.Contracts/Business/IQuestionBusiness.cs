@@ -56,6 +56,6 @@ public interface IQuestionBusiness
     /// <param name="id"></param>
     /// <param name="isMandatory"></param>
     /// <returns>Question updated.</returns>
-    Task<QuestionResponse> UpdateIsMandatoryAsync(int id, bool isMandatory);
+    Task<QuestionResponse> UpdateIsMandatoryAsync(int id, bool? isMandatory);
 }
 

@@ -25,12 +25,12 @@ public class FormController : ControllerBase
     [ProducesResponseType(200)]
     public async Task<ActionResult<FormResponse>> GetAll()
     {
-        var formResponses = await _formBusiness.GetAllAsync();
+        List<FormResponse> formResponses = await _formBusiness.GetAllAsync();
         return Ok(formResponses);
     }
 
     /// <summary>
-    /// Get one form by his id.
+    /// Get one form by its id.
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>

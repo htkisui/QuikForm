@@ -70,10 +70,10 @@ public class QuestionBusiness : IQuestionBusiness
         return questionResponse;
     }
 
-    public async Task<QuestionResponse> UpdateIsMandatoryAsync(int id, bool isMandatory)
+    public async Task<QuestionResponse> UpdateIsMandatoryAsync(int id, bool? isMandatory)
     {
         Question question = await _questionRepository.GetByIdAsync(id);
-        question.IsMandatory = isMandatory;
+        question.IsMandatory = isMandatory ?? question.IsMandatory;
         await _questionRepository.UpdateAsync(question);
         QuestionResponse questionResponse = _questionMapper.ToQuestionResponse(question);
         return questionResponse;
