@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuikForm.API.Mappers.Forms;
+using QuikForm.API.Requests.Forms;
 using QuikForm.Business.Contracts.Business;
 using QuikForm.Business.Contracts.Responses.Forms;
 
@@ -11,13 +12,10 @@ namespace QuikForm.API.Controllers;
 public class FormController : ControllerBase
 {
     private readonly IFormBusiness _formBusiness;
-    private readonly IFormMapper _formMapper;
 
-    public FormController(IFormBusiness formBusiness, IFormMapper formMapper)
+    public FormController(IFormBusiness formBusiness)
     {
         _formBusiness = formBusiness;
-        _formMapper = formMapper;
-
     }
 
     /// <summary>
@@ -61,11 +59,11 @@ public class FormController : ControllerBase
     [ProducesResponseType(400)]
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
-    public async Task<ActionResult> Create(FormAddRequest formAddRequest)
+    public async Task<ActionResult> Create()
     {
         try
         {
-            await _formBusiness.CreateAsync(formAddRequest);
+            await _formBusiness.CreateAsync();
             return NoContent();
         }
         catch (Exception e)
@@ -85,8 +83,28 @@ public class FormController : ControllerBase
     {
         try
         {
-            await _formBusiness.UpdateAsync(formUpdateRequest);
+            if (formUpdateRequest.Title != null)
+            {
+                await _formBusiness.UpdateTitleAsync(formUpdateRequest.Id, formUpdateRequest.Title);
+            }
+
+            if (formUpdateRequest.Description != null)
+            {
+                await _formBusiness.UpdateDescriptionAsync(formUpdateRequest.Id, formUpdateRequest.Description);
+            }
+
+            if (formUpdateRequest.PublishedAt != null)
+            {
+                await _formBusiness.UpdatePublishedAt(formUpdateRequest.Id);
+            }
+
+            if (formUpdateRequest.PublishedAt != null)
+            {
+                await _formBusiness.UpdateClosedAt(formUpdateRequest.Id);
+            }
+
             return NoContent();
+
         }
         catch (Exception e)
         {
@@ -105,8 +123,8 @@ public class FormController : ControllerBase
     {
         try
         {
-            FormResponse formResponse = await _formBusiness.DeleteAsync(id);
-            return Ok(formResponse);
+            await _formBusiness.DeleteAsync(id);
+            return NoContent();
         }
         catch (Exception e)
         {
