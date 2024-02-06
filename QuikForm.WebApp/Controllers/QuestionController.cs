@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using QuikForm.Business.Business;
 using QuikForm.Business.Contracts.Business;
 using QuikForm.Business.Contracts.Responses.Questions;
@@ -7,6 +8,8 @@ using QuikForm.WebApp.Mappers.Questions;
 using QuikForm.WebApp.Models.Questions;
 
 namespace QuikForm.WebApp.Controllers;
+
+[Authorize]
 public class QuestionController : Controller
 {
     private readonly IQuestionBusiness _questionBusiness;
@@ -19,6 +22,7 @@ public class QuestionController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(int formId)
     {
         try
@@ -35,6 +39,7 @@ public class QuestionController : Controller
 
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Delete(int id)
     {
         try
@@ -49,6 +54,7 @@ public class QuestionController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteFields(int id)
     {
         try
@@ -63,6 +69,7 @@ public class QuestionController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> UpdateLabel(int id, string label)
     {
         try
@@ -78,6 +85,7 @@ public class QuestionController : Controller
 
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> UpdateInputType(int id, string inputTypeMarkup)
     {
         try
@@ -93,6 +101,7 @@ public class QuestionController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> UpdateIsMandatory(int id, bool isMandatory)
     {
         try

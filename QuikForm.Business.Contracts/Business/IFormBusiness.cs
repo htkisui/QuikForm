@@ -61,6 +61,13 @@ public interface IFormBusiness
     Task<FormResponse> GetResultAsync(int id);
 
     /// <summary>
+    /// Get All forms by their title.
+    /// </summary>
+    /// <param name="title"></param>
+    /// <returns>List of FormResponses.</returns>
+    Task<List<FormResponse>> GetAllByTitleAsync(string title);
+
+    /// <summary>
     /// Sets Form ClosedAt property to DateTime.Now.
     /// </summary>
     /// <param name="id">Form Id</param>

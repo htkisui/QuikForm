@@ -28,6 +28,13 @@ public interface IFormRepository
     Task<List<Form>> GetAllAsync();
 
     /// <summary>
+    /// Get all forms by their title.
+    /// </summary>
+    /// <param name="title"></param>
+    /// <returns>List of Forms.</returns>
+    Task<List<Form>> GetAllByTitleAsync(string title);
+
+    /// <summary>
     /// Get all forms closed sorted by descending closed date.
     /// </summary>
     /// <returns>List of formsclosed sorted by descending closed date.</returns>

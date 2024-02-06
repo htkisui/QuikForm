@@ -73,6 +73,13 @@ public class FormBusiness : IFormBusiness
         return formResponses;
     }
 
+    public async Task<List<FormResponse>> GetAllByTitleAsync(string title)
+    {
+        List<Form> forms = await _formRepository.GetAllByTitleAsync(title);
+        List<FormResponse> formResponses = forms.Select(f => _formMapper.ToFormResponse(f)).ToList();
+        return formResponses;
+    }
+
     public async Task<List<FormResponse>> GetAllClosedByClosedAtDescAsync()
     {
         List<Form> forms = await _formRepository.GetAllClosedByClosedAtDescAsync();

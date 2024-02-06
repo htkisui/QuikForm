@@ -1,4 +1,7 @@
 ﻿@* form edit *@
 @model FormViewModel
 <h1 class="form-view">Edition</h1>
+<div id="token">
+    @Html.AntiForgeryToken()
+</div>
 <vc:form-form form-view-model="Model" />

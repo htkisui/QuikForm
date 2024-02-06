@@ -12,7 +12,7 @@
     <footer style="height:auto">
         @if (@Model.PublishedAt != null && @Model.ClosedAt == null)
         {
-            <a asp-controller="Form" asp-action="Submit" asp-route-id="@Model.Id" role="button" class="primary">Répondre</a>
+            <a asp-controller="Record" asp-action="Index" asp-route-id="@Model.Id" role="button" class="primary">Répondre</a>
         }
         @if (@Model.ClosedAt != null)
         {
