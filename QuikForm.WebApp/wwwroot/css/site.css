@@ -2,7 +2,6 @@
     --accent-color-dark: #00688D;
     --accent-color-light: #003D53;
     --slides-visible: 3;
-
     --delete-color: rgb(255, 76, 76);
     --background-section-dark: #003d53;
 }
@@ -28,9 +27,11 @@ h1 {
     margin-top: 5rem;
     margin-bottom: 4rem;
 }
+
     h1.form-view {
         margin-bottom: 2rem;
     }
+
 }
 
 
@@ -68,6 +69,16 @@ header {
 header, footer {
     padding: 3rem 0;
     margin: 0;
+}
+
+.nav-link-identity {
+    margin: 0!important;
+}
+
+.logout-btn {
+    margin: 0;
+    padding: 0;
+    background-color: none;
 }
 
 /*main*/
@@ -131,20 +142,20 @@ footer img {
     margin-bottom: 1.7rem;
 }
 
-    .dashboard-header > .search {
+    .dashboard-header .create {
         --half-distance-next-element: 3rem;
-        margin-right: var(--half-distance-next-element);
-        padding-right: var(--half-distance-next-element);
-        border-right: solid 1px var(--accent-color-light);
+        margin-left: var(--half-distance-next-element);
+        padding-left: var(--half-distance-next-element);
+        border-left: solid 1px var(--accent-color-light);
     }
 
-        .dashboard-header > form > * {
-            margin-bottom: 0;
-        }
+    .dashboard-header > form > * {
+        margin-bottom: 0;
+    }
 
 .search > input::placeholder {
     color: var(--accent-color-dark);
-    font-size:1.1rem;
+    font-size: 1.1rem;
 }
 
 /*dark mode*/

@@ -29,6 +29,7 @@ public class FormController : Controller
         return View();
     }
 
+    [HttpGet]
     //[HttpPost]
     //[ValidateAntiForgeryToken]
     public async Task<IActionResult> Duplicate(int id)
