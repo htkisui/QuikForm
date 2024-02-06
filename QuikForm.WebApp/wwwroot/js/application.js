@@ -91,7 +91,7 @@
             const fieldFormListVC = $("#field-form-list-vc-" + questionIdPart);
             const fieldAddButtonVC = $("#field-add-button-vc-" + questionIdPart);
             if (data === "text" || data === "textarea") {
-                $.post("/Field/Create", { questionId: questionIdPart }, (data) => {
+                $.post("/Field/Create", { questionId: questionIdPart, __RequestVerificationToken: token }, (data) => {
                     fieldFormList.append(data);
                     fieldAddButtonVC.remove();
                 });
