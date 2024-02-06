@@ -44,11 +44,10 @@ public class QuestionController : ControllerBase
     /// Create a new question related to a form.
     /// </summary>
     /// <param name="formId"></param>
-    [HttpPost("{id}")]
+    [HttpPost("{formId}")]
     [ProducesResponseType(400)]
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
-
     public async Task<ActionResult> Create(int formId)
     {
         try
@@ -62,7 +61,11 @@ public class QuestionController : ControllerBase
         }
     }
 
-
+    /// <summary>
+    /// Update a question.
+    /// </summary>
+    /// <param name="questionUpdateRequest"></param>
+    /// <returns></returns>
     [HttpPut]
     [ProducesResponseType(204)]
     [ProducesResponseType(404)]

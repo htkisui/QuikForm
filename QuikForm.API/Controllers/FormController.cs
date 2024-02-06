@@ -33,7 +33,7 @@ public class FormController : ControllerBase
     /// Get one form by its id.
     /// </summary>
     /// <param name="id"></param>
-    /// <returns></returns>
+    /// <returns>The form.</returns>
     [HttpGet("{id}")]
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]
@@ -42,6 +42,27 @@ public class FormController : ControllerBase
         try
         {
             var formResponse = await _formBusiness.GetByIdAsync(id);
+            return Ok(formResponse);
+        }
+        catch (Exception e)
+        {
+            return NotFound(e.Message);
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpGet("GetResult/{id}")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
+    public async Task<ActionResult<FormResponse>> GetResult(int id)
+    {
+        try
+        {
+            var formResponse = await _formBusiness.GetResultAsync(id);
             return Ok(formResponse);
         }
         catch (Exception e)
