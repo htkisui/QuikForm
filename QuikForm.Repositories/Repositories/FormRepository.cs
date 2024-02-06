@@ -47,7 +47,7 @@ public class FormRepository : IFormRepository
     public async Task<List<Form>> GetAllClosedByClosedAtDescAsync()
     {
         return await _context.Forms
-            .Where(f => f.ClosedAt != null && f.ClosedAt >= DateTime.Now)
+            .Where(f => f.ClosedAt != null && f.ClosedAt <= DateTime.Now)
             .OrderByDescending(f => f.ClosedAt)
             .ToListAsync();
     }
@@ -60,7 +60,7 @@ public class FormRepository : IFormRepository
     public async Task<List<Form>> GetAllPublishedAndNotClosedByPublishedAtDescAsync()
     {
         return await _context.Forms
-            .Where(f => f.PublishedAt != null && (f.ClosedAt == null || f.ClosedAt < DateTime.Now))
+            .Where(f => f.PublishedAt != null && (f.ClosedAt == null || f.ClosedAt > DateTime.Now))
             .OrderByDescending(f => f.PublishedAt)
             .ToListAsync();
     }
