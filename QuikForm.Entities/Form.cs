@@ -12,7 +12,6 @@ public class Form
     public int Id { get; set; }
 
     [MaxLength(255)]
-    //[Required]
     public string? Title { get; set; }
 
     public string? Description { get; set; }
@@ -27,10 +26,8 @@ public class Form
 
     public DateTime? ClosedAt { get; set; }
 
-    //[Required]
     public int? ApplicationUserId { get; set; }
     public ApplicationUser ApplicationUser { get; set; } = null!;
-
 
     public List<Question> Questions { get; set; } = [];
 }
