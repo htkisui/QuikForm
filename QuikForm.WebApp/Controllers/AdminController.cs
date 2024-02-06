@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using QuikForm.Business.Contracts.Business;
 using QuikForm.Business.Contracts.Responses.Forms;
 using QuikForm.WebApp.Mappers.Forms;
@@ -6,6 +7,7 @@ using QuikForm.WebApp.Models.Forms;
 
 namespace QuikForm.WebApp.Controllers;
 
+[Authorize]
 public class AdminController : Controller
 {
     private readonly IFormBusiness _formBusiness;

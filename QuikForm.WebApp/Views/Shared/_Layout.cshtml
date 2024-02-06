@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<ApplicationUser> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -31,9 +33,12 @@
                 </a>
             </div>
             <ul>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-controller="Admin" asp-action="Index" style="color: #EEF4F6; line-height:1;">Tableau de bord</a>
-                </li>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Admin" asp-action="Index" style="color: #EEF4F6; line-height:1;">Tableau de bord</a>
+                    </li>
+                }
                 <partial name="_LoginPartial" />
             </ul>
         </nav>

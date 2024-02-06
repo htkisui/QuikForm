@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using QuikForm.Business.Contracts.Business;
 using QuikForm.Business.Contracts.Responses.Fields;
 using QuikForm.Business.Contracts.Responses.Questions;
@@ -9,6 +10,8 @@ using QuikForm.WebApp.Models.Fields;
 using QuikForm.WebApp.Models.Questions;
 
 namespace QuikForm.WebApp.Controllers;
+
+[Authorize]
 public class FieldController : Controller
 {
     private readonly IFieldBusiness _fieldBusiness;

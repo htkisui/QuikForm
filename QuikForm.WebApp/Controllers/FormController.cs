@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using QuikForm.Business.Business;
 using QuikForm.Business.Contracts.Business;
 using QuikForm.Business.Contracts.Responses.Forms;
@@ -9,6 +10,8 @@ using QuikForm.WebApp.Models.Fields;
 using QuikForm.WebApp.Models.Forms;
 
 namespace QuikForm.WebApp.Controllers;
+
+[Authorize]
 public class FormController : Controller
 {
     private readonly IFormBusiness _formBusiness;
@@ -46,6 +49,7 @@ public class FormController : Controller
         return View(formViewmodel);
     }
 
+    [AllowAnonymous]
     public async Task<IActionResult> Show(int id)
     {
         FormResponse formResponse = await _formBusiness.GetResultAsync(id);
