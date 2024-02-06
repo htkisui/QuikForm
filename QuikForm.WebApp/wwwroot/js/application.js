@@ -4,7 +4,7 @@
         const title = $(this).val();
         const token = $("#token input:first").val();
 
-        $.post("Admin/SearchJS", { title: title, __RequestVerificationToken: token }, (data) => {
+        $.post("Admin/Search", { title: title, __RequestVerificationToken: token }, (data) => {
             const table = $(".form-table-vc");
             const mainCntainer = $("#main-container");
             table.remove();
