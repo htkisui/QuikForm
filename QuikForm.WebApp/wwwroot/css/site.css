@@ -112,9 +112,10 @@ footer img {
 }
 
 /*Carousel*/
-.carousel-slider {
-    margin-right: 10px;
-    margin-left: 10px;
+
+
+#formCarousel {
+/*    display: flex;*/
 }
 
 @media (min-width: 320px) {
