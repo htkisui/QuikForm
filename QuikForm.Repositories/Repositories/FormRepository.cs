@@ -39,6 +39,11 @@ public class FormRepository : IFormRepository
         return await _context.Forms.ToListAsync();
     }
 
+    public async Task<List<Form>> GetAllByTitleAsync(string title)
+    {
+        return await _context.Forms.Where(f => EF.Functions.Like(f.Title, $"%{title}%")).ToListAsync();
+    }
+
     public async Task<List<Form>> GetAllClosedByClosedAtDescAsync()
     {
         return await _context.Forms

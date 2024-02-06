@@ -1,4 +1,15 @@
 ﻿$(function () {
+    // Admin Dashboard Search
+    $(document).on("keyup", "#dashboard-search", function (e) {
+        const title = $(this).val();
+        $.post("Admin/SearchJS", { title: title }, (data) => {
+            const table = $(".form-table-vc");
+            const mainCntainer = $("#main-container");
+            table.remove();
+            mainCntainer.append(data);
+        })
+    });
+
     // Form Title Update
     $(document).on("focusout", "#title-content", function (e) {
         const form = $(this).data("target-form");

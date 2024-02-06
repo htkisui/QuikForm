@@ -23,4 +23,20 @@ public class AdminController : Controller
         List<FormViewModel> formViewModels = formResponses.Select(f => _formMapper.ToFormViewModel(f)).ToList();
         return View(formViewModels);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Search(string title)
+    {
+        List<FormResponse> formResponses = await _formBusiness.GetAllByTitleAsync(title);
+        List<FormViewModel> formViewmodels = formResponses.Select(f => _formMapper.ToFormViewModel(f)).ToList();
+        return View("Index", formViewmodels);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> SearchJS(string title)
+    {
+        List<FormResponse> formResponses = await _formBusiness.GetAllByTitleAsync(title);
+        List<FormViewModel> formViewmodels = formResponses.Select(f => _formMapper.ToFormViewModel(f)).ToList();
+        return ViewComponent("FormTable", formViewmodels);
+    }
 }
