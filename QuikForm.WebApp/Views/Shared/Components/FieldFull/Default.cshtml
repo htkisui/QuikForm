@@ -22,18 +22,20 @@
     }
     @*Display label if exist*@
     @*mention count + percent if wanted by business*@
-    @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "text" || ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "textarea")
+    @if (ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "text" && ViewBag.QuestionViewModel.InputTypeViewModel.Markup != "textarea")
     {
-        <label for="option-@Model.Id">@Model.Label</label>
-        @if (Model.Count > -1)
-        {
-            <span> - @Model.Count réponse(s), @Model.Percent%</span>
-        }
+        <label for="option-@Model.Id">
+            @Model.Label
+            @if (Model.Count > -1)
+            {
+                <span>- @Model.Count réponse(s), @Model.Percent%</span>
+            }
+        </label>
     }
-
     @if ((ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "text" || ViewBag.QuestionViewModel.InputTypeViewModel.Markup == "textarea") && Model.Count > -1)
     {
         <span>@Model.Count réponse(s)</span>
+        <!--
         <details>
             <summary>Voir les réponses</summary>
             @*             @foreach()
@@ -41,5 +43,6 @@
         <p>Réponse personnalisée d'un user</p>
         } *@
         </details>
+        -->
     }
 </p>

@@ -98,23 +98,17 @@ public class FormBusiness : IFormBusiness
     {
         Form form = await _formRepository.GetByIdAsync(id);
         FormResponse formResponse = _formMapper.ToFormResponse(form);
-        foreach(Question question in form.Questions)
+        foreach(QuestionResponse questionResponse in formResponse.QuestionResponses)
         {   
-            QuestionResponse questionResponse = _questionMapper.ToQuestionResponse(question);
-            formResponse.QuestionResponses.Add(questionResponse);
             int totalCount = 0;
-            List<FieldResponse> fieldResponses = [];
-            foreach(Field field in question.Fields)
+            foreach(FieldResponse fieldResponse in questionResponse.FieldResponses)
             {
-                FieldResponse fieldResponse = _fieldMapper.ToFieldResponse(field);
-                int count = await _fieldRecordRepository.CountAsync(field.Id);
+                int count = await _fieldRecordRepository.CountAsync(fieldResponse.Id);
                 totalCount += count;
                 fieldResponse.Count = count;
-                fieldResponses.Add(fieldResponse);
-                questionResponse.FieldResponses.Add(fieldResponse);
             }
 
-            foreach(FieldResponse fieldResponse in fieldResponses)
+            foreach(FieldResponse fieldResponse in questionResponse.FieldResponses)
             {
                 if (totalCount == 0) fieldResponse.Percent = 0;
                 else fieldResponse.Percent = ((float) fieldResponse.Count) / totalCount * 100;
