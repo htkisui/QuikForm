@@ -33,16 +33,16 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        var fields = CreateFields();
+        //var fields = CreateFields();
         var inputTypes = CreateInputTypes();
-        var questions = CreateQuestions(inputTypes);
-        var forms = CreateForms();
+        //var questions = CreateQuestions(inputTypes);
+        //var forms = CreateForms();
 
 
-        modelBuilder.Entity<Form>().HasData(forms);
-        modelBuilder.Entity<Question>().HasData(questions);
+        //modelBuilder.Entity<Form>().HasData(forms);
+        //modelBuilder.Entity<Question>().HasData(questions);
         modelBuilder.Entity<InputType>().HasData(inputTypes);
-        modelBuilder.Entity<Field>().HasData(fields);
+        //modelBuilder.Entity<Field>().HasData(fields);
         base.OnModelCreating(modelBuilder);
     }
 

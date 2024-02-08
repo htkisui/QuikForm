@@ -6,9 +6,9 @@ namespace QuikForm.WebApp.Views.Shared.Components.FormFull;
 
 public class FormFullViewComponent : ViewComponent
 {
-    public IViewComponentResult Invoke(FormViewModel formViewModel)
+    public IViewComponentResult Invoke(FormViewModel formViewModel, bool isSubmit = false)
     {
-        //ViewBag.Url = Url.ToString();
+        ViewBag.IsSubmit = isSubmit;
         return View(formViewModel);
     }
 }

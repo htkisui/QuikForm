@@ -20,7 +20,7 @@
     @* Question list *@
     <vc:question-full-list question-view-models="Model.QuestionViewModels" />
 
-    @if (Model.PublishedAt != null && Model.ClosedAt == null)
+    @if (ViewBag.IsSubmit)
     {
         <div class="user-validation">
             <input type="submit" class="primary" value="Envoyer vos réponses" />
